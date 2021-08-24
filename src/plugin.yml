@@ -1,0 +1,22 @@
+main: fr.lataverne.itemreward.ItemReward
+
+name: ItemReward
+
+description: Manages custom items
+
+authors:
+  - syuko
+
+version: 1.0.0
+
+api-version: 1.16
+
+commands:
+  itemreward:
+    description: Command of the ItemReward plugin
+    usage: "Usage: /itemreward [itemName]"
+    permission: ir.command
+    default: op
+    aliases:
+      - itemreward
+      - ir

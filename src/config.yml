@@ -1,0 +1,140 @@
+# All messages that can be sent by the plugin
+message:
+  consoleSuffix: "§2[§fIR§2]"
+  messageSuffix: "§bItemReward §f:"
+  system:
+    startMessage: "§aPlugin ItemReward opérationnel"
+    failedStart: "§cLe plugin ItemReward n'a pas réussi à démarrer correctement"
+    stopMessage: "§cPlugin ItemReward désactivé"
+    existingConfig: "§aFichier config existant"
+    nonExistingConfig: "§cFichier config inexistant"
+    reloadComplete: "§aReload fini"
+  user:
+    misuseCommand: "§cMauvaise utilisation de la commande"
+    customItemNotFound: "§cCet objet n'existe pas"
+    remainingTimeCustomPotion: "§3Il vous reste {1} ({2})"
+    customPotionEffectFinished: "§cCette potion ne fait plus effet !"
+    otherCustomPotionAlreadyTaken: "§cVous êtes déjà sous l'effet d'une potion."
+
+# All items' information
+item:
+  goblinPickaxe:
+    displayName: "§bPioche de Gobelin"
+    lore:
+      - "§eCette pioche vous confère"
+      - "§eune précision accrue et"
+      - "§edes minéraux précieux"
+      - "§edes roches"
+  giantBoots:
+    displayName: "§bBottes de Géant"
+    lore:
+      - "§eCes bottes semblent émettre"
+      - "§eune certaine forme de magie"
+      - "§eet vous permettraient"
+      - "§ed'aller plus vite"
+      - ""
+      - "§cAttention la durabilité"
+      - "§cbaisse avec la distance"
+      - "§cparcourue"
+  unbreakableHoe:
+    displayName: "§bHoue incassable"
+    lore:
+      - "§7Solidité XX"
+  mendingBook:
+    displayName: "§bLivre enchanté"
+    lore:
+      - "§7Enchanté avec Raccomodage"
+  fortuneBook:
+    displayName: "§bLivre enchanté"
+    lore:
+      - "§7Enchanté avec Fortune"
+  silkTouchBook:
+    displayName: "§bLivre enchanté"
+    lore:
+      - "§7Enchanté avec Toucher de soie"
+  fireworkRocket:
+    displayName: "§bFeux d'artifice"
+  rawBear:
+    displayName: "§fOurs cru"
+    lore:
+      - "§7Cette viande semble se cuire au feu de camp"
+  rawHorse:
+    displayName: "§fCheval cru"
+    lore:
+      - "§7Cette viande semble se cuire au feu de camp"
+  cookedBear:
+    displayName: "§fOurs cuit"
+  cookedHorse:
+    displayName: "§fCheval cuit"
+  ulu:
+    displayName: "§bUlu"
+    lore:
+      - "§eUn couteau inuit"
+      - "§epermettant de"
+      - "§edépecer un ours"
+  indianSpear:
+    displayName: "§bLance Indienne"
+    lore:
+      - "§ePermet d'obtenir du"
+      - "§esteak de cheval"
+  flyPotion:
+    level1:
+      displayName: "§bPotion de vol I"
+      lore:
+        - "§ePermet de voler pendant"
+        - "§e2min 30"
+      color:
+        red: 0
+        green: 255
+        blue: 255
+    level2:
+      displayName: "§bPotion de vol II"
+      lore:
+        - "§ePermet de voler pendant"
+        - "§e5min"
+      color:
+        red: 0
+        green: 255
+        blue: 255
+    level3:
+      displayName: "§bPotion de vol III"
+      lore:
+        - "§ePermet de voler pendant"
+        - "§e10min"
+      color:
+        red: 0
+        green: 255
+        blue: 255
+    level4:
+      displayName: "§d§lPotion de vol IV"
+      lore:
+        - "§cRedBull© §edonne des ailes"
+        - "§e(20min de vol)"
+      color:
+        red: 0
+        green: 255
+        blue: 255
+  phantomPotion:
+    displayName: "§5Potion de Phantom"
+    lore:
+      - "§ePermet d'éviter"
+      - "§eles Phantoms"
+      - "§ependant 20 minutes"
+    color:
+      red: 0
+      green: 43
+      blue: 112
+
+# All effects' information
+effect:
+  flyEffect:
+    level1:
+      duration: 150
+    level2:
+      duration: 300
+    level3:
+      duration: 600
+    level4:
+      duration: 1200
+  phantomEffect:
+    duration: 1200
