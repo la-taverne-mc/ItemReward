@@ -4,6 +4,7 @@ import fr.lataverne.itemreward.managers.CustomEffect;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 
+import java.util.Objects;
 import java.util.UUID;
 
 import static fr.lataverne.itemreward.Helper.*;
@@ -14,6 +15,14 @@ public class FlyEffect extends CustomEffect {
 		super(playerUUID, level);
 
 		this.remainingTime = getIntInConfig(this.getConfigPath() + ".duration");
+	}
+
+	@Override
+	public void stop() {
+		Player player = Objects.requireNonNull(Bukkit.getPlayer(this.playerUUID));
+		player.setAllowFlight(false);
+
+		super.stop();
 	}
 
 	@Override
