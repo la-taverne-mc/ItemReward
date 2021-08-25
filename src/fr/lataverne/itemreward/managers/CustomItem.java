@@ -1,10 +1,7 @@
 package fr.lataverne.itemreward.managers;
 
 import fr.lataverne.itemreward.items.*;
-import fr.lataverne.itemreward.items.potions.CreeperPotion;
-import fr.lataverne.itemreward.items.potions.FlyPotion;
-import fr.lataverne.itemreward.items.potions.MiningPotion;
-import fr.lataverne.itemreward.items.potions.PhantomPotion;
+import fr.lataverne.itemreward.items.potions.*;
 import org.bukkit.Material;
 import org.bukkit.craftbukkit.libs.org.apache.commons.lang3.NotImplementedException;
 import org.bukkit.event.block.BlockBreakEvent;
@@ -37,6 +34,7 @@ public abstract class CustomItem extends ItemStack {
 		PhantomPotion,
 		MiningPotion,
 		CreeperPotion,
+		SwimmingPotion,
 	}
 
 	private static final String NBTTag = "CustomItemType";
@@ -95,6 +93,8 @@ public abstract class CustomItem extends ItemStack {
 				return new MiningPotion();
 			case CreeperPotion:
 				return new CreeperPotion();
+			case SwimmingPotion:
+				return new SwimmingPotion();
 			default:
 				return null;
 		}
@@ -143,6 +143,8 @@ public abstract class CustomItem extends ItemStack {
 					return new MiningPotion(itemStack);
 				case CreeperPotion:
 					return new CreeperPotion(itemStack);
+				case SwimmingPotion:
+					return new SwimmingPotion(itemStack);
 				default:
 					throw new NotImplementedException("Custom item type not implemented");
 			}
@@ -209,6 +211,7 @@ public abstract class CustomItem extends ItemStack {
 			case PhantomPotion:
 			case MiningPotion:
 			case CreeperPotion:
+			case SwimmingPotion:
 				return true;
 			default:
 				return false;

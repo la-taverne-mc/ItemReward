@@ -144,6 +144,16 @@ item:
       red: 0
       green: 135
       blue: 6
+  swimmingPotion:
+    displayName: "§9Potion de nage"
+    lore:
+      - "§fNager comme"
+      - "§fun dauphin dans l'eau"
+      - "§fpendant 20 minutes"
+    color:
+      red: 7
+      green: 162
+      blue: 186
 
 # All effects' information
 effect:
@@ -161,4 +171,6 @@ effect:
   miningEffect:
     duration: 1200
   creeperEffect:
+    duration: 1200
+  swimmingEffect:
     duration: 1200
