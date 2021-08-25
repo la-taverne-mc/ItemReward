@@ -1,6 +1,7 @@
 package fr.lataverne.itemreward.managers;
 
 import fr.lataverne.itemreward.items.*;
+import fr.lataverne.itemreward.items.potions.CreeperPotion;
 import fr.lataverne.itemreward.items.potions.FlyPotion;
 import fr.lataverne.itemreward.items.potions.MiningPotion;
 import fr.lataverne.itemreward.items.potions.PhantomPotion;
@@ -35,6 +36,7 @@ public abstract class CustomItem extends ItemStack {
 		FlyPotion,
 		PhantomPotion,
 		MiningPotion,
+		CreeperPotion,
 	}
 
 	private static final String NBTTag = "CustomItemType";
@@ -91,6 +93,8 @@ public abstract class CustomItem extends ItemStack {
 				return new PhantomPotion();
 			case MiningPotion:
 				return new MiningPotion();
+			case CreeperPotion:
+				return new CreeperPotion();
 			default:
 				return null;
 		}
@@ -137,6 +141,8 @@ public abstract class CustomItem extends ItemStack {
 					return new PhantomPotion(itemStack);
 				case MiningPotion:
 					return new MiningPotion(itemStack);
+				case CreeperPotion:
+					return new CreeperPotion(itemStack);
 				default:
 					throw new NotImplementedException("Custom item type not implemented");
 			}
@@ -202,6 +208,7 @@ public abstract class CustomItem extends ItemStack {
 			case FlyPotion:
 			case PhantomPotion:
 			case MiningPotion:
+			case CreeperPotion:
 				return true;
 			default:
 				return false;

@@ -19,6 +19,7 @@ import java.util.List;
 import java.util.Objects;
 import java.util.Random;
 
+@SuppressWarnings ("unused")
 public abstract class Helper {
 
 	public static void addNBT(@NotNull ItemStack item, String key, String value) {
