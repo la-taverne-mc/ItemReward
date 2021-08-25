@@ -124,6 +124,16 @@ item:
       red: 0
       green: 43
       blue: 112
+  creeperPotion:
+    displayName: "§2Potion de creeper"
+    lore:
+      - "§eAvec ce breuvage"
+      - "§eles creepers ne vous"
+      - "§eapprocherons plus"
+    color:
+      red: 0
+      green: 135
+      blue: 6
 
 # All effects' information
 effect:
@@ -137,4 +147,6 @@ effect:
     level4:
       duration: 1200
   phantomEffect:
+    duration: 1200
+  creeperEffect:
     duration: 1200

@@ -14,6 +14,7 @@ public abstract class CustomEffect {
 	public enum ECustomEffect {
 		Fly,
 		Phantom,
+		Creeper,
 	}
 
 	private static final HashMap<UUID, CustomEffect> effectsInProgress = new HashMap<>();
@@ -92,8 +93,10 @@ public abstract class CustomEffect {
 		this.isStarted = false;
 	}
 
+	@SuppressWarnings ("unused")
 	protected abstract String getConfigPath();
 
+	@SuppressWarnings ("unused")
 	protected abstract ECustomEffect getCustomEffectType();
 
 	protected abstract Runnable getRepeatingTask();
