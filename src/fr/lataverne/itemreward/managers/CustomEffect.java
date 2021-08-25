@@ -14,6 +14,7 @@ public abstract class CustomEffect {
 	public enum ECustomEffect {
 		Fly,
 		Phantom,
+		Mining,
 		Creeper,
 	}
 
@@ -83,8 +84,6 @@ public abstract class CustomEffect {
 			Bukkit.getScheduler().cancelTask(this.taskId);
 			this.taskId = -1;
 		}
-
-		player.setAllowFlight(false);
 
 		CustomEffect.removeEffectInProgress(player.getUniqueId());
 

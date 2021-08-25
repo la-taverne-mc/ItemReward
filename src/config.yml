@@ -124,6 +124,16 @@ item:
       red: 0
       green: 43
       blue: 112
+  miningPotion:
+    displayName: "§ePotion de minage"
+    lore:
+      - "§7Permet de miner"
+      - "§7plus rapidement"
+      - "§7pendant 20 minutes"
+    color:
+      red: 254
+      green: 194
+      blue: 0
   creeperPotion:
     displayName: "§2Potion de creeper"
     lore:
@@ -147,6 +157,8 @@ effect:
     level4:
       duration: 1200
   phantomEffect:
+    duration: 1200
+  miningEffect:
     duration: 1200
   creeperEffect:
     duration: 1200

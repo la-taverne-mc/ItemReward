@@ -3,16 +3,17 @@ package fr.lataverne.itemreward.effects;
 import fr.lataverne.itemreward.managers.CustomEffect;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
+import org.bukkit.potion.PotionEffect;
+import org.bukkit.potion.PotionEffectType;
 
 import java.util.Objects;
 import java.util.UUID;
 
 import static fr.lataverne.itemreward.Helper.*;
 
-public class FlyEffect extends CustomEffect {
-
-	public FlyEffect(UUID playerUUID, int level) {
-		super(playerUUID, level);
+public class MiningEffect extends CustomEffect {
+	public MiningEffect(UUID playerUUID) {
+		super(playerUUID, 1);
 
 		this.remainingTime = getIntInConfig(this.getConfigPath() + ".duration");
 	}
@@ -20,19 +21,19 @@ public class FlyEffect extends CustomEffect {
 	@Override
 	public void stop() {
 		Player player = Objects.requireNonNull(Bukkit.getPlayer(this.playerUUID));
-		player.setAllowFlight(false);
+		player.removePotionEffect(PotionEffectType.FAST_DIGGING);
 
 		super.stop();
 	}
 
 	@Override
 	protected String getConfigPath() {
-		return "effect.flyEffect.level" + this.level;
+		return "effect.miningEffect";
 	}
 
 	@Override
 	protected ECustomEffect getCustomEffectType() {
-		return ECustomEffect.Fly;
+		return ECustomEffect.Mining;
 	}
 
 	@Override
@@ -46,7 +47,7 @@ public class FlyEffect extends CustomEffect {
 
 			if (Bukkit.getOnlinePlayers().contains(player)) {
 				if (this.remainingTime > 0) {
-					player.setAllowFlight(true);
+					player.addPotionEffect(new PotionEffect(PotionEffectType.FAST_DIGGING, 40, 1));
 
 					String message = getStringInConfig("message.user.remainingTimeCustomPotion", false);
 					message = replaceValueInString(message, convertTime(this.remainingTime), this.getCustomEffectType().toString());
