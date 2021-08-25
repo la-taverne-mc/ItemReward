@@ -16,6 +16,7 @@ public abstract class CustomEffect {
 		Phantom,
 		Mining,
 		Creeper,
+		Swimming,
 	}
 
 	private static final HashMap<UUID, CustomEffect> effectsInProgress = new HashMap<>();
