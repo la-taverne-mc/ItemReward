@@ -14,6 +14,7 @@ public abstract class CustomEffect {
 	public enum ECustomEffect {
 		Fly,
 		Phantom,
+		Mining,
 	}
 
 	private static final HashMap<UUID, CustomEffect> effectsInProgress = new HashMap<>();
@@ -82,8 +83,6 @@ public abstract class CustomEffect {
 			Bukkit.getScheduler().cancelTask(this.taskId);
 			this.taskId = -1;
 		}
-
-		player.setAllowFlight(false);
 
 		CustomEffect.removeEffectInProgress(player.getUniqueId());
 
