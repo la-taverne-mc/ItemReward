@@ -20,10 +20,6 @@ public abstract class CustomItem extends ItemStack {
 		GoblinPickaxe,
 		GiantBoots,
 		UnbreakableHoe,
-		MendingBook,
-		FortuneBook,
-		SilkTouchBook,
-		FireworkRocket,
 		RawBear,
 		RawHorse,
 		CookedBear,
@@ -65,14 +61,6 @@ public abstract class CustomItem extends ItemStack {
 				return new GiantBoots();
 			case UnbreakableHoe:
 				return new UnbreakableHoe();
-			case MendingBook:
-				return new MendingBook();
-			case FortuneBook:
-				return new FortuneBook();
-			case SilkTouchBook:
-				return new SilkTouchBook();
-			case FireworkRocket:
-				return new FireworkRocket();
 			case RawBear:
 				return new RawBear();
 			case RawHorse:
@@ -115,14 +103,6 @@ public abstract class CustomItem extends ItemStack {
 					return new GiantBoots(itemStack);
 				case UnbreakableHoe:
 					return new UnbreakableHoe(itemStack);
-				case MendingBook:
-					return new MendingBook(itemStack);
-				case FortuneBook:
-					return new FortuneBook(itemStack);
-				case SilkTouchBook:
-					return new SilkTouchBook(itemStack);
-				case FireworkRocket:
-					return new FireworkRocket(itemStack);
 				case RawBear:
 					return new RawBear(itemStack);
 				case RawHorse:
@@ -185,14 +165,11 @@ public abstract class CustomItem extends ItemStack {
 
 	public static boolean useInventoryClickEvent(CustomItem customItem) {
 		switch (customItem.getCustomItemType()) {
-			case FortuneBook:
 			case GiantBoots:
 			case GoblinPickaxe:
 			case IndianSpear:
-			case MendingBook:
 			case RawBear:
 			case RawHorse:
-			case SilkTouchBook:
 			case ULU:
 			case UnbreakableHoe:
 				return true;
