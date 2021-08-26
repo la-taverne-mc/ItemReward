@@ -40,20 +40,6 @@ item:
     displayName: "§bHoue incassable"
     lore:
       - "§7Solidité XX"
-  mendingBook:
-    displayName: "§bLivre enchanté"
-    lore:
-      - "§7Enchanté avec Raccomodage"
-  fortuneBook:
-    displayName: "§bLivre enchanté"
-    lore:
-      - "§7Enchanté avec Fortune"
-  silkTouchBook:
-    displayName: "§bLivre enchanté"
-    lore:
-      - "§7Enchanté avec Toucher de soie"
-  fireworkRocket:
-    displayName: "§bFeux d'artifice"
   rawBear:
     displayName: "§fOurs cru"
     lore:
