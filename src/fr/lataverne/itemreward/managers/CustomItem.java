@@ -20,7 +20,6 @@ public abstract class CustomItem extends ItemStack {
 		GoblinPickaxe,
 		GiantBoots,
 		UnbreakableHoe,
-		MendingBook,
 		FortuneBook,
 		SilkTouchBook,
 		FireworkRocket,
@@ -65,8 +64,6 @@ public abstract class CustomItem extends ItemStack {
 				return new GiantBoots();
 			case UnbreakableHoe:
 				return new UnbreakableHoe();
-			case MendingBook:
-				return new MendingBook();
 			case FortuneBook:
 				return new FortuneBook();
 			case SilkTouchBook:
@@ -115,8 +112,6 @@ public abstract class CustomItem extends ItemStack {
 					return new GiantBoots(itemStack);
 				case UnbreakableHoe:
 					return new UnbreakableHoe(itemStack);
-				case MendingBook:
-					return new MendingBook(itemStack);
 				case FortuneBook:
 					return new FortuneBook(itemStack);
 				case SilkTouchBook:
@@ -189,7 +184,6 @@ public abstract class CustomItem extends ItemStack {
 			case GiantBoots:
 			case GoblinPickaxe:
 			case IndianSpear:
-			case MendingBook:
 			case RawBear:
 			case RawHorse:
 			case SilkTouchBook:
