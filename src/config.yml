@@ -63,6 +63,12 @@ item:
     lore:
       - "§ePermet d'obtenir du"
       - "§esteak de cheval"
+  baseballBat:
+    displayName: "§bBatte de Baseball"
+    lore:
+      - "§c/!\\ Attention /!\\"
+      - "§cCet item a une"
+      - "§cdurabilité très limitée"
   flyPotion:
     level1:
       displayName: "§bPotion de vol I"
