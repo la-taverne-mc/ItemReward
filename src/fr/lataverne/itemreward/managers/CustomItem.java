@@ -26,6 +26,7 @@ public abstract class CustomItem extends ItemStack {
 		CookedHorse,
 		ULU,
 		IndianSpear,
+		BaseballBat,
 		FlyPotion,
 		PhantomPotion,
 		MiningPotion,
@@ -73,6 +74,8 @@ public abstract class CustomItem extends ItemStack {
 				return new ULU();
 			case IndianSpear:
 				return new IndianSpear();
+			case BaseballBat:
+				return new BaseballBat();
 			case FlyPotion:
 				return new FlyPotion(level);
 			case PhantomPotion:
@@ -115,6 +118,8 @@ public abstract class CustomItem extends ItemStack {
 					return new ULU(itemStack);
 				case IndianSpear:
 					return new IndianSpear(itemStack);
+				case BaseballBat:
+					return new BaseballBat(itemStack);
 				case FlyPotion:
 					return new FlyPotion(itemStack);
 				case PhantomPotion:
@@ -172,6 +177,7 @@ public abstract class CustomItem extends ItemStack {
 			case RawHorse:
 			case ULU:
 			case UnbreakableHoe:
+			case BaseballBat:
 				return true;
 			default:
 				return false;
