@@ -60,6 +60,12 @@ public class EventManager implements Listener {
 			if (customItem != null && CustomItem.useInventoryClickEvent(customItem)) {
 				customItem.onInventoryClick(e);
 			}
+
+			customItem = CustomItem.getCustomItem(e.getCurrentItem());
+			if (customItem != null && CustomItem.useInventoryClickEvent(customItem)) {
+				customItem.onInventoryClick(e);
+			}
+
 		}
 	}
 

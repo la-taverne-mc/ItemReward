@@ -53,6 +53,8 @@ public class RawHorse extends CustomItem {
 	protected void onBlockCook(BlockCookEvent e) {
 		if (e.getBlock().getType() == Material.CAMPFIRE) {
 			e.setResult(new CookedHorse());
+		} else {
+			e.setCancelled(true);
 		}
 	}
 

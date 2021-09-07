@@ -53,10 +53,9 @@ public class UnbreakableHoe extends CustomItem {
 		cantUseInCraft(e);
 		cantRepairableAndEnchanted(e);
 
-		InventoryType inventoryType = e.getInventory().getType();
-		int rawSlot = e.getRawSlot();
+		InventoryType inventoryType = extractInventoryType(e);
 
-		if (inventoryType == InventoryType.GRINDSTONE && rawSlot < 3) {
+		if (inventoryType == InventoryType.GRINDSTONE) {
 			e.setCancelled(true);
 		}
 	}
