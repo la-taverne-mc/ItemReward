@@ -52,6 +52,8 @@ public class RawBear extends CustomItem {
 	protected void onBlockCook(BlockCookEvent e) {
 		if (e.getBlock().getType() == Material.CAMPFIRE) {
 			e.setResult(new CookedBear());
+		} else {
+			e.setCancelled(true);
 		}
 	}
 
