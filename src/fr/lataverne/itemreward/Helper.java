@@ -39,46 +39,42 @@ public abstract class Helper {
 	}
 
 	public static void cantCooked(InventoryClickEvent e) {
-		if (e.getClickedInventory() == null) {
-			return;
-		}
+		InventoryType inventoryType = extractInventoryType(e);
 
-		InventoryType inventoryType = e.getClickedInventory().getType();
-
-		if (inventoryType == InventoryType.SMOKER) {
-			e.setCancelled(true);
-		} else if (inventoryType == InventoryType.FURNACE) {
-			e.setCancelled(true);
-		} else if (inventoryType == InventoryType.BLAST_FURNACE) {
-			e.setCancelled(true);
+		if (inventoryType != null) {
+			switch (inventoryType) {
+				case SMOKER:
+				case FURNACE:
+				case BLAST_FURNACE:
+					e.setCancelled(true);
+					break;
+			}
 		}
 	}
 
 	public static void cantRepairableAndEnchanted(InventoryClickEvent e) {
-		if (e.getClickedInventory() == null) {
-			return;
-		}
+		InventoryType inventoryType = extractInventoryType(e);
 
-		InventoryType inventoryType = e.getClickedInventory().getType();
-
-		if (inventoryType == InventoryType.ANVIL) {
-			e.setCancelled(true);
-		} else if (inventoryType == InventoryType.ENCHANTING) {
-			e.setCancelled(true);
+		if (inventoryType != null) {
+			switch (inventoryType) {
+				case ANVIL:
+				case ENCHANTING:
+					e.setCancelled(true);
+					break;
+			}
 		}
 	}
 
 	public static void cantUseInCraft(InventoryClickEvent e) {
-		if (e.getClickedInventory() == null) {
-			return;
-		}
+		InventoryType inventoryType = extractInventoryType(e);
 
-		InventoryType inventoryType = e.getClickedInventory().getType();
-
-		if (inventoryType == InventoryType.WORKBENCH) {
-			e.setCancelled(true);
-		} else if (inventoryType == InventoryType.CRAFTING) {
-			e.setCancelled(true);
+		if (inventoryType != null) {
+			switch (inventoryType) {
+				case WORKBENCH:
+				case CRAFTING:
+					e.setCancelled(true);
+					break;
+			}
 		}
 	}
 
@@ -112,6 +108,22 @@ public abstract class Helper {
 		}
 
 		return sTime;
+	}
+
+	public static InventoryType extractInventoryType(InventoryClickEvent e) {
+		InventoryType inventoryType;
+
+		if (e.getClick().isShiftClick()) {
+			inventoryType = e.getInventory().getType();
+		} else {
+			if (e.getClickedInventory() == null) {
+				return null;
+			} else {
+				inventoryType = e.getClickedInventory().getType();
+			}
+		}
+
+		return inventoryType;
 	}
 
 	public static HashMap<String, String> getAllValues(@NotNull ItemStack item) {
