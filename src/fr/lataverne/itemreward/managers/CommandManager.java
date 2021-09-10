@@ -57,9 +57,9 @@ public class CommandManager implements CommandExecutor {
 					if (customItem != null) {
 						player.getInventory().addItem(customItem);
 					}
-
-					return true;
 				}
+
+				return true;
 			} // ir get ...
 
 			sendMessageToPlayer(player, getStringInConfig("message.user.unknownCommand", false));
