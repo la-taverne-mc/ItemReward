@@ -8,9 +8,9 @@ import org.bukkit.ChatColor;
 import org.bukkit.craftbukkit.libs.org.apache.commons.lang3.NotImplementedException;
 import org.bukkit.entity.Player;
 
-import java.io.BufferedWriter;
 import java.io.IOException;
 import java.io.Reader;
+import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -177,10 +177,15 @@ public abstract class CustomEffect {
 		try {
 			Gson gson = new Gson();
 
-			BufferedWriter writer = Files.newBufferedWriter(path);
-			writer.write(gson.toJson(json));
+			if (!Files.exists(Paths.get(customEffectPath))) {
+				Files.createDirectory(Paths.get(customEffectPath));
+			}
 
-			writer.close();
+			if (!Files.exists(path)) {
+				Files.createFile(path);
+			}
+
+			Files.write(path, gson.toJson(json).getBytes(StandardCharsets.UTF_8));
 		} catch (IOException e) {
 			ItemReward.sendMessageToConsole(ChatColor.RED + "Write file error");
 			ItemReward.sendMessageToConsole(ChatColor.RED + e.getMessage());
