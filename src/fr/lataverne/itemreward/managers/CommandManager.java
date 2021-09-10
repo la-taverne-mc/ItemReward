@@ -20,46 +20,49 @@ public class CommandManager implements CommandExecutor {
 				return true;
 			}
 
-			if (args[0].equalsIgnoreCase("all")) {
-				if (player.hasPermission("ir.get")) {
-					for (CustomItem.ECustomItem customItemType : CustomItem.ECustomItem.values()) {
-						player.getInventory().addItem(CustomItem.getCustomItem(customItemType));
-					}
-				} else {
-					sendMessageToPlayer(player, getStringInConfig("message.user.notPermission", false));
-					return true;
-				}
-			} else {
+			if (args[0].equalsIgnoreCase("get")) {
 				if (!player.hasPermission("ir.get")) {
 					sendMessageToPlayer(player, getStringInConfig("message.user.notPermission", false));
 					return true;
 				}
 
-				CustomItem.ECustomItem customItemType;
-				int level = 1;
-
-				try {
-					customItemType = CustomItem.ECustomItem.valueOf(args[0]);
-				} catch (IllegalArgumentException ex) {
-					sendMessageToPlayer(player, getStringInConfig("message.user.customItemNotFound", false));
+				if (args.length < 2) {
+					sendMessageToPlayer(player, getStringInConfig("message.user.misuseCommand", false));
 					return true;
 				}
 
-				if (args.length > 1) {
-					try {
-						level = Integer.parseInt(args[1]);
-					} catch (NumberFormatException ignored) {
-
+				if (args[1].equalsIgnoreCase("all")) {
+					for (CustomItem.ECustomItem customItemType : CustomItem.ECustomItem.values()) {
+						player.getInventory().addItem(CustomItem.getCustomItem(customItemType));
 					}
+				} else {
+					CustomItem.ECustomItem customItemType;
+					int level = 1;
+
+					try {
+						customItemType = CustomItem.ECustomItem.valueOf(args[1]);
+					} catch (IllegalArgumentException ex) {
+						sendMessageToPlayer(player, getStringInConfig("message.user.customItemNotFound", false));
+						return true;
+					}
+
+					try {
+						if (args.length > 2) {
+							level = Integer.parseUnsignedInt(args[2]);
+						}
+					} catch (NumberFormatException ignored) {
+					}
+
+					CustomItem customItem = CustomItem.getCustomItem(customItemType, level);
+					if (customItem != null) {
+						player.getInventory().addItem(customItem);
+					}
+
+					return true;
 				}
+			} // ir get ...
 
-				CustomItem customItem = CustomItem.getCustomItem(customItemType, level);
-
-				if (customItem != null) {
-					player.getInventory().addItem(customItem);
-				}
-			}
-
+			sendMessageToPlayer(player, getStringInConfig("message.user.unknownCommand", false));
 			return true;
 		}
 
