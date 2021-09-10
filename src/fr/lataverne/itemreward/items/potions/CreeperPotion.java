@@ -57,5 +57,7 @@ public class CreeperPotion extends CustomPotion {
 
 		CreeperEffect creeperEffect = new CreeperEffect(player.getUniqueId());
 		creeperEffect.start();
+
+		customEmptyPotion(player, 6);
 	}
 }

@@ -75,6 +75,8 @@ public class FlyPotion extends CustomPotion {
 
 		FlyEffect flyEffect = new FlyEffect(player.getUniqueId(), this.level);
 		flyEffect.start();
+
+		customEmptyPotion(player, getCustomModelDataValue(this.level));
 	}
 
 	private static int getCustomModelDataValue(int level) {

@@ -58,5 +58,7 @@ public class PhantomPotion extends CustomPotion {
 
 		PhantomEffect phantomEffect = new PhantomEffect(player.getUniqueId());
 		phantomEffect.start();
+
+		customEmptyPotion(player, 5);
 	}
 }

@@ -1,9 +1,13 @@
 package fr.lataverne.itemreward.managers;
 
+import fr.lataverne.itemreward.ItemReward;
+import org.bukkit.Bukkit;
 import org.bukkit.Color;
 import org.bukkit.Material;
+import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.inventory.meta.PotionMeta;
 
 import java.util.Objects;
@@ -46,6 +50,25 @@ public abstract class CustomPotion extends CustomItem {
 		int blue = getIntInConfig(this.getConfigPath() + ".color.blue");
 
 		return Color.fromRGB(red, green, blue);
+	}
+
+	protected static void customEmptyPotion(Player player, int customModelData) {
+		Bukkit.getScheduler().runTaskLater(ItemReward.getInstance(), () -> {
+			ItemStack glassBottle;
+			if (player.getInventory().getItemInMainHand().getType() == Material.GLASS_BOTTLE) {
+				glassBottle = player.getInventory().getItemInMainHand();
+			} else if (player.getInventory().getItemInOffHand().getType() == Material.GLASS_BOTTLE) {
+				glassBottle = player.getInventory().getItemInOffHand();
+			} else {
+				return;
+			}
+
+			ItemMeta itemMeta = glassBottle.getItemMeta();
+			if (itemMeta != null) {
+				itemMeta.setCustomModelData(customModelData);
+				glassBottle.setItemMeta(itemMeta);
+			}
+		}, 1);
 	}
 
 	private void init() {

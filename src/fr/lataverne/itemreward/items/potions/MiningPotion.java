@@ -58,5 +58,7 @@ public class MiningPotion extends CustomPotion {
 
 		MiningEffect miningEffect = new MiningEffect(player.getUniqueId());
 		miningEffect.start();
+
+		customEmptyPotion(player, 7);
 	}
 }

@@ -58,5 +58,7 @@ public class SwimmingPotion extends CustomPotion {
 
 		SwimmingEffect swimmingEffect = new SwimmingEffect(player.getUniqueId());
 		swimmingEffect.start();
+
+		customEmptyPotion(player, 8);
 	}
 }
