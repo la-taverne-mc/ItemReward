@@ -20,3 +20,13 @@ commands:
     aliases:
       - itemreward
       - ir
+
+permissions:
+  ir.*:
+    description: Adds all permissions
+    default: op
+    children:
+      ir.get: true
+  ir.get:
+    description: Allows you to give yourself an item
+    default: op

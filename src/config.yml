@@ -15,6 +15,7 @@ message:
     remainingTimeCustomPotion: "§3Il vous reste {1} ({2})"
     customPotionEffectFinished: "§cCette potion ne fait plus effet !"
     otherCustomPotionAlreadyTaken: "§cVous êtes déjà sous l'effet d'une potion."
+    notPermission: "$cVous n'avez pas la permission de faire ceci!"
 
 # All items' information
 item:

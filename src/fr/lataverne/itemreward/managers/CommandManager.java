@@ -21,10 +21,20 @@ public class CommandManager implements CommandExecutor {
 			}
 
 			if (args[0].equalsIgnoreCase("all")) {
-				for (CustomItem.ECustomItem customItemType : CustomItem.ECustomItem.values()) {
-					player.getInventory().addItem(CustomItem.getCustomItem(customItemType));
+				if (player.hasPermission("ir.get")) {
+					for (CustomItem.ECustomItem customItemType : CustomItem.ECustomItem.values()) {
+						player.getInventory().addItem(CustomItem.getCustomItem(customItemType));
+					}
+				} else {
+					sendMessageToPlayer(player, getStringInConfig("message.user.notPermission", false));
+					return true;
 				}
 			} else {
+				if (!player.hasPermission("ir.get")) {
+					sendMessageToPlayer(player, getStringInConfig("message.user.notPermission", false));
+					return true;
+				}
+
 				CustomItem.ECustomItem customItemType;
 				int level = 1;
 
