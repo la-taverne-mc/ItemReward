@@ -27,6 +27,8 @@ public class SwimmingPotion extends CustomPotion {
 			itemMeta.setLore(getStringListInConfig(this.getConfigPath() + ".lore", true));
 		}
 
+		itemMeta.setCustomModelData(8);
+
 		this.setItemMeta(itemMeta);
 	}
 

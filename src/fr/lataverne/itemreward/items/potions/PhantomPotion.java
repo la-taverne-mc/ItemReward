@@ -26,6 +26,8 @@ public class PhantomPotion extends CustomPotion {
 			itemMeta.setLore(getStringListInConfig(this.getConfigPath() + ".lore", true));
 		}
 
+		itemMeta.setCustomModelData(5);
+
 		this.setItemMeta(itemMeta);
 
 	}

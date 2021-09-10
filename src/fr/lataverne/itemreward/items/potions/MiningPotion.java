@@ -27,6 +27,8 @@ public class MiningPotion extends CustomPotion {
 			itemMeta.setLore(getStringListInConfig(this.getConfigPath() + ".lore", true));
 		}
 
+		itemMeta.setCustomModelData(7);
+
 		this.setItemMeta(itemMeta);
 	}
 

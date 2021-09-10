@@ -26,6 +26,8 @@ public class CreeperPotion extends CustomPotion {
 			itemMeta.setLore(getStringListInConfig(this.getConfigPath() + ".lore", true));
 		}
 
+		itemMeta.setCustomModelData(6);
+
 		this.setItemMeta(itemMeta);
 	}
 

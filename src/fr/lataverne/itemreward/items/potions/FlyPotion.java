@@ -30,7 +30,7 @@ public class FlyPotion extends CustomPotion {
 			itemMeta.setLore(getStringListInConfig(this.getConfigPath() + ".lore", true));
 		}
 
-		itemMeta.setCustomModelData(this.level);
+		itemMeta.setCustomModelData(getCustomModelDataValue(this.level));
 
 		this.setItemMeta(itemMeta);
 	}
@@ -75,5 +75,19 @@ public class FlyPotion extends CustomPotion {
 
 		FlyEffect flyEffect = new FlyEffect(player.getUniqueId(), this.level);
 		flyEffect.start();
+	}
+
+	private static int getCustomModelDataValue(int level) {
+		switch (level) {
+			default:
+			case 1:
+				return 1;
+			case 2:
+				return 2;
+			case 3:
+				return 3;
+			case 4:
+				return 4;
+		}
 	}
 }

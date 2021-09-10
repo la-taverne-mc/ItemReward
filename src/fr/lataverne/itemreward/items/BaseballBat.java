@@ -31,6 +31,8 @@ public class BaseballBat extends CustomItem {
 			itemMeta.setLore(getStringListInConfig(this.getConfigPath() + ".lore", true));
 		}
 
+		itemMeta.setCustomModelData(1);
+
 		this.setItemMeta(itemMeta);
 	}
 
