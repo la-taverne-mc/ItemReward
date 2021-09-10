@@ -68,11 +68,16 @@ public abstract class Helper {
 	public static void cantUseInCraft(InventoryClickEvent e) {
 		InventoryType inventoryType = extractInventoryType(e);
 
+		int rawSlot = e.getRawSlot();
+
 		if (inventoryType != null) {
 			switch (inventoryType) {
 				case WORKBENCH:
-				case CRAFTING:
 					e.setCancelled(true);
+				case CRAFTING:
+					if (rawSlot < 5) {
+						e.setCancelled(true);
+					}
 					break;
 			}
 		}
