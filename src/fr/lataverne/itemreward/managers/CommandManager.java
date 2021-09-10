@@ -1,5 +1,6 @@
 package fr.lataverne.itemreward.managers;
 
+import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -61,6 +62,21 @@ public class CommandManager implements CommandExecutor {
 
 				return true;
 			} // ir get ...
+
+			if (args[0].equalsIgnoreCase("view")) {
+				if (args.length < 2) {
+					sendMessageToPlayer(player, getStringInConfig("message.user.misuseCommand", false));
+					return true;
+				}
+
+				if (args[1].equalsIgnoreCase("customitems")) {
+					for (CustomItem.ECustomItem eCustomItem : CustomItem.ECustomItem.values()) {
+						player.sendMessage(ChatColor.GOLD + eCustomItem.toString());
+					}
+				} // ir view CustomItems
+
+				return true;
+			} // ir view ...
 
 			sendMessageToPlayer(player, getStringInConfig("message.user.unknownCommand", false));
 			return true;
