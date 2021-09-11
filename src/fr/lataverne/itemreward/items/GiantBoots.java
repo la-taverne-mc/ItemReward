@@ -5,6 +5,7 @@ import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.attribute.Attribute;
 import org.bukkit.attribute.AttributeModifier;
+import org.bukkit.block.Block;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.event.player.PlayerMoveEvent;
 import org.bukkit.inventory.EquipmentSlot;
@@ -19,6 +20,8 @@ import java.util.UUID;
 import static fr.lataverne.itemreward.Helper.*;
 
 public class GiantBoots extends CustomItem {
+	private static final String NBTTagCounter = "counter";
+
 	public GiantBoots() {
 		super(Material.LEATHER_BOOTS);
 
@@ -37,6 +40,8 @@ public class GiantBoots extends CustomItem {
 		}
 
 		itemMeta.setCustomModelData(1);
+
+		addNBT(this, "counter", "0");
 
 		this.setItemMeta(itemMeta);
 	}
@@ -66,11 +71,44 @@ public class GiantBoots extends CustomItem {
 		Location from = Objects.requireNonNull(e.getFrom());
 		Location to = Objects.requireNonNull(e.getTo());
 
-		if (from.distance(to) > 0.15) {
-			Damageable itemMeta = (Damageable) Objects.requireNonNull(this.getItemMeta());
-			itemMeta.setDamage(itemMeta.getDamage() + 1);
-			this.setItemMeta((ItemMeta) itemMeta);
-			e.getPlayer().updateInventory();
+		ItemStack boots = Objects.requireNonNull(e.getPlayer().getInventory().getBoots());
+
+		if (from.distanceSquared(to) > 0.14) {
+			Location loc = e.getPlayer().getLocation();
+			loc.setY(loc.getY() - 2);
+
+			Block block = Objects.requireNonNull(loc.getWorld()).getBlockAt(loc);
+			if (block.getType().isAir()) {
+				return;
+			}
+
+			int counter = 0;
+
+			try {
+				String strCounter = getNBT(boots, NBTTagCounter);
+				if (strCounter != null) {
+					counter = Integer.parseInt(strCounter);
+				}
+			} catch (NumberFormatException ignored) {
+
+			}
+
+			counter++;
+
+			if (counter >= getIntInConfig(this.getConfigPath() + ".counter")) {
+				counter = 0;
+				Damageable itemMeta = (Damageable) Objects.requireNonNull(boots.getItemMeta());
+
+				itemMeta.setDamage(itemMeta.getDamage() + 1);
+
+				boots.setItemMeta(itemMeta);
+
+				if (itemMeta.getDamage() > Material.LEATHER_BOOTS.getMaxDurability()) {
+					e.getPlayer().getInventory().setBoots(null);
+				}
+			}
+
+			addNBT(boots, NBTTagCounter, Integer.toString(counter));
 		}
 	}
 }
