@@ -38,6 +38,7 @@ item:
       - "§cAttention la durabilité"
       - "§cbaisse avec la distance"
       - "§cparcourue"
+    counter: 10
   unbreakableHoe:
     displayName: "§bHoue incassable"
     lore:
