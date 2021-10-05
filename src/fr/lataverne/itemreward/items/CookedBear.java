@@ -16,7 +16,7 @@ public class CookedBear extends CustomItem {
 
 		ItemMeta itemMeta = Objects.requireNonNull(this.getItemMeta(), "Item meta can't be null");
 
-		itemMeta.setCustomModelData(1);
+		itemMeta.setCustomModelData(2);
 
 		if (configPathExists(this.getConfigPath() + ".displayName")) {
 			itemMeta.setDisplayName(getStringInConfig(this.getConfigPath() + ".displayName", true));
