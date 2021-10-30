@@ -38,6 +38,7 @@ public abstract class Helper {
 		item.setItemMeta(meta);
 	}
 
+	@SuppressWarnings ("DuplicatedCode")
 	public static void cantCooked(InventoryClickEvent e) {
 		InventoryType inventoryType = extractInventoryType(e);
 
@@ -52,12 +53,14 @@ public abstract class Helper {
 		}
 	}
 
+	@SuppressWarnings ("DuplicatedCode")
 	public static void cantRepairableAndEnchanted(InventoryClickEvent e) {
 		InventoryType inventoryType = extractInventoryType(e);
 
 		if (inventoryType != null) {
 			switch (inventoryType) {
 				case ANVIL:
+				case GRINDSTONE:
 				case ENCHANTING:
 					e.setCancelled(true);
 					break;
