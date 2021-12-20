@@ -20,10 +20,15 @@ public class CommandManager implements CommandExecutor {
 		if (sender instanceof Player) {
 			Player player = (Player) sender;
 
-			if (args.length < 1 || args[0].equalsIgnoreCase("help")) {
-				this.sendHelpMenu(player);
+			if (args.length < 1) {
+				sendMessage(player, getStringInConfig("message.user.misuseCommand", false));
 				return true;
 			}
+
+			if (args[0].equalsIgnoreCase("help")) {
+				this.sendHelpMenu(player);
+				return true;
+			} // ir help
 
 			if (args[0].equalsIgnoreCase("give")) {
 				if (!player.hasPermission("ir.give")) {
@@ -67,7 +72,7 @@ public class CommandManager implements CommandExecutor {
 				for (CustomItem.ECustomItem eCustomItem : CustomItem.ECustomItem.values()) {
 					sender.sendMessage(ChatColor.GOLD + eCustomItem.toString());
 				}
-				
+
 				return true;
 			} // ir list
 
