@@ -7,105 +7,107 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
+import java.util.Arrays;
+
 import static fr.lataverne.itemreward.Helper.getStringInConfig;
-import static fr.lataverne.itemreward.Helper.sendMessageToPlayer;
+import static fr.lataverne.itemreward.Helper.sendMessage;
 
 public class CommandManager implements CommandExecutor {
-	@SuppressWarnings ("NullableProblems")
+
 	@Override
 	public boolean onCommand(CommandSender sender, Command command, String s, String[] args) {
 		if (sender instanceof Player) {
 			Player player = (Player) sender;
 
-			if (args.length < 1) {
-				sendMessageToPlayer(player, getStringInConfig("message.user.misuseCommand", false));
-				sendMessageToPlayer(player, "Tape /ir help pour en savoir plus");
+			if (args.length < 1 || args[0].equalsIgnoreCase("help")) {
+				this.sendHelpMenu(player);
 				return true;
 			}
 
-			if (args[0].equalsIgnoreCase("help")){
-				sender.sendMessage(
-						ChatColor.AQUA+"~~~~~~~~~~~~ iTEmRewArD ~~~~~~~~~~~~~~~~\n" +
-						   ChatColor.GOLD+" /ir [command] [arg1] [arg2]\n" +
-							   			  " give all                         - get all one item type (lvl 1)\n" +
-										  " give [item] [levelItem]          - get this item\n" +
-										  " give [item]                      - get this item\n" +
-							   			  " give [item] [levelItem] [Player] - give this item to player\n" +
-										  " give [item] [Player]             - give this item to player\n" +
-							   			  " [list/listItems]                 - list all items\n" +
-						   ChatColor.AQUA+"~~~~~~~~~~~~  page 1/1  ~~~~~~~~~~~~~~~~\n"
-							);
-				return true;
-			}
 			if (args[0].equalsIgnoreCase("give")) {
-				if (!player.hasPermission("ir.get")) {
-					sendMessageToPlayer(player, getStringInConfig("message.user.notPermission", false));
+				if (!player.hasPermission("ir.give")) {
+					sendMessage(player, getStringInConfig("message.user.notPermission", false));
 					return true;
 				}
 
 				if (args.length < 2) {
-					sendMessageToPlayer(player, getStringInConfig("message.user.misuseCommand", false));
-					sendMessageToPlayer(player, "fait /ir help");
-					sendMessageToPlayer(player, "faire /r list pour avoir la liste des items");
+					sendMessage(sender, getStringInConfig("message.user.misuseCommand", false));
+					return true;
 				}
 
-				if (args[1].equalsIgnoreCase("all")) {
-					for (CustomItem.ECustomItem customItemType : CustomItem.ECustomItem.values()) {
-						player.getInventory().addItem(CustomItem.getCustomItem(customItemType));
-					}
-				}
-				else {
-					Player target = null;
-					CustomItem.ECustomItem customItemType;
-					int level = 1;
+				Player target = Bukkit.getPlayer(args[1]);
 
-					try {
-						System.out.println(args[1]);
-						System.out.println(args[1].toUpperCase());
-						System.out.println(CustomItem.getEnumItem(args[1].toUpperCase()));
-						customItemType = CustomItem.ECustomItem.valueOf(args[1]);
-					} catch (IllegalArgumentException ex) {
-						sendMessageToPlayer(player, getStringInConfig("message.user.customItemNotFound", false));
-						return true;
-					}
+				this.giveCustomsItem(player, target, Arrays.copyOfRange(args, 2, args.length));
+			} // ir give ...
 
-					try {
-						if (args.length > 2) {
-							target = Bukkit.getPlayer(args[2]);
-							if(target==null)
-								level = Integer.parseUnsignedInt(args[2]);
-						}
-					} catch (NumberFormatException ignored) {
-					}
-					if(target==null && args.length==4)
-						target = Bukkit.getPlayer(args[3]);
-
-					CustomItem customItem = CustomItem.getCustomItem(customItemType, level);
-					if (customItem != null) {
-						if(target!=null)
-							target.getInventory().addItem(customItem);
-						else
-							player.getInventory().addItem(customItem);
-					}
+			if (args[0].equalsIgnoreCase("list")) {
+				if (!player.hasPermission("ir.list")) {
+					sendMessage(player, getStringInConfig("message.user.notPermission", false));
+					return true;
 				}
 
-				return true;
-			} // ir get ...
-
-			/**
-			 * List item
-			 */
-			if (args[0].equalsIgnoreCase("list") || args[0].equalsIgnoreCase("listItems")) {
 				for (CustomItem.ECustomItem eCustomItem : CustomItem.ECustomItem.values()) {
-						player.sendMessage(ChatColor.GOLD + eCustomItem.toString());
-					}
+					player.sendMessage(ChatColor.GOLD + eCustomItem.toString());
+				}
 				return true;
-			} // ir view ...
+			} // ir list
 
-			sendMessageToPlayer(player, getStringInConfig("message.user.unknownCommand", false));
+			sendMessage(player, getStringInConfig("message.user.unknownCommand", false));
 			return true;
 		}
 
 		return false;
+	}
+
+	private void giveCustomsItem(CommandSender sender, Player target, String[] args) {
+		if (args.length < 1) {
+			sendMessage(sender, getStringInConfig("message.user.misuseCommand", false));
+		}
+
+		if (args[0].equalsIgnoreCase("all")) {
+			for (CustomItem.ECustomItem customItemType : CustomItem.ECustomItem.values()) {
+				target.getInventory().addItem(CustomItem.getCustomItem(customItemType));
+			}
+		} else {
+			int amount = 1;
+			CustomItem.ECustomItem customItemType;
+			int level = 1;
+
+			try {
+				customItemType = CustomItem.ECustomItem.valueOf(args[0]);
+			} catch (IllegalArgumentException ex) {
+				sendMessage(sender, getStringInConfig("message.user.customItemNotFound", false));
+				return;
+			}
+
+			if (args.length > 2) {
+				try {
+					amount = Integer.parseInt(args[1]);
+				} catch (NumberFormatException ignored) {
+				}
+			}
+
+			if (args.length > 3) {
+				try {
+					level = Integer.parseInt(args[2]);
+				} catch (NumberFormatException ignored) {
+				}
+			}
+
+			CustomItem customItem = CustomItem.getCustomItem(customItemType, level);
+			if (customItem != null) {
+				for (int i = 0; i < amount; i++) {
+					target.getInventory().addItem(customItem);
+				}
+			}
+		}
+	}
+
+	private void sendHelpMenu(CommandSender sender) {
+		sender.sendMessage(ChatColor.AQUA + "================== ItemReward ==================");
+		sender.sendMessage(ChatColor.GOLD + "/ir give <player> <item> [<count>] [<level>]" + ChatColor.GRAY + "Give custom items to a player.");
+		sender.sendMessage(ChatColor.GOLD + "/ir give <player> all" + ChatColor.GRAY + "Give all custom items to a player.");
+		sender.sendMessage(ChatColor.GOLD + "/ir list" + ChatColor.GRAY + "Display all custom items.");
+		sender.sendMessage(ChatColor.AQUA + "================== ItemReward ==================");
 	}
 }

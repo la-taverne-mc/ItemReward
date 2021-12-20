@@ -6,6 +6,7 @@ import net.md_5.bungee.api.chat.TextComponent;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.NamespacedKey;
+import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.event.inventory.InventoryType;
@@ -241,9 +242,9 @@ public abstract class Helper {
 		player.spigot().sendMessage(ChatMessageType.ACTION_BAR, new TextComponent(colorizeString(message)));
 	}
 
-	public static void sendMessageToPlayer(Player player, String message) {
+	public static void sendMessage(CommandSender sender, String message) {
 		String suffixMessage = getStringInConfig("message.messageSuffix", false);
-		player.sendMessage(colorizeString(suffixMessage + " &r" + message));
+		sender.sendMessage(colorizeString(suffixMessage + " &r" + message));
 	}
 }
 

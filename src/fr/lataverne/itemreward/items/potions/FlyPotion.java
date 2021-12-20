@@ -68,7 +68,7 @@ public class FlyPotion extends CustomPotion {
 		Player player = e.getPlayer();
 
 		if (CustomEffect.hasEffectInProgress(player.getUniqueId())) {
-			sendMessageToPlayer(player, getStringInConfig("message.user.otherCustomPotionAlreadyTaken", false));
+			sendMessage(player, getStringInConfig("message.user.otherCustomPotionAlreadyTaken", false));
 			e.setCancelled(true);
 			return;
 		}
