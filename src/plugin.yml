@@ -15,8 +15,6 @@ commands:
   itemreward:
     description: Command of the ItemReward plugin
     usage: "Usage: /itemreward help"
-    permission: ir.command
-    default: op
     aliases:
       - itemreward
       - ir
