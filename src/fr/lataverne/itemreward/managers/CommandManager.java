@@ -60,7 +60,16 @@ public class CommandManager implements CommandExecutor {
 
 			if (args[0].equalsIgnoreCase("give")) {
 				this.giveCustomsItem(console, Arrays.copyOfRange(args, 1, args.length));
+				return true;
 			} // ir give ...
+
+			if (args[0].equalsIgnoreCase("list")) {
+				for (CustomItem.ECustomItem eCustomItem : CustomItem.ECustomItem.values()) {
+					sender.sendMessage(ChatColor.GOLD + eCustomItem.toString());
+				}
+				
+				return true;
+			} // ir list
 
 			sendMessage(console, getStringInConfig("message.user.unknownCommand", false));
 			return true;
