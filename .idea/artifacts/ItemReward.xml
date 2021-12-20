@@ -1,6 +1,6 @@
 <component name="ArtifactManager">
   <artifact type="jar" name="ItemReward">
-    <output-path>$PROJECT_DIR$/out</output-path>
+    <output-path>$USER_HOME$/Desktop</output-path>
     <root id="archive" name="ItemReward.jar">
       <element id="module-output" name="ItemReward" />
     </root>

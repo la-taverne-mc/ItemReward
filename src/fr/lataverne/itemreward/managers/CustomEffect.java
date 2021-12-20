@@ -5,8 +5,8 @@ import fr.lataverne.itemreward.ItemReward;
 import fr.lataverne.itemreward.effects.*;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
-import org.bukkit.craftbukkit.libs.org.apache.commons.lang3.NotImplementedException;
 import org.bukkit.entity.Player;
+import org.apache.commons.lang3.NotImplementedException;
 
 import java.io.IOException;
 import java.io.Reader;
