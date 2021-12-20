@@ -1,0 +1,18 @@
+mode: chatops
+silent: false
+branchName: short
+autoCloseIssue: true
+defaultBranch: 'master'
+gitSafeReplacementChar: '-'
+branches:
+  - label: feature
+    name: master
+    prefix: feature/
+  - label: bug
+    name: master
+    prefix: bug/
+openDraftPR: true
+copyIssueDescriptionToPR: true
+copyIssueLabelsToPR: true
+copyIssueAssigneeToPR: true
+commentMessage: 'Branch ${branchName} created for issue: ${issue.title}'
