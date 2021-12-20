@@ -5,6 +5,7 @@ import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
+import org.bukkit.command.ConsoleCommandSender;
 import org.bukkit.entity.Player;
 
 import java.util.Arrays;
@@ -30,14 +31,7 @@ public class CommandManager implements CommandExecutor {
 					return true;
 				}
 
-				if (args.length < 2) {
-					sendMessage(sender, getStringInConfig("message.user.misuseCommand", false));
-					return true;
-				}
-
-				Player target = Bukkit.getPlayer(args[1]);
-
-				this.giveCustomsItem(player, target, Arrays.copyOfRange(args, 2, args.length));
+				this.giveCustomsItem(player, Arrays.copyOfRange(args, 1, args.length));
 			} // ir give ...
 
 			if (args[0].equalsIgnoreCase("list")) {
@@ -56,15 +50,43 @@ public class CommandManager implements CommandExecutor {
 			return true;
 		}
 
+		if (sender instanceof ConsoleCommandSender) {
+			ConsoleCommandSender console = (ConsoleCommandSender) sender;
+
+			if (args.length < 1 || args[0].equalsIgnoreCase("help")) {
+				this.sendHelpMenu(console);
+				return true;
+			}
+
+			if (args[0].equalsIgnoreCase("give")) {
+				this.giveCustomsItem(console, Arrays.copyOfRange(args, 1, args.length));
+			} // ir give ...
+
+			sendMessage(console, getStringInConfig("message.user.unknownCommand", false));
+			return true;
+		}
+
 		return false;
 	}
 
-	private void giveCustomsItem(CommandSender sender, Player target, String[] args) {
+	private void giveCustomsItem(CommandSender sender, String[] args) {
 		if (args.length < 1) {
 			sendMessage(sender, getStringInConfig("message.user.misuseCommand", false));
+			return;
 		}
 
-		if (args[0].equalsIgnoreCase("all")) {
+		Player target = Bukkit.getPlayer(args[0]);
+		if (target == null) {
+			sendMessage(sender, getStringInConfig("message.user.userNotFound", false));
+			return;
+		}
+
+		if (args.length < 2) {
+			sendMessage(sender, getStringInConfig("message.user.misuseCommand", false));
+			return;
+		}
+
+		if (args[1].equalsIgnoreCase("all")) {
 			for (CustomItem.ECustomItem customItemType : CustomItem.ECustomItem.values()) {
 				target.getInventory().addItem(CustomItem.getCustomItem(customItemType));
 			}
@@ -80,16 +102,16 @@ public class CommandManager implements CommandExecutor {
 				return;
 			}
 
-			if (args.length > 2) {
+			if (args.length > 3) {
 				try {
-					amount = Integer.parseInt(args[1]);
+					amount = Integer.parseInt(args[2]);
 				} catch (NumberFormatException ignored) {
 				}
 			}
 
-			if (args.length > 3) {
+			if (args.length > 4) {
 				try {
-					level = Integer.parseInt(args[2]);
+					level = Integer.parseInt(args[3]);
 				} catch (NumberFormatException ignored) {
 				}
 			}

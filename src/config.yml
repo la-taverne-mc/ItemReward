@@ -17,6 +17,7 @@ message:
     customPotionEffectFinished: "§cCette potion ne fait plus effet !"
     otherCustomPotionAlreadyTaken: "§cVous êtes déjà sous l'effet d'une potion."
     notPermission: "§cVous n'avez pas la permission de faire ceci!"
+    userNotFound: "§cLe joueur est introuvable"
 
 # All items' information
 item:
