@@ -2,7 +2,6 @@ package fr.lataverne.itemreward.items;
 
 import fr.lataverne.itemreward.managers.CustomItem;
 import org.bukkit.Material;
-import org.bukkit.craftbukkit.libs.org.apache.commons.lang3.NotImplementedException;
 import org.bukkit.entity.Player;
 import org.bukkit.event.block.BlockCookEvent;
 import org.bukkit.event.inventory.InventoryClickEvent;
@@ -11,6 +10,7 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
+import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
 import java.util.Objects;
 

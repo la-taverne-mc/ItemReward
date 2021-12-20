@@ -3,7 +3,7 @@ package fr.lataverne.itemreward.items.potions;
 import fr.lataverne.itemreward.effects.MiningEffect;
 import fr.lataverne.itemreward.managers.CustomEffect;
 import fr.lataverne.itemreward.managers.CustomPotion;
-import org.bukkit.craftbukkit.libs.org.apache.commons.lang3.NotImplementedException;
+import org.apache.commons.lang3.NotImplementedException;
 import org.bukkit.entity.Player;
 import org.bukkit.event.player.PlayerItemConsumeEvent;
 import org.bukkit.inventory.ItemStack;
@@ -51,7 +51,7 @@ public class MiningPotion extends CustomPotion {
 		Player player = e.getPlayer();
 
 		if (CustomEffect.hasEffectInProgress(player.getUniqueId())) {
-			sendMessageToPlayer(player, getStringInConfig("message.user.otherCustomPotionAlreadyTaken", false));
+			sendMessage(player, getStringInConfig("message.user.otherCustomPotionAlreadyTaken", false));
 			e.setCancelled(true);
 			return;
 		}

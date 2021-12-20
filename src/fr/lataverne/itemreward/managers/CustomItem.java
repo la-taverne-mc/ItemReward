@@ -3,7 +3,6 @@ package fr.lataverne.itemreward.managers;
 import fr.lataverne.itemreward.items.*;
 import fr.lataverne.itemreward.items.potions.*;
 import org.bukkit.Material;
-import org.bukkit.craftbukkit.libs.org.apache.commons.lang3.NotImplementedException;
 import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.event.block.BlockCookEvent;
 import org.bukkit.event.entity.EntityDeathEvent;
@@ -11,6 +10,7 @@ import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.event.player.PlayerItemConsumeEvent;
 import org.bukkit.event.player.PlayerMoveEvent;
 import org.bukkit.inventory.ItemStack;
+import org.apache.commons.lang3.NotImplementedException;
 
 import static fr.lataverne.itemreward.Helper.*;
 
@@ -86,6 +86,43 @@ public abstract class CustomItem extends ItemStack {
 				return new CreeperPotion();
 			case SwimmingPotion:
 				return new SwimmingPotion();
+			default:
+				return null;
+		}
+	}
+
+	public static String getEnumItem(String customItemType) {
+		switch (customItemType) {
+			case "GOBLINPICKAXE":
+				return  "GoblinPickaxe";
+			case "GIANTBOOTS":
+				return  "GiantBoots";
+			case "UNBREAKABLEHOE":
+				return  "UnbreakableHoe";
+			case "RAWBEAR":
+				return  "RawBear";
+			case "RAWHORSE":
+				return  "RawHorse";
+			case "COOKEDBEAR":
+				return "CookedBear";
+			case "COOKEDHORSE":
+				return "CookedHorse";
+			case "ULU":
+				return "ULU";
+			case "INDIANSPEAR":
+				return "IndianSpear";
+			case "BASEBALLBAT":
+				return "BaseballBat";
+			case "FLYPOTION":
+				return "FlyPotion";
+			case "PHANTOMPOTION":
+				return "PhantomPotion";
+			case "MININGPOTION":
+				return "MiningPotion";
+			case "CREEPERPOTION":
+				return "CreeperPotion";
+			case "SWIMMINGPOTION":
+				return "SwimmingPotion";
 			default:
 				return null;
 		}
