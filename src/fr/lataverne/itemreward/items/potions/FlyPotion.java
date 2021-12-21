@@ -17,8 +17,8 @@ public class FlyPotion extends CustomPotion {
 		super(itemStack);
 	}
 
-	public FlyPotion(int level) {
-		super(level);
+	public FlyPotion(int amount, int level) {
+		super(amount, level);
 
 		ItemMeta itemMeta = Objects.requireNonNull(this.getItemMeta());
 

@@ -14,8 +14,8 @@ import java.util.Objects;
 import static fr.lataverne.itemreward.Helper.*;
 
 public class BaseballBat extends CustomItem {
-	public BaseballBat() {
-		super(Material.WOODEN_SWORD);
+	public BaseballBat(int amount) {
+		super(Material.WOODEN_SWORD, amount);
 
 		ItemMeta itemMeta = Objects.requireNonNull(this.getItemMeta(), "Item meta can't be null");
 

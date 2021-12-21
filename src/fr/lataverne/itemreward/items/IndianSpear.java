@@ -15,8 +15,8 @@ import java.util.Objects;
 import static fr.lataverne.itemreward.Helper.*;
 
 public class IndianSpear extends CustomItem {
-	public IndianSpear() {
-		super(Material.GOLDEN_SWORD);
+	public IndianSpear(int amount) {
+		super(Material.GOLDEN_SWORD, amount);
 
 		ItemMeta itemMeta = Objects.requireNonNull(this.getItemMeta(), "Item meta can't be null");
 
@@ -53,7 +53,7 @@ public class IndianSpear extends CustomItem {
 			Player killer = e.getEntity().getKiller();
 
 			World world = Objects.requireNonNull(killer.getLocation().getWorld());
-			world.dropItemNaturally(e.getEntity().getLocation(), new RawHorse());
+			world.dropItemNaturally(e.getEntity().getLocation(), new RawHorse(1));
 		}
 	}
 

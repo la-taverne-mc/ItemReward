@@ -21,8 +21,8 @@ public abstract class CustomPotion extends CustomItem {
 
 	protected int level = 1;
 
-	public CustomPotion(int level) {
-		super(Material.POTION);
+	public CustomPotion(int amount, int level) {
+		super(Material.POTION, amount);
 
 		PotionMeta itemMeta = (PotionMeta) Objects.requireNonNull(this.getItemMeta());
 

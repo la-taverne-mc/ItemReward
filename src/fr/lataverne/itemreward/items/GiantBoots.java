@@ -22,8 +22,8 @@ import static fr.lataverne.itemreward.Helper.*;
 public class GiantBoots extends CustomItem {
 	private static final String NBTTagCounter = "counter";
 
-	public GiantBoots() {
-		super(Material.LEATHER_BOOTS);
+	public GiantBoots(int amount) {
+		super(Material.LEATHER_BOOTS, amount);
 
 		ItemMeta itemMeta = Objects.requireNonNull(this.getItemMeta(), "Item meta can't be null");
 

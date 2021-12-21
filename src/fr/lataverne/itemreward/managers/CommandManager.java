@@ -37,6 +37,7 @@ public class CommandManager implements CommandExecutor {
 				}
 
 				this.giveCustomsItem(player, Arrays.copyOfRange(args, 1, args.length));
+				return true;
 			} // ir give ...
 
 			if (args[0].equalsIgnoreCase("list")) {
@@ -70,7 +71,7 @@ public class CommandManager implements CommandExecutor {
 
 			if (args[0].equalsIgnoreCase("list")) {
 				for (CustomItem.ECustomItem eCustomItem : CustomItem.ECustomItem.values()) {
-					sender.sendMessage(ChatColor.GOLD + eCustomItem.toString());
+					console.sendMessage(ChatColor.GOLD + eCustomItem.toString());
 				}
 
 				return true;
@@ -110,31 +111,29 @@ public class CommandManager implements CommandExecutor {
 			int level = 1;
 
 			try {
-				customItemType = CustomItem.ECustomItem.valueOf(args[0]);
+				customItemType = CustomItem.ECustomItem.valueOf(args[1]);
 			} catch (IllegalArgumentException ex) {
 				sendMessage(sender, getStringInConfig("message.user.customItemNotFound", false));
 				return;
 			}
 
-			if (args.length > 3) {
+			if (args.length >= 3) {
 				try {
 					amount = Integer.parseInt(args[2]);
 				} catch (NumberFormatException ignored) {
 				}
 			}
 
-			if (args.length > 4) {
+			if (args.length >= 4) {
 				try {
 					level = Integer.parseInt(args[3]);
 				} catch (NumberFormatException ignored) {
 				}
 			}
 
-			CustomItem customItem = CustomItem.getCustomItem(customItemType, level);
+			CustomItem customItem = CustomItem.getCustomItem(customItemType, amount, level);
 			if (customItem != null) {
-				for (int i = 0; i < amount; i++) {
-					target.getInventory().addItem(customItem);
-				}
+				target.getInventory().addItem(customItem);
 			}
 		}
 	}
