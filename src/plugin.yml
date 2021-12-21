@@ -7,9 +7,9 @@ description: Manages custom items
 authors:
   - syuko
 
-version: 1.0.0
+version: 1.1.0
 
-api-version: 1.17
+api-version: 1.18
 
 commands:
   itemreward:
