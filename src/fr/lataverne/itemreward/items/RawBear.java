@@ -16,8 +16,8 @@ import java.util.Objects;
 import static fr.lataverne.itemreward.Helper.*;
 
 public class RawBear extends CustomItem {
-	public RawBear() {
-		super(Material.BEEF);
+	public RawBear(int amount) {
+		super(Material.BEEF, amount);
 
 		ItemMeta itemMeta = Objects.requireNonNull(this.getItemMeta(), "Item meta can't be null");
 
@@ -53,7 +53,7 @@ public class RawBear extends CustomItem {
 		switch (e.getBlock().getType()) {
 			case CAMPFIRE:
 			case SOUL_CAMPFIRE:
-				e.setResult(new CookedBear());
+				e.setResult(new CookedBear(1));
 				break;
 			default:
 				e.setCancelled(true);

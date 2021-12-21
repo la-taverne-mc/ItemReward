@@ -13,8 +13,8 @@ import java.util.Objects;
 import static fr.lataverne.itemreward.Helper.*;
 
 public class CreeperPotion extends CustomPotion {
-	public CreeperPotion() {
-		super(1);
+	public CreeperPotion(int amount) {
+		super(amount, 1);
 
 		PotionMeta itemMeta = (PotionMeta) Objects.requireNonNull(this.getItemMeta());
 

@@ -12,8 +12,8 @@ import java.util.Objects;
 import static fr.lataverne.itemreward.Helper.*;
 
 public class CookedHorse extends CustomItem {
-	public CookedHorse() {
-		super(Material.COOKED_BEEF);
+	public CookedHorse(int amount) {
+		super(Material.COOKED_BEEF, amount);
 
 		ItemMeta itemMeta = Objects.requireNonNull(this.getItemMeta(), "Item meta can't be null");
 

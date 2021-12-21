@@ -13,8 +13,8 @@ import java.util.Objects;
 import static fr.lataverne.itemreward.Helper.*;
 
 public class PhantomPotion extends CustomPotion {
-	public PhantomPotion() {
-		super(1);
+	public PhantomPotion(int amount) {
+		super(amount, 1);
 
 		PotionMeta itemMeta = (PotionMeta) Objects.requireNonNull(this.getItemMeta());
 

@@ -13,8 +13,8 @@ import java.util.Random;
 import static fr.lataverne.itemreward.Helper.*;
 
 public class GoblinPickaxe extends CustomItem {
-	public GoblinPickaxe() {
-		super(Material.GOLDEN_PICKAXE);
+	public GoblinPickaxe(int amount) {
+		super(Material.GOLDEN_PICKAXE, amount);
 
 		ItemMeta itemMeta = Objects.requireNonNull(this.getItemMeta(), "Item meta can't be null");
 

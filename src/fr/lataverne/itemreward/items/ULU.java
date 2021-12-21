@@ -20,8 +20,8 @@ import java.util.UUID;
 import static fr.lataverne.itemreward.Helper.*;
 
 public class ULU extends CustomItem {
-	public ULU() {
-		super(Material.STONE_AXE);
+	public ULU(int amount) {
+		super(Material.STONE_AXE, amount);
 
 		ItemMeta itemMeta = Objects.requireNonNull(this.getItemMeta(), "Item meta can't be null");
 
@@ -65,7 +65,7 @@ public class ULU extends CustomItem {
 			Player killer = e.getEntity().getKiller();
 
 			World world = Objects.requireNonNull(killer.getLocation().getWorld());
-			world.dropItemNaturally(e.getEntity().getLocation(), new RawBear());
+			world.dropItemNaturally(e.getEntity().getLocation(), new RawBear(1));
 		}
 	}
 

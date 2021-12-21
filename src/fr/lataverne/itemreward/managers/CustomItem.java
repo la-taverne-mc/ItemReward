@@ -2,6 +2,7 @@ package fr.lataverne.itemreward.managers;
 
 import fr.lataverne.itemreward.items.*;
 import fr.lataverne.itemreward.items.potions.*;
+import org.apache.commons.lang3.NotImplementedException;
 import org.bukkit.Material;
 import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.event.block.BlockCookEvent;
@@ -10,7 +11,6 @@ import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.event.player.PlayerItemConsumeEvent;
 import org.bukkit.event.player.PlayerMoveEvent;
 import org.bukkit.inventory.ItemStack;
-import org.apache.commons.lang3.NotImplementedException;
 
 import static fr.lataverne.itemreward.Helper.*;
 
@@ -51,78 +51,41 @@ public abstract class CustomItem extends ItemStack {
 	}
 
 	public static CustomItem getCustomItem(ECustomItem customItemType) {
-		return getCustomItem(customItemType, 1);
+		return getCustomItem(customItemType, 1, 1);
 	}
 
-	public static CustomItem getCustomItem(ECustomItem customItemType, int level) {
+	public static CustomItem getCustomItem(ECustomItem customItemType, int amount, int level) {
 		switch (customItemType) {
 			case GoblinPickaxe:
-				return new GoblinPickaxe();
+				return new GoblinPickaxe(amount);
 			case GiantBoots:
-				return new GiantBoots();
+				return new GiantBoots(amount);
 			case UnbreakableHoe:
-				return new UnbreakableHoe();
+				return new UnbreakableHoe(amount);
 			case RawBear:
-				return new RawBear();
+				return new RawBear(amount);
 			case RawHorse:
-				return new RawHorse();
+				return new RawHorse(amount);
 			case CookedBear:
-				return new CookedBear();
+				return new CookedBear(amount);
 			case CookedHorse:
-				return new CookedHorse();
+				return new CookedHorse(amount);
 			case ULU:
-				return new ULU();
+				return new ULU(amount);
 			case IndianSpear:
-				return new IndianSpear();
+				return new IndianSpear(amount);
 			case BaseballBat:
-				return new BaseballBat();
+				return new BaseballBat(amount);
 			case FlyPotion:
-				return new FlyPotion(level);
+				return new FlyPotion(amount, level);
 			case PhantomPotion:
-				return new PhantomPotion();
+				return new PhantomPotion(amount);
 			case MiningPotion:
-				return new MiningPotion();
+				return new MiningPotion(amount);
 			case CreeperPotion:
-				return new CreeperPotion();
+				return new CreeperPotion(amount);
 			case SwimmingPotion:
-				return new SwimmingPotion();
-			default:
-				return null;
-		}
-	}
-
-	public static String getEnumItem(String customItemType) {
-		switch (customItemType) {
-			case "GOBLINPICKAXE":
-				return  "GoblinPickaxe";
-			case "GIANTBOOTS":
-				return  "GiantBoots";
-			case "UNBREAKABLEHOE":
-				return  "UnbreakableHoe";
-			case "RAWBEAR":
-				return  "RawBear";
-			case "RAWHORSE":
-				return  "RawHorse";
-			case "COOKEDBEAR":
-				return "CookedBear";
-			case "COOKEDHORSE":
-				return "CookedHorse";
-			case "ULU":
-				return "ULU";
-			case "INDIANSPEAR":
-				return "IndianSpear";
-			case "BASEBALLBAT":
-				return "BaseballBat";
-			case "FLYPOTION":
-				return "FlyPotion";
-			case "PHANTOMPOTION":
-				return "PhantomPotion";
-			case "MININGPOTION":
-				return "MiningPotion";
-			case "CREEPERPOTION":
-				return "CreeperPotion";
-			case "SWIMMINGPOTION":
-				return "SwimmingPotion";
+				return new SwimmingPotion(amount);
 			default:
 				return null;
 		}

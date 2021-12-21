@@ -14,8 +14,8 @@ import java.util.Objects;
 import static fr.lataverne.itemreward.Helper.*;
 
 public class UnbreakableHoe extends CustomItem {
-	public UnbreakableHoe() {
-		super(Material.STONE_HOE);
+	public UnbreakableHoe(int amount) {
+		super(Material.STONE_HOE, amount);
 
 		ItemMeta itemMeta = Objects.requireNonNull(this.getItemMeta(), "Item meta can't be null");
 

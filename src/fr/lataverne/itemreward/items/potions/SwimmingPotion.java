@@ -14,8 +14,8 @@ import java.util.Objects;
 import static fr.lataverne.itemreward.Helper.*;
 
 public class SwimmingPotion extends CustomPotion {
-	public SwimmingPotion() {
-		super(1);
+	public SwimmingPotion(int amount) {
+		super(amount, 1);
 
 		PotionMeta itemMeta = (PotionMeta) Objects.requireNonNull(this.getItemMeta());
 
