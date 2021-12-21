@@ -140,9 +140,9 @@ public class CommandManager implements CommandExecutor {
 
 	private void sendHelpMenu(CommandSender sender) {
 		sender.sendMessage(ChatColor.AQUA + "================== ItemReward ==================");
-		sender.sendMessage(ChatColor.GOLD + "/ir give <player> <item> [<count>] [<level>]" + ChatColor.GRAY + "Give custom items to a player.");
-		sender.sendMessage(ChatColor.GOLD + "/ir give <player> all" + ChatColor.GRAY + "Give all custom items to a player.");
-		sender.sendMessage(ChatColor.GOLD + "/ir list" + ChatColor.GRAY + "Display all custom items.");
+		sender.sendMessage(ChatColor.LIGHT_PURPLE + "/ir give " + ChatColor.GOLD + "<player> <item> " + ChatColor.GRAY + " [<count>] [<level>]" + ChatColor.WHITE + " : Give custom items to a player.");
+		sender.sendMessage(ChatColor.LIGHT_PURPLE + "/ir give " + ChatColor.GOLD + "<player> " + ChatColor.LIGHT_PURPLE + "all" + ChatColor.WHITE + " : Give all custom items to a player.");
+		sender.sendMessage(ChatColor.LIGHT_PURPLE + "/ir list" + ChatColor.WHITE + " : Display all custom items.");
 		sender.sendMessage(ChatColor.AQUA + "================== ItemReward ==================");
 	}
 }
