@@ -34,6 +34,13 @@ public class BaseballBat extends CustomItem {
 		itemMeta.setCustomModelData(1);
 
 		this.setItemMeta(itemMeta);
+
+		ItemMeta meta = this.getItemMeta();
+		org.bukkit.inventory.meta.Damageable dMeta = (org.bukkit.inventory.meta.Damageable) meta ;
+		int damage = this.getType().getMaxDurability();
+		dMeta.setDamage(damage - 1 );
+		this.setItemMeta(dMeta);
+
 	}
 
 	public BaseballBat(ItemStack itemStack) {

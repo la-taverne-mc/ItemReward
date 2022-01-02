@@ -19,7 +19,8 @@
     <orderEntry type="module-library" exported="">
       <library>
         <CLASSES>
-          <root url="jar://$USER_HOME$/Desktop/gson-2.8.2.jar!/" />
+          <root url="jar://$MODULE_DIR$/../../gson-2.8.2.jar!/" />
+          <root url="jar://$USER_HOME$/Downloads/gson-2.8.2.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
@@ -28,7 +29,8 @@
     <orderEntry type="module-library" exported="">
       <library>
         <CLASSES>
-          <root url="jar://$USER_HOME$/Desktop/bungeecord-api-1.16-R0.4.jar!/" />
+          <root url="jar://$MODULE_DIR$/../../bungeecord-api-1.16-R0.4.jar!/" />
+          <root url="jar://$USER_HOME$/Downloads/bungeecord-api-1.16-R0.4.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
@@ -37,7 +39,8 @@
     <orderEntry type="module-library" exported="">
       <library>
         <CLASSES>
-          <root url="jar://$USER_HOME$/Desktop/bungeecord-chat-1.16-R0.4.jar!/" />
+          <root url="jar://$MODULE_DIR$/../../bungeecord-chat-1.16-R0.4.jar!/" />
+          <root url="jar://$USER_HOME$/Downloads/bungeecord-chat-1.16-R0.4.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
@@ -46,7 +49,8 @@
     <orderEntry type="module-library" exported="">
       <library>
         <CLASSES>
-          <root url="jar://$USER_HOME$/Desktop/commons-lang3-3.12.0.jar!/" />
+          <root url="jar://$MODULE_DIR$/../../commons-lang3-3.12.0.jar!/" />
+          <root url="jar://$USER_HOME$/Downloads/commons-lang3-3.12.0.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />

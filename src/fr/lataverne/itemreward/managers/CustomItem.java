@@ -32,6 +32,10 @@ public abstract class CustomItem extends ItemStack {
 		MiningPotion,
 		CreeperPotion,
 		SwimmingPotion,
+		FlyPotion_1,
+		FlyPotion_2,
+		FlyPotion_3,
+		FlyPotion_4
 	}
 
 	private static final String NBTTag = "CustomItemType";
@@ -86,6 +90,14 @@ public abstract class CustomItem extends ItemStack {
 				return new CreeperPotion(amount);
 			case SwimmingPotion:
 				return new SwimmingPotion(amount);
+			case FlyPotion_1:
+				return new FlyPotion(amount, 1);
+			case FlyPotion_2:
+				return new FlyPotion(amount, 2);
+			case FlyPotion_3:
+				return new FlyPotion(amount, 3);
+			case FlyPotion_4:
+				return new FlyPotion(amount, 4);
 			default:
 				return null;
 		}
