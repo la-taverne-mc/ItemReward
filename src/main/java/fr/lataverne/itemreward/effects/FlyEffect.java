@@ -5,8 +5,6 @@ import fr.lataverne.itemreward.managers.CustomEffect;
 import fr.lataverne.itemreward.managers.ECustomEffect;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
-import org.jetbrains.annotations.Contract;
-import org.jetbrains.annotations.NotNull;
 
 import java.util.Objects;
 import java.util.UUID;
@@ -25,6 +23,11 @@ public class FlyEffect extends CustomEffect {
         player.setAllowFlight(false);
 
         super.stop();
+    }
+
+    @Override
+    protected String getConfigPath() {
+        return "effect.flyEffect.level" + this.level;
     }
 
     @Override
@@ -54,10 +57,5 @@ public class FlyEffect extends CustomEffect {
 
             this.remainingTime--;
         }
-    }
-
-    @Contract(pure = true)
-    private @NotNull String getConfigPath() {
-        return "effect.flyEffect.level" + this.level;
     }
 }

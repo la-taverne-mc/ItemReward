@@ -50,7 +50,7 @@ public class FlyPotion extends CustomPotion {
             case 2 -> output += "2";
             case 3 -> output += "3";
             case 4 -> output += "4";
-            case 1, default -> output += "1";
+            default -> output += "1";
         }
 
         return output;
