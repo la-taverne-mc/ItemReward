@@ -3,7 +3,7 @@
     <option name="myName" value="Project Default" />
     <inspection_tool class="AbsoluteAlignmentInUserInterface" enabled="true" level="WARNING" enabled_by_default="true" />
     <inspection_tool class="AbstractBeanReferencesInspection" enabled="true" level="ERROR" enabled_by_default="true" />
-    <inspection_tool class="AbstractClassExtendsConcreteClass" enabled="true" level="WARNING" enabled_by_default="true" />
+    <inspection_tool class="AbstractClassExtendsConcreteClass" enabled="false" level="WARNING" enabled_by_default="false" />
     <inspection_tool class="AbstractClassNeverImplemented" enabled="true" level="WARNING" enabled_by_default="true" />
     <inspection_tool class="AbstractClassWithOnlyOneDirectInheritor" enabled="true" level="WARNING" enabled_by_default="true" />
     <inspection_tool class="AbstractClassWithoutAbstractMethods" enabled="true" level="WARNING" enabled_by_default="true" />
@@ -482,7 +482,7 @@
     </inspection_tool>
     <inspection_tool class="AssignmentToNull" enabled="true" level="WARNING" enabled_by_default="true" />
     <inspection_tool class="AssignmentToStaticFieldFromInstanceMethod" enabled="true" level="WARNING" enabled_by_default="true" />
-    <inspection_tool class="AssignmentToSuperclassField" enabled="true" level="WARNING" enabled_by_default="true" />
+    <inspection_tool class="AssignmentToSuperclassField" enabled="false" level="WARNING" enabled_by_default="false" />
     <inspection_tool class="AssignmentUsedAsCondition" enabled="true" level="WARNING" enabled_by_default="true" />
     <inspection_tool class="AsyncMethodInspection" enabled="true" level="WARNING" enabled_by_default="true" />
     <inspection_tool class="AtUsage" enabled="true" level="WARNING" enabled_by_default="true" />
@@ -538,7 +538,7 @@
       <option name="onlyWarnOnBaseMethods" value="true" />
       <option name="questionString" value="are,can,check,contains,could,endsWith,equals,has,is,matches,must,shall,should,startsWith,was,were,will,would" />
     </inspection_tool>
-    <inspection_tool class="BooleanParameter" enabled="true" level="WARNING" enabled_by_default="true" />
+    <inspection_tool class="BooleanParameter" enabled="false" level="WARNING" enabled_by_default="false" />
     <inspection_tool class="BooleanVariableAlwaysNegated" enabled="false" level="WARNING" enabled_by_default="false" />
     <inspection_tool class="BoundFieldAssignment" enabled="true" level="WARNING" enabled_by_default="true" />
     <inspection_tool class="BoundedWildcard" enabled="true" level="WARNING" enabled_by_default="true" />
@@ -701,7 +701,7 @@
     <inspection_tool class="CloneDeclaresCloneNotSupported" enabled="true" level="WARNING" enabled_by_default="true" />
     <inspection_tool class="CloneInNonCloneableClass" enabled="true" level="WARNING" enabled_by_default="true" />
     <inspection_tool class="CloneReturnsClassType" enabled="true" level="WARNING" enabled_by_default="true" />
-    <inspection_tool class="CloneableClassInSecureContext" enabled="true" level="WARNING" enabled_by_default="true" />
+    <inspection_tool class="CloneableClassInSecureContext" enabled="false" level="WARNING" enabled_by_default="false" />
     <inspection_tool class="CloneableImplementsClone" enabled="true" level="WARNING" enabled_by_default="true">
       <option name="m_ignoreCloneableDueToInheritance" value="true" />
     </inspection_tool>
@@ -993,7 +993,7 @@
       <option name="ignoreThrowables" value="true" />
       <option name="commentsAreContent" value="true" />
     </inspection_tool>
-    <inspection_tool class="EmptyDirectory" enabled="true" level="WARNING" enabled_by_default="true" />
+    <inspection_tool class="EmptyDirectory" enabled="false" level="WARNING" enabled_by_default="false" />
     <inspection_tool class="EmptyFinallyBlock" enabled="true" level="WARNING" enabled_by_default="true" />
     <inspection_tool class="EmptyFinallyBlockJS" enabled="false" level="WARNING" enabled_by_default="false" />
     <inspection_tool class="EmptyImplements" enabled="true" level="WARNING" enabled_by_default="true" />
@@ -1905,7 +1905,7 @@
     <inspection_tool class="MethodOverridesInaccessibleMethodOfSuper" enabled="true" level="WARNING" enabled_by_default="true" />
     <inspection_tool class="MethodOverridesStaticMethod" enabled="true" level="WARNING" enabled_by_default="true" />
     <inspection_tool class="MethodRefCanBeReplacedWithLambda" enabled="true" level="INFORMATION" enabled_by_default="true" />
-    <inspection_tool class="MethodReturnAlwaysConstant" enabled="true" level="WARNING" enabled_by_default="true" />
+    <inspection_tool class="MethodReturnAlwaysConstant" enabled="false" level="WARNING" enabled_by_default="false" />
     <inspection_tool class="MethodSideOnly" enabled="false" level="ERROR" enabled_by_default="false" />
     <inspection_tool class="MethodWithMultipleLoops" enabled="true" level="WARNING" enabled_by_default="true" />
     <inspection_tool class="MicronautDataMethodInconsistency" enabled="true" level="ERROR" enabled_by_default="true" />
@@ -2838,6 +2838,7 @@
           <option value="FieldNotUsedInToString" />
           <option value="unchecked" />
           <option value="ClassHasNoToStringMethod" />
+          <option value="DuplicatedCode" />
         </list>
       </option>
     </inspection_tool>
