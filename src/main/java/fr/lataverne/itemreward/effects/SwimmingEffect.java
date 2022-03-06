@@ -1,6 +1,8 @@
 package fr.lataverne.itemreward.effects;
 
+import fr.lataverne.itemreward.Helper;
 import fr.lataverne.itemreward.managers.CustomEffect;
+import fr.lataverne.itemreward.managers.ECustomEffect;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.potion.PotionEffect;
@@ -9,13 +11,10 @@ import org.bukkit.potion.PotionEffectType;
 import java.util.Objects;
 import java.util.UUID;
 
-import static fr.lataverne.itemreward.Helper.*;
-
 public class SwimmingEffect extends CustomEffect {
+
     public SwimmingEffect(UUID playerUUID) {
         super(playerUUID, 1);
-
-        this.remainingTime = getIntInConfig(this.getConfigPath() + ".duration");
     }
 
     @Override
@@ -37,27 +36,26 @@ public class SwimmingEffect extends CustomEffect {
     }
 
     @Override
-    protected Runnable getRepeatingTask() {
-        return () -> {
-            Player player = Bukkit.getPlayer(this.playerUUID);
+    protected void getRepeatingTask() {
+        Player player = Bukkit.getPlayer(this.playerUUID);
 
-            if (player == null) {
-                return;
+        if (player == null) {
+            return;
+        }
+
+        if (Bukkit.getOnlinePlayers().contains(player)) {
+            if (this.remainingTime > 0) {
+                player.addPotionEffect(new PotionEffect(PotionEffectType.CONDUIT_POWER, 40, 1));
+
+                String message = Helper.getStringInConfig("message.user.remainingTimeCustomPotion", false);
+                message = Helper.replaceValueInString(message, Helper.convertTime(this.remainingTime), this.getCustomEffectType()
+                                                                                                           .toString());
+                Helper.sendBarMessage(player, message);
+            } else {
+                this.stop();
             }
 
-            if (Bukkit.getOnlinePlayers().contains(player)) {
-                if (this.remainingTime > 0) {
-                    player.addPotionEffect(new PotionEffect(PotionEffectType.CONDUIT_POWER, 40, 1));
-
-                    String message = getStringInConfig("message.user.remainingTimeCustomPotion", false);
-                    message = replaceValueInString(message, convertTime(this.remainingTime), this.getCustomEffectType().toString());
-                    sendBarMessage(player, message);
-                } else {
-                    this.stop();
-                }
-
-                this.remainingTime--;
-            }
-        };
+            this.remainingTime--;
+        }
     }
 }

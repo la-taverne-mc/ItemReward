@@ -1,7 +1,8 @@
 package fr.lataverne.itemreward.items;
 
+import fr.lataverne.itemreward.Helper;
 import fr.lataverne.itemreward.managers.CustomItem;
-import org.apache.commons.lang.NotImplementedException;
+import fr.lataverne.itemreward.managers.ECustomItem;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.event.block.BlockCookEvent;
@@ -11,12 +12,12 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.Objects;
 
-import static fr.lataverne.itemreward.Helper.*;
-
 public class RawHorse extends CustomItem {
+
     public RawHorse(int amount) {
         super(Material.BEEF, amount);
 
@@ -24,12 +25,12 @@ public class RawHorse extends CustomItem {
 
         itemMeta.setCustomModelData(1);
 
-        if (configPathExists(this.getConfigPath() + ".displayName")) {
-            itemMeta.setDisplayName(getStringInConfig(this.getConfigPath() + ".displayName", true));
+        if (Helper.configPathExists(this.getConfigPath() + ".displayName")) {
+            itemMeta.setDisplayName(Helper.getStringInConfig(this.getConfigPath() + ".displayName", true));
         }
 
-        if (configPathExists(this.getConfigPath() + ".lore")) {
-            itemMeta.setLore(getStringListInConfig(this.getConfigPath() + ".lore", true));
+        if (Helper.configPathExists(this.getConfigPath() + ".lore")) {
+            itemMeta.setLore(Helper.getStringListInConfig(this.getConfigPath() + ".lore", true));
         }
 
         this.setItemMeta(itemMeta);
@@ -50,25 +51,20 @@ public class RawHorse extends CustomItem {
     }
 
     @Override
-    protected void onBlockCook(BlockCookEvent e) {
+    protected void onBlockCook(@NotNull BlockCookEvent e) {
         switch (e.getBlock().getType()) {
-            case CAMPFIRE:
-            case SOUL_CAMPFIRE:
-                e.setResult(new CookedHorse(1));
-                break;
-            default:
-                e.setCancelled(true);
-                break;
+            case CAMPFIRE, SOUL_CAMPFIRE -> e.setResult(new CookedHorse(1));
+            default -> e.setCancelled(true);
         }
     }
 
     @Override
     protected void onInventoryClick(InventoryClickEvent e) {
-        cantCooked(e);
+        Helper.cantCooked(e);
     }
 
     @Override
-    protected void onPlayerItemConsume(PlayerItemConsumeEvent e) throws NotImplementedException {
+    protected void onPlayerItemConsume(@NotNull PlayerItemConsumeEvent e) {
         Player player = e.getPlayer();
 
         player.setFoodLevel(Math.min(player.getFoodLevel() + 3, 20));

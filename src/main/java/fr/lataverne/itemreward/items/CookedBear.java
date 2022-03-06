@@ -1,16 +1,18 @@
 package fr.lataverne.itemreward.items;
 
+import fr.lataverne.itemreward.Helper;
 import fr.lataverne.itemreward.managers.CustomItem;
+import fr.lataverne.itemreward.managers.ECustomItem;
 import org.bukkit.Material;
 import org.bukkit.event.player.PlayerItemConsumeEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.Objects;
 
-import static fr.lataverne.itemreward.Helper.*;
-
 public class CookedBear extends CustomItem {
+
     public CookedBear(int amount) {
         super(Material.COOKED_BEEF, amount);
 
@@ -18,12 +20,12 @@ public class CookedBear extends CustomItem {
 
         itemMeta.setCustomModelData(2);
 
-        if (configPathExists(this.getConfigPath() + ".displayName")) {
-            itemMeta.setDisplayName(getStringInConfig(this.getConfigPath() + ".displayName", true));
+        if (Helper.configPathExists(this.getConfigPath() + ".displayName")) {
+            itemMeta.setDisplayName(Helper.getStringInConfig(this.getConfigPath() + ".displayName", true));
         }
 
-        if (configPathExists(this.getConfigPath() + ".lore")) {
-            itemMeta.setLore(getStringListInConfig(this.getConfigPath() + ".lore", true));
+        if (Helper.configPathExists(this.getConfigPath() + ".lore")) {
+            itemMeta.setLore(Helper.getStringListInConfig(this.getConfigPath() + ".lore", true));
         }
 
         this.setItemMeta(itemMeta);
@@ -44,7 +46,7 @@ public class CookedBear extends CustomItem {
     }
 
     @Override
-    protected void onPlayerItemConsume(PlayerItemConsumeEvent e) {
+    protected void onPlayerItemConsume(@NotNull PlayerItemConsumeEvent e) {
         e.getPlayer().setFoodLevel(20);
     }
 }

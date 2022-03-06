@@ -1,6 +1,8 @@
 package fr.lataverne.itemreward.items;
 
+import fr.lataverne.itemreward.Helper;
 import fr.lataverne.itemreward.managers.CustomItem;
+import fr.lataverne.itemreward.managers.ECustomItem;
 import org.bukkit.Material;
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.event.inventory.InventoryClickEvent;
@@ -11,9 +13,8 @@ import org.bukkit.inventory.meta.ItemMeta;
 
 import java.util.Objects;
 
-import static fr.lataverne.itemreward.Helper.*;
-
 public class BaseballBat extends CustomItem {
+
     public BaseballBat(int amount) {
         super(Material.WOODEN_SWORD, amount);
 
@@ -23,12 +24,12 @@ public class BaseballBat extends CustomItem {
         itemMeta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
         itemMeta.addEnchant(Enchantment.KNOCKBACK, 20, true);
 
-        if (configPathExists(this.getConfigPath() + ".displayName")) {
-            itemMeta.setDisplayName(getStringInConfig(this.getConfigPath() + ".displayName", true));
+        if (Helper.configPathExists(this.getConfigPath() + ".displayName")) {
+            itemMeta.setDisplayName(Helper.getStringInConfig(this.getConfigPath() + ".displayName", true));
         }
 
-        if (configPathExists(this.getConfigPath() + ".lore")) {
-            itemMeta.setLore(getStringListInConfig(this.getConfigPath() + ".lore", true));
+        if (Helper.configPathExists(this.getConfigPath() + ".lore")) {
+            itemMeta.setLore(Helper.getStringListInConfig(this.getConfigPath() + ".lore", true));
         }
 
         itemMeta.setCustomModelData(1);
@@ -36,11 +37,10 @@ public class BaseballBat extends CustomItem {
         this.setItemMeta(itemMeta);
 
         ItemMeta meta = this.getItemMeta();
-        org.bukkit.inventory.meta.Damageable dMeta = (org.bukkit.inventory.meta.Damageable) meta ;
+        org.bukkit.inventory.meta.Damageable dMeta = (org.bukkit.inventory.meta.Damageable) meta;
         int damage = this.getType().getMaxDurability();
-        dMeta.setDamage(damage - 1 );
+        dMeta.setDamage(damage - 1);
         this.setItemMeta(dMeta);
-
     }
 
     public BaseballBat(ItemStack itemStack) {
@@ -59,10 +59,10 @@ public class BaseballBat extends CustomItem {
 
     @Override
     protected void onInventoryClick(InventoryClickEvent e) {
-        cantUseInCraft(e);
-        cantRepairableAndEnchanted(e);
+        Helper.cantUseInCraft(e);
+        Helper.cantRepairableAndEnchanted(e);
 
-        InventoryType inventoryType = extractInventoryType(e);
+        InventoryType inventoryType = Helper.extractInventoryType(e);
 
         if (inventoryType == InventoryType.GRINDSTONE) {
             e.setCancelled(true);

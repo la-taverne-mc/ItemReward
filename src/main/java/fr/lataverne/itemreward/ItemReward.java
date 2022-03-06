@@ -4,50 +4,48 @@ import fr.lataverne.itemreward.managers.CommandManager;
 import fr.lataverne.itemreward.managers.EventManager;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
+import org.bukkit.command.CommandExecutor;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import java.io.File;
-import java.util.Objects;
 
+@SuppressWarnings("ClassNamePrefixedWithPackageName")
 public class ItemReward extends JavaPlugin {
 
-    private static ItemReward instance;
+    private static ItemReward instance = null;
 
     public static ItemReward getInstance() {
-        return instance;
+        return ItemReward.instance;
     }
 
     public static void sendMessageToConsole(String message) {
         Helper.colorizeString(message);
-        String str = instance.getConfig().getString("message.consoleSuffix") + " " + ChatColor.RESET + message;
+        String str =
+                ItemReward.instance.getConfig().getString("message.consoleSuffix") + " " + ChatColor.RESET + message;
         Bukkit.getConsoleSender().sendMessage(Helper.colorizeString(str));
     }
 
     @Override
     public void onDisable() {
-        sendMessageToConsole(this.getConfig().getString("message.system.stopMessage"));
+        ItemReward.sendMessageToConsole(this.getConfig().getString("message.system.stopMessage"));
     }
 
     @Override
     public void onEnable() {
+        //noinspection AssignmentToStaticFieldFromInstanceMethod
         ItemReward.instance = this;
 
-        CommandManager commandManager = new CommandManager();
-        try {
-            Objects.requireNonNull(this.getCommand("itemreward")).setExecutor(commandManager);
-        } catch (NullPointerException ex) {
-            sendMessageToConsole(this.getConfig().getString("message.system.failedStart"));
-            this.setEnabled(false);
-        }
+        CommandExecutor commandManager = new CommandManager();
+
+        this.getCommand("itemreward").setExecutor(commandManager);
 
         Bukkit.getPluginManager().registerEvents(new EventManager(), this);
 
-        sendMessageToConsole(this.getConfig().getString("message.system.startMessage"));
+        ItemReward.sendMessageToConsole(this.getConfig().getString("message.system.startMessage"));
     }
 
     /**
-     * Method for reload the plugin's config.
-     * If the config don't exist then we save the default config.
+     * Method for reload the plugin's config. If the config don't exist then we save the default config.
      */
     @Override
     public void reloadConfig() {
@@ -59,12 +57,10 @@ public class ItemReward extends JavaPlugin {
 
         super.reloadConfig();
 
-        if (configExist) {
-            sendMessageToConsole(this.getConfig().getString("message.system.existingConfig"));
-        } else {
-            sendMessageToConsole(this.getConfig().getString("message.system.nonExistingConfig"));
-        }
+        ItemReward.sendMessageToConsole(configExist
+                                        ? this.getConfig().getString("message.system.existingConfig")
+                                        : this.getConfig().getString("message.system.nonExistingConfig"));
 
-        sendMessageToConsole(this.getConfig().getString("message.system.reloadComplete"));
+        ItemReward.sendMessageToConsole(this.getConfig().getString("message.system.reloadComplete"));
     }
 }

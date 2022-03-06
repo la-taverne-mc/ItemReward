@@ -1,6 +1,8 @@
 package fr.lataverne.itemreward.items;
 
+import fr.lataverne.itemreward.Helper;
 import fr.lataverne.itemreward.managers.CustomItem;
+import fr.lataverne.itemreward.managers.ECustomItem;
 import org.bukkit.Material;
 import org.bukkit.World;
 import org.bukkit.entity.EntityType;
@@ -9,12 +11,12 @@ import org.bukkit.event.entity.EntityDeathEvent;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.Objects;
 
-import static fr.lataverne.itemreward.Helper.*;
-
 public class IndianSpear extends CustomItem {
+
     public IndianSpear(int amount) {
         super(Material.GOLDEN_SWORD, amount);
 
@@ -22,12 +24,12 @@ public class IndianSpear extends CustomItem {
 
         itemMeta.setCustomModelData(1);
 
-        if (configPathExists(this.getConfigPath() + ".displayName")) {
-            itemMeta.setDisplayName(getStringInConfig(this.getConfigPath() + ".displayName", true));
+        if (Helper.configPathExists(this.getConfigPath() + ".displayName")) {
+            itemMeta.setDisplayName(Helper.getStringInConfig(this.getConfigPath() + ".displayName", true));
         }
 
-        if (configPathExists(this.getConfigPath() + ".lore")) {
-            itemMeta.setLore(getStringListInConfig(this.getConfigPath() + ".lore", true));
+        if (Helper.configPathExists(this.getConfigPath() + ".lore")) {
+            itemMeta.setLore(Helper.getStringListInConfig(this.getConfigPath() + ".lore", true));
         }
 
         this.setItemMeta(itemMeta);
@@ -48,8 +50,8 @@ public class IndianSpear extends CustomItem {
     }
 
     @Override
-    protected void onEntityDeath(EntityDeathEvent e) {
-        if (e.getEntity().getType().equals(EntityType.HORSE) && e.getEntity().getKiller() != null) {
+    protected void onEntityDeath(@NotNull EntityDeathEvent e) {
+        if (e.getEntity().getType() == EntityType.HORSE && e.getEntity().getKiller() != null) {
             Player killer = e.getEntity().getKiller();
 
             World world = Objects.requireNonNull(killer.getLocation().getWorld());
@@ -59,8 +61,8 @@ public class IndianSpear extends CustomItem {
 
     @Override
     protected void onInventoryClick(InventoryClickEvent e) {
-        cantRepairableAndEnchanted(e);
-        cantUseInCraft(e);
-        cantCooked(e);
+        Helper.cantRepairableAndEnchanted(e);
+        Helper.cantUseInCraft(e);
+        Helper.cantCooked(e);
     }
 }
