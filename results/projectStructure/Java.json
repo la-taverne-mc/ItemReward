@@ -1,0 +1,8 @@
+{
+  "modules": [
+    {
+      "name": "ItemReward",
+      "languageLevel": 17
+    }
+  ]
+}

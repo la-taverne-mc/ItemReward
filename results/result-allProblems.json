@@ -1,0 +1,673 @@
+{"version":"3","listProblem":[{
+  "tool": "Code Inspection",
+  "category": "Method metrics",
+  "type": "Overly complex method",
+  "severity": "High",
+  "comment": "Overly complex method `getCustomItem()` (cyclomatic complexity = 20)",
+  "detailsInfo": "Reports methods that have too many branch points.\n\nA branch point is one of the following:\n\n* loop statement\n* `if` statement\n* ternary expression\n* `catch` section\n* expression with one or more `&&` or `||` operators inside\n* `switch` block with non-default branches\n\nMethods with too high cyclomatic complexity may be confusing and hard to test.\n\nUse the **Method complexity limit** field to specify the maximum allowed cyclomatic complexity for a method.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "src/main/java/fr/lataverne/itemreward/managers/CustomItem.java",
+      "language": "JAVA",
+      "line": 58,
+      "offset": 40,
+      "length": 13,
+      "code": {
+        "startLine": 56,
+        "length": 13,
+        "offset": 80,
+        "surroundingCode": "\n    @SuppressWarnings(\"DuplicatedCode\")\n    public static @Nullable CustomItem getCustomItem(ItemStack itemStack) {\n        if (itemStack == null || itemStack.getItemMeta() == null || !Helper.hasNBT(itemStack, CustomItem.NBTTag)) {\n            return null;"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "ItemReward",
+    "inspectionName": "CyclomaticComplexity"
+  },
+  "hash": "d898bc89ccd3cf32e9aa3c99192ffe232e13ab0385d29334bfbbdc6f2e3e063d"
+},{
+  "tool": "Code Inspection",
+  "category": "Method metrics",
+  "type": "Overly complex method",
+  "severity": "High",
+  "comment": "Overly complex method `getCustomItem()` (cyclomatic complexity = 16)",
+  "detailsInfo": "Reports methods that have too many branch points.\n\nA branch point is one of the following:\n\n* loop statement\n* `if` statement\n* ternary expression\n* `catch` section\n* expression with one or more `&&` or `||` operators inside\n* `switch` block with non-default branches\n\nMethods with too high cyclomatic complexity may be confusing and hard to test.\n\nUse the **Method complexity limit** field to specify the maximum allowed cyclomatic complexity for a method.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "src/main/java/fr/lataverne/itemreward/managers/CustomItem.java",
+      "language": "JAVA",
+      "line": 37,
+      "offset": 30,
+      "length": 13,
+      "code": {
+        "startLine": 35,
+        "length": 13,
+        "offset": 70,
+        "surroundingCode": "\n    @SuppressWarnings(\"DuplicatedCode\")\n    public static CustomItem getCustomItem(ECustomItem customItemType, int amount, int level) {\n        return switch (customItemType) {\n            case GoblinPickaxe -> new GoblinPickaxe(amount);"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "ItemReward",
+    "inspectionName": "CyclomaticComplexity"
+  },
+  "hash": "b13e08a6c77ee2689302907baf225fca3902d613e6e0b3c18c085c1cd5c0163a"
+},{
+  "tool": "Code Inspection",
+  "category": "Method metrics",
+  "type": "Overly complex method",
+  "severity": "High",
+  "comment": "Overly complex method `loadCustomEffect()` (cyclomatic complexity = 11)",
+  "detailsInfo": "Reports methods that have too many branch points.\n\nA branch point is one of the following:\n\n* loop statement\n* `if` statement\n* ternary expression\n* `catch` section\n* expression with one or more `&&` or `||` operators inside\n* `switch` block with non-default branches\n\nMethods with too high cyclomatic complexity may be confusing and hard to test.\n\nUse the **Method complexity limit** field to specify the maximum allowed cyclomatic complexity for a method.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "src/main/java/fr/lataverne/itemreward/managers/CustomEffect.java",
+      "language": "JAVA",
+      "line": 66,
+      "offset": 24,
+      "length": 16,
+      "code": {
+        "startLine": 64,
+        "length": 16,
+        "offset": 30,
+        "surroundingCode": "    }\n\n    public static void loadCustomEffect(UUID playerUUID) {\n        if (playerUUID == null) {\n            return;"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "ItemReward",
+    "inspectionName": "CyclomaticComplexity"
+  },
+  "hash": "b26761929a40a63a930e8eea276a2fdbad51eb2c1bb3d535fa62cfe4da379565"
+},{
+  "tool": "Code Inspection",
+  "category": "Method metrics",
+  "type": "Overly complex method",
+  "severity": "High",
+  "comment": "Overly complex method `onCommand()` (cyclomatic complexity = 15)",
+  "detailsInfo": "Reports methods that have too many branch points.\n\nA branch point is one of the following:\n\n* loop statement\n* `if` statement\n* ternary expression\n* `catch` section\n* expression with one or more `&&` or `||` operators inside\n* `switch` block with non-default branches\n\nMethods with too high cyclomatic complexity may be confusing and hard to test.\n\nUse the **Method complexity limit** field to specify the maximum allowed cyclomatic complexity for a method.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "src/main/java/fr/lataverne/itemreward/managers/CommandManager.java",
+      "language": "JAVA",
+      "line": 18,
+      "offset": 20,
+      "length": 9,
+      "code": {
+        "startLine": 16,
+        "length": 9,
+        "offset": 34,
+        "surroundingCode": "\n    @Override\n    public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String s, String[] args) {\n        if (sender instanceof Player player) {\n"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "ItemReward",
+    "inspectionName": "CyclomaticComplexity"
+  },
+  "hash": "c76b6d95f02f9f885c0355acba72dff120fd4875935a871845868be8717bd695"
+},{
+  "tool": "Code Inspection",
+  "category": "Method metrics",
+  "type": "Overly complex method",
+  "severity": "High",
+  "comment": "Overly complex method `giveCustomsItem()` (cyclomatic complexity = 12)",
+  "detailsInfo": "Reports methods that have too many branch points.\n\nA branch point is one of the following:\n\n* loop statement\n* `if` statement\n* ternary expression\n* `catch` section\n* expression with one or more `&&` or `||` operators inside\n* `switch` block with non-default branches\n\nMethods with too high cyclomatic complexity may be confusing and hard to test.\n\nUse the **Method complexity limit** field to specify the maximum allowed cyclomatic complexity for a method.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "src/main/java/fr/lataverne/itemreward/managers/CommandManager.java",
+      "language": "JAVA",
+      "line": 84,
+      "offset": 25,
+      "length": 15,
+      "code": {
+        "startLine": 82,
+        "length": 15,
+        "offset": 31,
+        "surroundingCode": "    }\n\n    private static void giveCustomsItem(CommandSender sender, String @NotNull [] args) {\n        if (args.length < 1) {\n            Helper.sendMessage(sender, Helper.getStringInConfig(\"message.user.misuseCommand\", false));"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "ItemReward",
+    "inspectionName": "CyclomaticComplexity"
+  },
+  "hash": "3f9cfd7df055e37c3ca36c80823a930f3981f49afc47cc105a5ff5c66b1975be"
+},{
+  "tool": "Code Inspection",
+  "category": "Method metrics",
+  "type": "Method with multiple loops",
+  "severity": "High",
+  "comment": "`onCommand` contains 2 loops",
+  "detailsInfo": "Reports methods that contain more than one loop statement.\n\n**Example:**\n\nThe method below will be reported because it contains two loops:\n\n\n      void methodWithTwoLoops(int n1, int n2) {\n        for (int i = 0; i < n1; i++) {\n          System.out.println(i);\n        }\n\n        int j = 0;\n        while (j < n2) {\n          System.out.println(j);\n          j++;\n        }\n      }\n\nThe following method will also be reported because it contains a nested loop:\n\n\n      void methodWithNestedLoop(int n1, int n2) {\n        for (int i = 0; i < n1; i++) {\n          for (int j = 0; j < n2; j++) {\n            System.out.println(i + j);\n          }\n        }\n      }\n",
+  "sources": [
+    {
+      "type": "file",
+      "path": "src/main/java/fr/lataverne/itemreward/managers/CommandManager.java",
+      "language": "JAVA",
+      "line": 18,
+      "offset": 20,
+      "length": 9,
+      "code": {
+        "startLine": 16,
+        "length": 9,
+        "offset": 34,
+        "surroundingCode": "\n    @Override\n    public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String s, String[] args) {\n        if (sender instanceof Player player) {\n"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "ItemReward",
+    "inspectionName": "MethodWithMultipleLoops"
+  },
+  "hash": "779c72cffff34b2d3ef6131a2d7a98cdaf4dcbf5538d216ed5df62e9a89f676e"
+},{
+  "tool": "Code Inspection",
+  "category": "Declaration redundancy",
+  "type": "Unused library",
+  "severity": "High",
+  "comment": "Unused library 'Maven: com.google.guava:listenablefuture:9999.0-empty-to-avoid-conflict-with-guava'",
+  "detailsInfo": "Reports libraries attached to the specified inspection scope that are not used directly in code.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "ItemReward.iml",
+      "language": "",
+      "line": 0,
+      "offset": 0,
+      "length": 0,
+      "code": {
+        "startLine": 0,
+        "length": 0,
+        "offset": 0,
+        "surroundingCode": ""
+      }
+    }
+  ],
+  "attributes": {
+    "module": "ItemReward",
+    "inspectionName": "UnusedLibrary"
+  },
+  "hash": "ece06549a9822e3b4a5213a7737ff4e7dc114af8df369a6999c4d2544ce8617a"
+},{
+  "tool": "Code Inspection",
+  "category": "Declaration redundancy",
+  "type": "Unused library",
+  "severity": "High",
+  "comment": "Unused library 'Maven: com.google.code.findbugs:jsr305:3.0.2'",
+  "detailsInfo": "Reports libraries attached to the specified inspection scope that are not used directly in code.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "ItemReward.iml",
+      "language": "",
+      "line": 0,
+      "offset": 0,
+      "length": 0,
+      "code": {
+        "startLine": 0,
+        "length": 0,
+        "offset": 0,
+        "surroundingCode": ""
+      }
+    }
+  ],
+  "attributes": {
+    "module": "ItemReward",
+    "inspectionName": "UnusedLibrary"
+  },
+  "hash": "7405dabe6e750736f9139d2aa2465e86b66fc48dd00c9bd411a6ac4bee4fa3ef"
+},{
+  "tool": "Code Inspection",
+  "category": "Control flow issues",
+  "type": "'if' statement with too many branches",
+  "severity": "High",
+  "comment": "`if` has too many branches (6)",
+  "detailsInfo": "Reports `if` statements with too many branches.\n\nSuch statements may be confusing and are often a sign of inadequate levels of design\nabstraction.\n\n\nUse the **Maximum number of branches** field to specify the maximum number of branches an `if` statement is allowed to have.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "src/main/java/fr/lataverne/itemreward/items/GoblinPickaxe.java",
+      "language": "JAVA",
+      "line": 60,
+      "offset": 13,
+      "length": 2,
+      "code": {
+        "startLine": 58,
+        "length": 2,
+        "offset": 75,
+        "surroundingCode": "\n            int mineralRand = new SecureRandom().nextInt(65);\n            if (mineralRand <= 14) {\n                e.getBlock()\n                 .getLocation()"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "ItemReward",
+    "inspectionName": "IfStatementWithTooManyBranches"
+  },
+  "hash": "0bad8f9d8777e56de0e17a9d2fcba00e8d15d8d5ff585cb7b976a7d88341ecb3"
+},{
+  "tool": "Code Inspection",
+  "category": "Error handling",
+  "type": "Nested 'try' statement",
+  "severity": "High",
+  "comment": "Nested `try` statement",
+  "detailsInfo": "Reports nested `try` statements.\n\nNested `try` statements\nmay result in unclear code and should probably have their `catch` and `finally` sections\nmerged.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "src/main/java/fr/lataverne/itemreward/managers/CustomEffect.java",
+      "language": "JAVA",
+      "line": 96,
+      "offset": 17,
+      "length": 3,
+      "code": {
+        "startLine": 94,
+        "length": 3,
+        "offset": 35,
+        "surroundingCode": "                }\n\n                try {\n                    ECustomEffect eCustomEffect = ECustomEffect.valueOf(entry.getKey());\n"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "ItemReward",
+    "inspectionName": "NestedTryStatement"
+  },
+  "hash": "ceb7190847020adb58c9a449c1f8ed057d087fe03743ca876d98ef7d4265f103"
+},{
+  "tool": "Code Inspection",
+  "category": "Class metrics",
+  "type": "Overly coupled class",
+  "severity": "High",
+  "comment": "`CustomItem` is overly coupled (dependencies = 16)",
+  "detailsInfo": "Reports classes that reference too many other classes.\n\nClasses with too high coupling can be very fragile, and should probably be split into smaller classes.\n\nConfigure the inspection:\n\n* Use the **Class coupling limit** field to specify the maximum allowed coupling for a class.\n* Use the **Include couplings to java system classes** option to specify whether references to system classes (those in the `java.`or `javax.` packages) should be counted.\n* Use the **Include couplings to library classes** option to specify whether references to any library classes should be counted.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "src/main/java/fr/lataverne/itemreward/managers/CustomItem.java",
+      "language": "JAVA",
+      "line": 18,
+      "offset": 23,
+      "length": 10,
+      "code": {
+        "startLine": 16,
+        "length": 10,
+        "offset": 66,
+        "surroundingCode": "import org.jetbrains.annotations.Nullable;\n\npublic abstract class CustomItem extends ItemStack {\n\n    private static final String NBTTag = \"CustomItemType\";"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "ItemReward",
+    "inspectionName": "ClassCoupling"
+  },
+  "hash": "82b52e449217344ce0cd14dff97f3c87f59b29e5986f964fdb0ebe4ed3471e93"
+},{
+  "tool": "Code Inspection",
+  "category": "Method metrics",
+  "type": "Overly long method",
+  "severity": "High",
+  "comment": "`getCustomItem` is too long (# Non-comment source statements = 36)",
+  "detailsInfo": "Reports methods whose number of statements exceeds the specified maximum.\n\nMethods with too many statements may be confusing and are a good sign that refactoring is necessary.\n\nThe following statements are not counted:\n\n* empty statements (semicolons)\n* block statements\n* `for` loop initialization statements, that is, `int i = ...` within a `for(int i = ...;...)` statement\n* `for` loop update statements, that is, `i += 2` within a `for(int i = ...;...; i += 2)` statement\n\nUse the **Maximum statements per method** field to specify the maximum allowed number of statements in a method.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "src/main/java/fr/lataverne/itemreward/managers/CustomItem.java",
+      "language": "JAVA",
+      "line": 58,
+      "offset": 40,
+      "length": 13,
+      "code": {
+        "startLine": 56,
+        "length": 13,
+        "offset": 80,
+        "surroundingCode": "\n    @SuppressWarnings(\"DuplicatedCode\")\n    public static @Nullable CustomItem getCustomItem(ItemStack itemStack) {\n        if (itemStack == null || itemStack.getItemMeta() == null || !Helper.hasNBT(itemStack, CustomItem.NBTTag)) {\n            return null;"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "ItemReward",
+    "inspectionName": "NonCommentSourceStatements"
+  },
+  "hash": "09d11279bf396839df743ce2f39ef432e3f33845564fffc80edceafe4e0d0571"
+},{
+  "tool": "Code Inspection",
+  "category": "Method metrics",
+  "type": "Overly long method",
+  "severity": "High",
+  "comment": "`getCustomItem` is too long (# Non-comment source statements = 31)",
+  "detailsInfo": "Reports methods whose number of statements exceeds the specified maximum.\n\nMethods with too many statements may be confusing and are a good sign that refactoring is necessary.\n\nThe following statements are not counted:\n\n* empty statements (semicolons)\n* block statements\n* `for` loop initialization statements, that is, `int i = ...` within a `for(int i = ...;...)` statement\n* `for` loop update statements, that is, `i += 2` within a `for(int i = ...;...; i += 2)` statement\n\nUse the **Maximum statements per method** field to specify the maximum allowed number of statements in a method.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "src/main/java/fr/lataverne/itemreward/managers/CustomItem.java",
+      "language": "JAVA",
+      "line": 37,
+      "offset": 30,
+      "length": 13,
+      "code": {
+        "startLine": 35,
+        "length": 13,
+        "offset": 70,
+        "surroundingCode": "\n    @SuppressWarnings(\"DuplicatedCode\")\n    public static CustomItem getCustomItem(ECustomItem customItemType, int amount, int level) {\n        return switch (customItemType) {\n            case GoblinPickaxe -> new GoblinPickaxe(amount);"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "ItemReward",
+    "inspectionName": "NonCommentSourceStatements"
+  },
+  "hash": "2a1a6ef69e5ee0826af56438ec0824d4fd6d55e54de76b6354bdab64160585f5"
+},{
+  "tool": "Code Inspection",
+  "category": "Method metrics",
+  "type": "Overly long method",
+  "severity": "High",
+  "comment": "`onCommand` is too long (# Non-comment source statements = 36)",
+  "detailsInfo": "Reports methods whose number of statements exceeds the specified maximum.\n\nMethods with too many statements may be confusing and are a good sign that refactoring is necessary.\n\nThe following statements are not counted:\n\n* empty statements (semicolons)\n* block statements\n* `for` loop initialization statements, that is, `int i = ...` within a `for(int i = ...;...)` statement\n* `for` loop update statements, that is, `i += 2` within a `for(int i = ...;...; i += 2)` statement\n\nUse the **Maximum statements per method** field to specify the maximum allowed number of statements in a method.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "src/main/java/fr/lataverne/itemreward/managers/CommandManager.java",
+      "language": "JAVA",
+      "line": 18,
+      "offset": 20,
+      "length": 9,
+      "code": {
+        "startLine": 16,
+        "length": 9,
+        "offset": 34,
+        "surroundingCode": "\n    @Override\n    public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String s, String[] args) {\n        if (sender instanceof Player player) {\n"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "ItemReward",
+    "inspectionName": "NonCommentSourceStatements"
+  },
+  "hash": "830d51cfd840efb040ed92cc3b06bdd64d8c1f691e2a80ea939282c87caf9536"
+},{
+  "tool": "Code Inspection",
+  "category": "Method metrics",
+  "type": "Overly coupled method",
+  "severity": "High",
+  "comment": "`getCustomItem` is overly coupled (# referenced classes = 16)",
+  "detailsInfo": "Reports methods that reference too many other classes. Methods with too high coupling can be very fragile and should be probably split into smaller methods.\n\nEach referenced class is counted only once no matter how many times it is referenced.\n\nConfigure the inspection:\n\n* Use the **Method coupling limit** field to specify the maximum allowed coupling for a method.\n* Use the **Include couplings to java system classes** option to count references to classes from `java`or `javax` packages.\n* Use the **Include couplings to library classes** option to count references to third-party library classes.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "src/main/java/fr/lataverne/itemreward/managers/CustomItem.java",
+      "language": "JAVA",
+      "line": 58,
+      "offset": 40,
+      "length": 13,
+      "code": {
+        "startLine": 56,
+        "length": 13,
+        "offset": 80,
+        "surroundingCode": "\n    @SuppressWarnings(\"DuplicatedCode\")\n    public static @Nullable CustomItem getCustomItem(ItemStack itemStack) {\n        if (itemStack == null || itemStack.getItemMeta() == null || !Helper.hasNBT(itemStack, CustomItem.NBTTag)) {\n            return null;"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "ItemReward",
+    "inspectionName": "MethodCoupling"
+  },
+  "hash": "f1b0be42803badb2bcd00d15fb0a706dc0608f19e6b7ae329d78a235ef54089b"
+},{
+  "tool": "Code Inspection",
+  "category": "Method metrics",
+  "type": "Overly coupled method",
+  "severity": "High",
+  "comment": "`getCustomItem` is overly coupled (# referenced classes = 16)",
+  "detailsInfo": "Reports methods that reference too many other classes. Methods with too high coupling can be very fragile and should be probably split into smaller methods.\n\nEach referenced class is counted only once no matter how many times it is referenced.\n\nConfigure the inspection:\n\n* Use the **Method coupling limit** field to specify the maximum allowed coupling for a method.\n* Use the **Include couplings to java system classes** option to count references to classes from `java`or `javax` packages.\n* Use the **Include couplings to library classes** option to count references to third-party library classes.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "src/main/java/fr/lataverne/itemreward/managers/CustomItem.java",
+      "language": "JAVA",
+      "line": 37,
+      "offset": 30,
+      "length": 13,
+      "code": {
+        "startLine": 35,
+        "length": 13,
+        "offset": 70,
+        "surroundingCode": "\n    @SuppressWarnings(\"DuplicatedCode\")\n    public static CustomItem getCustomItem(ECustomItem customItemType, int amount, int level) {\n        return switch (customItemType) {\n            case GoblinPickaxe -> new GoblinPickaxe(amount);"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "ItemReward",
+    "inspectionName": "MethodCoupling"
+  },
+  "hash": "edabf650045df58ced497ca097cd636420bc7f38cf124f00c2378e5f8dd16ed2"
+},{
+  "tool": "Code Inspection",
+  "category": "Code maturity",
+  "type": "Deprecated API usage",
+  "severity": "High",
+  "comment": "'JsonParser()' is deprecated",
+  "detailsInfo": "Reports usages of deprecated APIs (classes, fields, and methods), for example: `new Thread().stop();`.\n\nBy default, the inspection doesn't produce a warning if it's impossible or hard to avoid it. For example,\nthe following code won't be reported:\n\n\n      abstract class A { //library code\n         @Deprecated\n         abstract void m();\n      }\n      class B extends A { //project code\n         @Override\n         void m() {\n            //doSmth;\n         }\n      }\n\nConfigure the inspection:\n\n\nUse the inspection's options to disable this inspection inside deprecated members,\noverrides of abstract deprecated methods, non-static import statements, methods of deprecated classes, or same top-level classes.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "src/main/java/fr/lataverne/itemreward/managers/CustomEffect.java",
+      "language": "JAVA",
+      "line": 80,
+      "offset": 41,
+      "length": 10,
+      "code": {
+        "startLine": 78,
+        "length": 10,
+        "offset": 149,
+        "surroundingCode": "            Reader reader = Files.newBufferedReader(Paths.get(CustomEffect.customEffectPath + playerUUID));\n\n            JsonParser jsonParser = new JsonParser();\n\n            JsonObject json = jsonParser.parse(reader).getAsJsonObject();"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "ItemReward",
+    "inspectionName": "Deprecation"
+  },
+  "hash": "b000266f2868175c85cba0955e9d497d7121076cc5bc5eedc2db486593e63226"
+},{
+  "tool": "Code Inspection",
+  "category": "Code maturity",
+  "type": "Deprecated API usage",
+  "severity": "High",
+  "comment": "'parse(java.io.Reader)' is deprecated",
+  "detailsInfo": "Reports usages of deprecated APIs (classes, fields, and methods), for example: `new Thread().stop();`.\n\nBy default, the inspection doesn't produce a warning if it's impossible or hard to avoid it. For example,\nthe following code won't be reported:\n\n\n      abstract class A { //library code\n         @Deprecated\n         abstract void m();\n      }\n      class B extends A { //project code\n         @Override\n         void m() {\n            //doSmth;\n         }\n      }\n\nConfigure the inspection:\n\n\nUse the inspection's options to disable this inspection inside deprecated members,\noverrides of abstract deprecated methods, non-static import statements, methods of deprecated classes, or same top-level classes.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "src/main/java/fr/lataverne/itemreward/managers/CustomEffect.java",
+      "language": "JAVA",
+      "line": 82,
+      "offset": 42,
+      "length": 5,
+      "code": {
+        "startLine": 80,
+        "length": 5,
+        "offset": 96,
+        "surroundingCode": "            JsonParser jsonParser = new JsonParser();\n\n            JsonObject json = jsonParser.parse(reader).getAsJsonObject();\n\n            LocalDateTime dateTime = LocalDateTime.parse(json.get(\"dateTime\").getAsString());"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "ItemReward",
+    "inspectionName": "Deprecation"
+  },
+  "hash": "681a1463e65435a4894f735d72bec349114a71b726059861efb41409ac706ffb"
+},{
+  "tool": "Code Inspection",
+  "category": "Method metrics",
+  "type": "Method with multiple return points",
+  "severity": "High",
+  "comment": "`loadCustomEffect` has 4 return points",
+  "detailsInfo": "Reports methods whose number of `return` points exceeds the specified maximum. Methods with too many `return` points may be confusing and hard to refactor.\n\nA `return` point is either a `return` statement or a falling through the bottom of a\n`void` method or constructor.\n\n**Example:**\n\nThe method below is reported if only two `return` statements are allowed:\n\n\n      void doSmth(User[] users) {\n        for (User user : users) {\n          if (cond1(user)) {\n            user.setId(getId());\n            return;\n          } else if (cond2(user)) {\n            if (cond3(user)) {\n              user.setId(getId());\n              return;\n            }\n          }\n        }\n      }\n\nConsider rewriting the method so it becomes easier to understand:\n\n\n      void doSmth(User[] users) {\n        for (User user : users) {\n          if (cond1(user) || cond2(user) && cond3(user)) {\n            user.setId(getId());\n            return;\n          }\n        }\n      }\n\nConfigure the inspection:\n\n* Use the **Return point limit** field to specify the maximum allowed number of `return` points for a method.\n* Use the **Ignore guard clauses** option to ignore guard clauses. A guard clause is an `if` statement that contains only a `return` statement\n* Use the **Ignore for 'equals()' methods** option to ignore `return` points inside `equals()` methods.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "src/main/java/fr/lataverne/itemreward/managers/CustomEffect.java",
+      "language": "JAVA",
+      "line": 66,
+      "offset": 24,
+      "length": 16,
+      "code": {
+        "startLine": 64,
+        "length": 16,
+        "offset": 30,
+        "surroundingCode": "    }\n\n    public static void loadCustomEffect(UUID playerUUID) {\n        if (playerUUID == null) {\n            return;"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "ItemReward",
+    "inspectionName": "MultipleReturnPointsPerMethod"
+  },
+  "hash": "1fa85589cedff31bcfc078f712922cf455ce9b52827315fd3ef071ba872317c1"
+},{
+  "tool": "Code Inspection",
+  "category": "Method metrics",
+  "type": "Method with multiple return points",
+  "severity": "High",
+  "comment": "`saveCustomEffect` has 4 return points",
+  "detailsInfo": "Reports methods whose number of `return` points exceeds the specified maximum. Methods with too many `return` points may be confusing and hard to refactor.\n\nA `return` point is either a `return` statement or a falling through the bottom of a\n`void` method or constructor.\n\n**Example:**\n\nThe method below is reported if only two `return` statements are allowed:\n\n\n      void doSmth(User[] users) {\n        for (User user : users) {\n          if (cond1(user)) {\n            user.setId(getId());\n            return;\n          } else if (cond2(user)) {\n            if (cond3(user)) {\n              user.setId(getId());\n              return;\n            }\n          }\n        }\n      }\n\nConsider rewriting the method so it becomes easier to understand:\n\n\n      void doSmth(User[] users) {\n        for (User user : users) {\n          if (cond1(user) || cond2(user) && cond3(user)) {\n            user.setId(getId());\n            return;\n          }\n        }\n      }\n\nConfigure the inspection:\n\n* Use the **Return point limit** field to specify the maximum allowed number of `return` points for a method.\n* Use the **Ignore guard clauses** option to ignore guard clauses. A guard clause is an `if` statement that contains only a `return` statement\n* Use the **Ignore for 'equals()' methods** option to ignore `return` points inside `equals()` methods.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "src/main/java/fr/lataverne/itemreward/managers/CustomEffect.java",
+      "language": "JAVA",
+      "line": 130,
+      "offset": 24,
+      "length": 16,
+      "code": {
+        "startLine": 128,
+        "length": 16,
+        "offset": 30,
+        "surroundingCode": "    }\n\n    public static void saveCustomEffect(UUID playerUUID) {\n        if (playerUUID == null) {\n            return;"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "ItemReward",
+    "inspectionName": "MultipleReturnPointsPerMethod"
+  },
+  "hash": "93a211c7ce6265c4da2142c0c07f9a2fb56e3c22c282e987d420d6def3661567"
+},{
+  "tool": "Code Inspection",
+  "category": "Method metrics",
+  "type": "Method with multiple return points",
+  "severity": "High",
+  "comment": "`onCommand` has 12 return points",
+  "detailsInfo": "Reports methods whose number of `return` points exceeds the specified maximum. Methods with too many `return` points may be confusing and hard to refactor.\n\nA `return` point is either a `return` statement or a falling through the bottom of a\n`void` method or constructor.\n\n**Example:**\n\nThe method below is reported if only two `return` statements are allowed:\n\n\n      void doSmth(User[] users) {\n        for (User user : users) {\n          if (cond1(user)) {\n            user.setId(getId());\n            return;\n          } else if (cond2(user)) {\n            if (cond3(user)) {\n              user.setId(getId());\n              return;\n            }\n          }\n        }\n      }\n\nConsider rewriting the method so it becomes easier to understand:\n\n\n      void doSmth(User[] users) {\n        for (User user : users) {\n          if (cond1(user) || cond2(user) && cond3(user)) {\n            user.setId(getId());\n            return;\n          }\n        }\n      }\n\nConfigure the inspection:\n\n* Use the **Return point limit** field to specify the maximum allowed number of `return` points for a method.\n* Use the **Ignore guard clauses** option to ignore guard clauses. A guard clause is an `if` statement that contains only a `return` statement\n* Use the **Ignore for 'equals()' methods** option to ignore `return` points inside `equals()` methods.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "src/main/java/fr/lataverne/itemreward/managers/CommandManager.java",
+      "language": "JAVA",
+      "line": 18,
+      "offset": 20,
+      "length": 9,
+      "code": {
+        "startLine": 16,
+        "length": 9,
+        "offset": 34,
+        "surroundingCode": "\n    @Override\n    public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String s, String[] args) {\n        if (sender instanceof Player player) {\n"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "ItemReward",
+    "inspectionName": "MultipleReturnPointsPerMethod"
+  },
+  "hash": "a3aadc9dd044e5369798aa5cd9f1f62fd06fb03402b7a284a9b3928ff76c1d33"
+},{
+  "tool": "Code Inspection",
+  "category": "Method metrics",
+  "type": "Method with multiple return points",
+  "severity": "High",
+  "comment": "`giveCustomsItem` has 5 return points",
+  "detailsInfo": "Reports methods whose number of `return` points exceeds the specified maximum. Methods with too many `return` points may be confusing and hard to refactor.\n\nA `return` point is either a `return` statement or a falling through the bottom of a\n`void` method or constructor.\n\n**Example:**\n\nThe method below is reported if only two `return` statements are allowed:\n\n\n      void doSmth(User[] users) {\n        for (User user : users) {\n          if (cond1(user)) {\n            user.setId(getId());\n            return;\n          } else if (cond2(user)) {\n            if (cond3(user)) {\n              user.setId(getId());\n              return;\n            }\n          }\n        }\n      }\n\nConsider rewriting the method so it becomes easier to understand:\n\n\n      void doSmth(User[] users) {\n        for (User user : users) {\n          if (cond1(user) || cond2(user) && cond3(user)) {\n            user.setId(getId());\n            return;\n          }\n        }\n      }\n\nConfigure the inspection:\n\n* Use the **Return point limit** field to specify the maximum allowed number of `return` points for a method.\n* Use the **Ignore guard clauses** option to ignore guard clauses. A guard clause is an `if` statement that contains only a `return` statement\n* Use the **Ignore for 'equals()' methods** option to ignore `return` points inside `equals()` methods.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "src/main/java/fr/lataverne/itemreward/managers/CommandManager.java",
+      "language": "JAVA",
+      "line": 84,
+      "offset": 25,
+      "length": 15,
+      "code": {
+        "startLine": 82,
+        "length": 15,
+        "offset": 31,
+        "surroundingCode": "    }\n\n    private static void giveCustomsItem(CommandSender sender, String @NotNull [] args) {\n        if (args.length < 1) {\n            Helper.sendMessage(sender, Helper.getStringInConfig(\"message.user.misuseCommand\", false));"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "ItemReward",
+    "inspectionName": "MultipleReturnPointsPerMethod"
+  },
+  "hash": "2f5c812cbae4426721617e5c114f76fc43aecd10c5f4fed073e29fa94d1b51ab"
+},{
+  "tool": "Code Inspection",
+  "category": "Memory",
+  "type": "Static collection",
+  "severity": "High",
+  "comment": "Static collection `effectsInProgress`",
+  "detailsInfo": "Reports static fields of a `Collection` type. While it's not necessarily a problem, static collections often cause memory leaks and are therefore prohibited by some coding standards.\n\n**Example:**\n\n\n      public class Example {\n        static List<String> list = new ArrayList<>();\n\n      }\n\n\nConfigure the inspection:\n\n* Use the **Ignore weak static collections or maps** option to ignore the fields of the `java.util.WeakHashMap` type.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "src/main/java/fr/lataverne/itemreward/managers/CustomEffect.java",
+      "language": "JAVA",
+      "line": 26,
+      "offset": 54,
+      "length": 17,
+      "code": {
+        "startLine": 24,
+        "length": 17,
+        "offset": 141,
+        "surroundingCode": "    private static final String customEffectPath = \"plugins/ItemReward/customEffect/\";\n\n    private static final HashMap<UUID, CustomEffect> effectsInProgress = new HashMap<>();\n\n    protected final int level;"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "ItemReward",
+    "inspectionName": "StaticCollection"
+  },
+  "hash": "9ce5f9698c19b7e85cb56df0b4ff2e827a9adef177cf3e1d80cca9b677e09358"
+},{
+  "tool": "Code Inspection",
+  "category": "Control flow issues",
+  "type": "'continue' statement",
+  "severity": "High",
+  "comment": "`continue` statement",
+  "detailsInfo": "Reports `continue` statements.\n\n`continue` statements complicate refactoring and can be confusing.\n\nExample:\n\n\n      void foo(List<String> strs) {\n        for (String str : strs) {\n          if (str.contains(\"skip\")) continue;\n          handleStr(str);\n        }\n      }\n",
+  "sources": [
+    {
+      "type": "file",
+      "path": "src/main/java/fr/lataverne/itemreward/managers/CustomEffect.java",
+      "language": "JAVA",
+      "line": 93,
+      "offset": 21,
+      "length": 8,
+      "code": {
+        "startLine": 91,
+        "length": 8,
+        "offset": 152,
+        "surroundingCode": "            for (Map.Entry<String, JsonElement> entry : json.entrySet()) {\n                if (\"dateTime\".equals(entry.getKey())) {\n                    continue;\n                }\n"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "ItemReward",
+    "inspectionName": "ContinueStatement"
+  },
+  "hash": "a97a34239a75b816e4abd5dd2771b93e765d2f300c93262db1c80cc905ee42bb"
+}]}

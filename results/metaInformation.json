@@ -1,0 +1,16 @@
+{
+  "total": 24,
+  "tools inspection": {
+    "Code Inspection": 24
+  },
+  "attributes": {
+    "vcs": {
+      "sarifIdea": {
+        "repositoryUri": "https://github.com/la-taverne-mc/ItemReward",
+        "revisionId": "6c36ae764fc50dedcc6f656324a131e951a6e99f",
+        "branch": "master"
+      }
+    },
+    "deviceId": "200820300000000-64fb-5198-efe4-79a7740b4883"
+  }
+}
