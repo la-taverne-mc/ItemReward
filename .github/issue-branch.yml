@@ -12,7 +12,7 @@ branches:
     name: master
     prefix: bug/
 openDraftPR: true
-copyIssueDescriptionToPR: true
+copyIssueDescriptionToPR: false
 copyIssueLabelsToPR: true
 copyIssueAssigneeToPR: true
 commentMessage: 'Branch ${branchName} created for issue: ${issue.title}'
