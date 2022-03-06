@@ -15,10 +15,12 @@ import org.bukkit.event.player.PlayerMoveEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
 import org.bukkit.inventory.EquipmentSlot;
 import org.bukkit.inventory.ItemStack;
+import org.jetbrains.annotations.NotNull;
 
 public class EventManager implements Listener {
-    @EventHandler (priority = EventPriority.LOW)
-    private void onBlockBreak(BlockBreakEvent e) {
+
+    @EventHandler(priority = EventPriority.LOW)
+    private static void onBlockBreak(@NotNull BlockBreakEvent e) {
         if (!e.isCancelled()) {
             ItemStack itemInMainHand = e.getPlayer().getInventory().getItemInMainHand();
 
@@ -30,7 +32,7 @@ public class EventManager implements Listener {
     }
 
     @EventHandler
-    private void onBlockCook(BlockCookEvent e) {
+    private static void onBlockCook(@NotNull BlockCookEvent e) {
         if (!e.isCancelled()) {
             ItemStack item = e.getSource();
 
@@ -42,7 +44,7 @@ public class EventManager implements Listener {
     }
 
     @EventHandler
-    private void onEntityDeath(EntityDeathEvent e) {
+    private static void onEntityDeath(@NotNull EntityDeathEvent e) {
         Player killer = e.getEntity().getKiller();
 
         if (killer != null) {
@@ -55,24 +57,23 @@ public class EventManager implements Listener {
         }
     }
 
-    @EventHandler (priority = EventPriority.LOWEST)
-    private void onInventoryClick(InventoryClickEvent e) {
+    @EventHandler(priority = EventPriority.LOWEST)
+    private static void onInventoryClick(@NotNull InventoryClickEvent e) {
         if (!e.isCancelled()) {
             CustomItem customItem = CustomItem.getCustomItem(e.getCursor());
             if (customItem != null && CustomItem.useInventoryClickEvent(customItem)) {
                 customItem.onInventoryClick(e);
             }
 
-            customItem = CustomItem.getCustomItem(e.getCurrentItem());
-            if (customItem != null && CustomItem.useInventoryClickEvent(customItem)) {
-                customItem.onInventoryClick(e);
+            CustomItem item = CustomItem.getCustomItem(e.getCurrentItem());
+            if (item != null && CustomItem.useInventoryClickEvent(item)) {
+                item.onInventoryClick(e);
             }
-
         }
     }
 
     @EventHandler
-    private void onPlayerItemConsume(PlayerItemConsumeEvent e) {
+    private static void onPlayerItemConsume(@NotNull PlayerItemConsumeEvent e) {
         if (!e.isCancelled()) {
             CustomItem customItem = CustomItem.getCustomItem(e.getItem());
             if (customItem != null) {
@@ -90,12 +91,12 @@ public class EventManager implements Listener {
     }
 
     @EventHandler
-    private void onPlayerJoin(PlayerJoinEvent e) {
+    private static void onPlayerJoin(@NotNull PlayerJoinEvent e) {
         CustomEffect.loadCustomEffect(e.getPlayer().getUniqueId());
     }
 
     @EventHandler
-    private void onPlayerMove(PlayerMoveEvent e) {
+    private static void onPlayerMove(@NotNull PlayerMoveEvent e) {
         if (!e.isCancelled()) {
             ItemStack itemOnFeet = e.getPlayer().getInventory().getItem(EquipmentSlot.FEET);
 
@@ -107,7 +108,7 @@ public class EventManager implements Listener {
     }
 
     @EventHandler
-    private void onPlayerQuit(PlayerQuitEvent e) {
+    private static void onPlayerQuit(@NotNull PlayerQuitEvent e) {
         CustomEffect.saveCustomEffect(e.getPlayer().getUniqueId());
     }
 }

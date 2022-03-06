@@ -1,5 +1,6 @@
 package fr.lataverne.itemreward.managers;
 
+import fr.lataverne.itemreward.Helper;
 import fr.lataverne.itemreward.items.*;
 import fr.lataverne.itemreward.items.potions.*;
 import org.apache.commons.lang.NotImplementedException;
@@ -11,235 +12,145 @@ import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.event.player.PlayerItemConsumeEvent;
 import org.bukkit.event.player.PlayerMoveEvent;
 import org.bukkit.inventory.ItemStack;
-
-import static fr.lataverne.itemreward.Helper.*;
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
 public abstract class CustomItem extends ItemStack {
 
-    public enum ECustomItem {
-        GoblinPickaxe,
-        GiantBoots,
-        UnbreakableHoe,
-        RawBear,
-        RawHorse,
-        CookedBear,
-        CookedHorse,
-        ULU,
-        IndianSpear,
-        BaseballBat,
-        FlyPotion,
-        PhantomPotion,
-        MiningPotion,
-        CreeperPotion,
-        SwimmingPotion,
-    }
-
     private static final String NBTTag = "CustomItemType";
 
-    public CustomItem(Material material) {
-        this(material, 1);
-    }
-
-    public CustomItem(Material material, int amount) {
+    protected CustomItem(Material material, int amount) {
         super(material, amount);
 
         this.init();
     }
 
-    public CustomItem(ItemStack itemStack) {
+    protected CustomItem(ItemStack itemStack) {
         super(itemStack);
     }
 
     public static CustomItem getCustomItem(ECustomItem customItemType) {
-        return getCustomItem(customItemType, 1, 1);
+        return CustomItem.getCustomItem(customItemType, 1, 1);
     }
 
+    @SuppressWarnings("DuplicatedCode")
     public static CustomItem getCustomItem(ECustomItem customItemType, int amount, int level) {
-        switch (customItemType) {
-            case GoblinPickaxe:
-                return new GoblinPickaxe(amount);
-            case GiantBoots:
-                return new GiantBoots(amount);
-            case UnbreakableHoe:
-                return new UnbreakableHoe(amount);
-            case RawBear:
-                return new RawBear(amount);
-            case RawHorse:
-                return new RawHorse(amount);
-            case CookedBear:
-                return new CookedBear(amount);
-            case CookedHorse:
-                return new CookedHorse(amount);
-            case ULU:
-                return new ULU(amount);
-            case IndianSpear:
-                return new IndianSpear(amount);
-            case BaseballBat:
-                return new BaseballBat(amount);
-            case FlyPotion:
-                return new FlyPotion(amount, level);
-            case PhantomPotion:
-                return new PhantomPotion(amount);
-            case MiningPotion:
-                return new MiningPotion(amount);
-            case CreeperPotion:
-                return new CreeperPotion(amount);
-            case SwimmingPotion:
-                return new SwimmingPotion(amount);
-            default:
-                return null;
-        }
+        return switch (customItemType) {
+            case GoblinPickaxe -> new GoblinPickaxe(amount);
+            case GiantBoots -> new GiantBoots(amount);
+            case UnbreakableHoe -> new UnbreakableHoe(amount);
+            case RawBear -> new RawBear(amount);
+            case RawHorse -> new RawHorse(amount);
+            case CookedBear -> new CookedBear(amount);
+            case CookedHorse -> new CookedHorse(amount);
+            case ULU -> new ULU(amount);
+            case IndianSpear -> new IndianSpear(amount);
+            case BaseballBat -> new BaseballBat(amount);
+            case FlyPotion -> new FlyPotion(level, amount);
+            case PhantomPotion -> new PhantomPotion(amount);
+            case MiningPotion -> new MiningPotion(amount);
+            case CreeperPotion -> new CreeperPotion(amount);
+            case SwimmingPotion -> new SwimmingPotion(amount);
+        };
     }
 
-    public static CustomItem getCustomItem(ItemStack itemStack) {
-        if (itemStack == null || itemStack.getItemMeta() == null || !hasNBT(itemStack, NBTTag)) {
+    @SuppressWarnings("DuplicatedCode")
+    public static @Nullable CustomItem getCustomItem(ItemStack itemStack) {
+        if (itemStack == null || itemStack.getItemMeta() == null || !Helper.hasNBT(itemStack, CustomItem.NBTTag)) {
             return null;
         }
 
         try {
-            ECustomItem customItemType = ECustomItem.valueOf(getNBT(itemStack, NBTTag));
+            ECustomItem customItemType = ECustomItem.valueOf(Helper.getNBT(itemStack, CustomItem.NBTTag));
 
-            switch (customItemType) {
-                case GoblinPickaxe:
-                    return new GoblinPickaxe(itemStack);
-                case GiantBoots:
-                    return new GiantBoots(itemStack);
-                case UnbreakableHoe:
-                    return new UnbreakableHoe(itemStack);
-                case RawBear:
-                    return new RawBear(itemStack);
-                case RawHorse:
-                    return new RawHorse(itemStack);
-                case CookedBear:
-                    return new CookedBear(itemStack);
-                case CookedHorse:
-                    return new CookedHorse(itemStack);
-                case ULU:
-                    return new ULU(itemStack);
-                case IndianSpear:
-                    return new IndianSpear(itemStack);
-                case BaseballBat:
-                    return new BaseballBat(itemStack);
-                case FlyPotion:
-                    return new FlyPotion(itemStack);
-                case PhantomPotion:
-                    return new PhantomPotion(itemStack);
-                case MiningPotion:
-                    return new MiningPotion(itemStack);
-                case CreeperPotion:
-                    return new CreeperPotion(itemStack);
-                case SwimmingPotion:
-                    return new SwimmingPotion(itemStack);
-                default:
-                    throw new NotImplementedException("Custom item type not implemented");
-            }
+            return switch (customItemType) {
+                case GoblinPickaxe -> new GoblinPickaxe(itemStack);
+                case GiantBoots -> new GiantBoots(itemStack);
+                case UnbreakableHoe -> new UnbreakableHoe(itemStack);
+                case RawBear -> new RawBear(itemStack);
+                case RawHorse -> new RawHorse(itemStack);
+                case CookedBear -> new CookedBear(itemStack);
+                case CookedHorse -> new CookedHorse(itemStack);
+                case ULU -> new ULU(itemStack);
+                case IndianSpear -> new IndianSpear(itemStack);
+                case BaseballBat -> new BaseballBat(itemStack);
+                case FlyPotion -> new FlyPotion(itemStack);
+                case PhantomPotion -> new PhantomPotion(itemStack);
+                case MiningPotion -> new MiningPotion(itemStack);
+                case CreeperPotion -> new CreeperPotion(itemStack);
+                case SwimmingPotion -> new SwimmingPotion(itemStack);
+            };
         } catch (IllegalArgumentException ex) {
-            throw new IllegalArgumentException("Bad NBT tag for the custom item type. Value: " + getNBT(itemStack, NBTTag));
+            throw new IllegalArgumentException(
+                    "Bad NBT tag for the custom item type. Value: " + Helper.getNBT(itemStack, CustomItem.NBTTag));
         }
     }
 
-    public static boolean useBlockBreakEvent(CustomItem customItem) {
-        //noinspection SwitchStatementWithTooFewBranches
-        switch (customItem.getCustomItemType()) {
-            case GoblinPickaxe:
-                return true;
-            default:
-                return false;
-        }
+    public static boolean useBlockBreakEvent(@NotNull CustomItem customItem) {
+        return customItem.getCustomItemType() == ECustomItem.GoblinPickaxe;
     }
 
-    public static boolean useBlockCookEvent(CustomItem customItem) {
-        switch (customItem.getCustomItemType()) {
-            case RawBear:
-            case RawHorse:
-                return true;
-            default:
-                return false;
-        }
+    public static boolean useBlockCookEvent(@NotNull CustomItem customItem) {
+        return switch (customItem.getCustomItemType()) {
+            case RawBear, RawHorse -> true;
+            default -> false;
+        };
     }
 
-    public static boolean useEntityDeathEvent(CustomItem customItem) {
-        switch (customItem.getCustomItemType()) {
-            case ULU:
-            case IndianSpear:
-                return true;
-            default:
-                return false;
-        }
+    public static boolean useEntityDeathEvent(@NotNull CustomItem customItem) {
+        return switch (customItem.getCustomItemType()) {
+            case ULU, IndianSpear -> true;
+            default -> false;
+        };
     }
 
-    public static boolean useInventoryClickEvent(CustomItem customItem) {
-        switch (customItem.getCustomItemType()) {
-            case GiantBoots:
-            case GoblinPickaxe:
-            case IndianSpear:
-            case RawBear:
-            case RawHorse:
-            case ULU:
-            case UnbreakableHoe:
-            case BaseballBat:
-                return true;
-            default:
-                return false;
-        }
+    public static boolean useInventoryClickEvent(@NotNull CustomItem customItem) {
+        return switch (customItem.getCustomItemType()) {
+            case GiantBoots, GoblinPickaxe, IndianSpear, RawBear, RawHorse, ULU, UnbreakableHoe, BaseballBat -> true;
+            default -> false;
+        };
     }
 
-    public static boolean usePlayerItemConsumeEvent(CustomItem customItem) {
-        switch (customItem.getCustomItemType()) {
-            case RawBear:
-            case RawHorse:
-            case CookedBear:
-            case CookedHorse:
-            case FlyPotion:
-            case PhantomPotion:
-            case MiningPotion:
-            case CreeperPotion:
-            case SwimmingPotion:
-                return true;
-            default:
-                return false;
-        }
+    public static boolean usePlayerItemConsumeEvent(@NotNull CustomItem customItem) {
+        return switch (customItem.getCustomItemType()) {
+            case RawBear, RawHorse, CookedBear, CookedHorse, FlyPotion, PhantomPotion, MiningPotion, CreeperPotion, SwimmingPotion -> true;
+            default -> false;
+        };
     }
 
-    public static boolean usePlayerMoveEvent(CustomItem customItem) {
-        //noinspection SwitchStatementWithTooFewBranches
-        switch (customItem.getCustomItemType()) {
-            case GiantBoots:
-                return true;
-            default:
-                return false;
-        }
+    public static boolean usePlayerMoveEvent(@NotNull CustomItem customItem) {
+        return customItem.getCustomItemType() == ECustomItem.GiantBoots;
     }
 
     public abstract ECustomItem getCustomItemType();
 
     protected abstract String getConfigPath();
 
-    protected void onBlockBreak(BlockBreakEvent e) throws NotImplementedException {
+    protected void onBlockBreak(BlockBreakEvent e) {
         throw new NotImplementedException("Not implemented");
     }
 
-    protected void onBlockCook(BlockCookEvent e) throws NotImplementedException {
+    protected void onBlockCook(BlockCookEvent e) {
         throw new NotImplementedException("Not implemented");
     }
 
-    protected void onEntityDeath(EntityDeathEvent e) throws NotImplementedException {
+    protected void onEntityDeath(EntityDeathEvent e) {
         throw new NotImplementedException("Not implemented");
     }
 
-    protected void onInventoryClick(InventoryClickEvent e) throws NotImplementedException {
+    protected void onInventoryClick(InventoryClickEvent e) {
         throw new NotImplementedException("Not implemented");
     }
 
-    protected void onPlayerItemConsume(PlayerItemConsumeEvent e) throws NotImplementedException {
+    protected void onPlayerItemConsume(PlayerItemConsumeEvent e) {
         throw new NotImplementedException("Not implemented");
     }
 
-    protected void onPlayerMove(PlayerMoveEvent e) throws NotImplementedException {
+    protected void onPlayerMove(PlayerMoveEvent e) {
         throw new NotImplementedException("Not implemented");
     }
 
     private void init() {
-        addNBT(this, NBTTag, this.getCustomItemType().toString());
+        Helper.addNBT(this, CustomItem.NBTTag, this.getCustomItemType().toString());
     }
 }

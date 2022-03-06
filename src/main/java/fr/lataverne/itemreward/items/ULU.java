@@ -1,6 +1,8 @@
 package fr.lataverne.itemreward.items;
 
+import fr.lataverne.itemreward.Helper;
 import fr.lataverne.itemreward.managers.CustomItem;
+import fr.lataverne.itemreward.managers.ECustomItem;
 import org.bukkit.Material;
 import org.bukkit.World;
 import org.bukkit.attribute.Attribute;
@@ -13,13 +15,13 @@ import org.bukkit.inventory.EquipmentSlot;
 import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.Objects;
 import java.util.UUID;
 
-import static fr.lataverne.itemreward.Helper.*;
-
 public class ULU extends CustomItem {
+
     public ULU(int amount) {
         super(Material.STONE_AXE, amount);
 
@@ -34,12 +36,12 @@ public class ULU extends CustomItem {
 
         itemMeta.setCustomModelData(1);
 
-        if (configPathExists(this.getConfigPath() + ".displayName")) {
-            itemMeta.setDisplayName(getStringInConfig(this.getConfigPath() + ".displayName", true));
+        if (Helper.configPathExists(this.getConfigPath() + ".displayName")) {
+            itemMeta.setDisplayName(Helper.getStringInConfig(this.getConfigPath() + ".displayName", true));
         }
 
-        if (configPathExists(this.getConfigPath() + ".lore")) {
-            itemMeta.setLore(getStringListInConfig(this.getConfigPath() + ".lore", true));
+        if (Helper.configPathExists(this.getConfigPath() + ".lore")) {
+            itemMeta.setLore(Helper.getStringListInConfig(this.getConfigPath() + ".lore", true));
         }
 
         this.setItemMeta(itemMeta);
@@ -60,8 +62,8 @@ public class ULU extends CustomItem {
     }
 
     @Override
-    protected void onEntityDeath(EntityDeathEvent e) {
-        if (e.getEntity().getType().equals(EntityType.POLAR_BEAR) && e.getEntity().getKiller() != null) {
+    protected void onEntityDeath(@NotNull EntityDeathEvent e) {
+        if (e.getEntity().getType() == EntityType.POLAR_BEAR && e.getEntity().getKiller() != null) {
             Player killer = e.getEntity().getKiller();
 
             World world = Objects.requireNonNull(killer.getLocation().getWorld());
@@ -71,7 +73,7 @@ public class ULU extends CustomItem {
 
     @Override
     protected void onInventoryClick(InventoryClickEvent e) {
-        cantUseInCraft(e);
-        cantRepairableAndEnchanted(e);
+        Helper.cantUseInCraft(e);
+        Helper.cantRepairableAndEnchanted(e);
     }
 }

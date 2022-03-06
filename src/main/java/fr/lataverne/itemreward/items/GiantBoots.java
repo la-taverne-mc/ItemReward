@@ -1,6 +1,8 @@
 package fr.lataverne.itemreward.items;
 
+import fr.lataverne.itemreward.Helper;
 import fr.lataverne.itemreward.managers.CustomItem;
+import fr.lataverne.itemreward.managers.ECustomItem;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.attribute.Attribute;
@@ -13,13 +15,13 @@ import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.Damageable;
 import org.bukkit.inventory.meta.ItemMeta;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.Objects;
 import java.util.UUID;
 
-import static fr.lataverne.itemreward.Helper.*;
-
 public class GiantBoots extends CustomItem {
+
     private static final String NBTTagCounter = "counter";
 
     public GiantBoots(int amount) {
@@ -31,17 +33,17 @@ public class GiantBoots extends CustomItem {
         itemMeta.addAttributeModifier(Attribute.GENERIC_MOVEMENT_SPEED, new AttributeModifier(UUID.fromString("dcc66b53-a22c-48cc-afbd-274a02967392"), "generic.movementSpeed", 0.75, AttributeModifier.Operation.MULTIPLY_SCALAR_1, EquipmentSlot.FEET));
         itemMeta.addItemFlags(ItemFlag.HIDE_ATTRIBUTES);
 
-        if (configPathExists(this.getConfigPath() + ".displayName")) {
-            itemMeta.setDisplayName(getStringInConfig(this.getConfigPath() + ".displayName", true));
+        if (Helper.configPathExists(this.getConfigPath() + ".displayName")) {
+            itemMeta.setDisplayName(Helper.getStringInConfig(this.getConfigPath() + ".displayName", true));
         }
 
-        if (configPathExists(this.getConfigPath() + ".lore")) {
-            itemMeta.setLore(getStringListInConfig(this.getConfigPath() + ".lore", true));
+        if (Helper.configPathExists(this.getConfigPath() + ".lore")) {
+            itemMeta.setLore(Helper.getStringListInConfig(this.getConfigPath() + ".lore", true));
         }
 
         itemMeta.setCustomModelData(1);
 
-        addNBT(this, "counter", "0");
+        Helper.addNBT(this, "counter", "0");
 
         this.setItemMeta(itemMeta);
     }
@@ -62,12 +64,12 @@ public class GiantBoots extends CustomItem {
 
     @Override
     protected void onInventoryClick(InventoryClickEvent e) {
-        cantRepairableAndEnchanted(e);
-        cantUseInCraft(e);
+        Helper.cantRepairableAndEnchanted(e);
+        Helper.cantUseInCraft(e);
     }
 
     @Override
-    protected void onPlayerMove(PlayerMoveEvent e) {
+    protected void onPlayerMove(@NotNull PlayerMoveEvent e) {
         Location from = Objects.requireNonNull(e.getFrom());
         Location to = Objects.requireNonNull(e.getTo());
 
@@ -85,7 +87,7 @@ public class GiantBoots extends CustomItem {
             int counter = 0;
 
             try {
-                String strCounter = getNBT(boots, NBTTagCounter);
+                String strCounter = Helper.getNBT(boots, GiantBoots.NBTTagCounter);
                 if (strCounter != null) {
                     counter = Integer.parseInt(strCounter);
                 }
@@ -95,7 +97,7 @@ public class GiantBoots extends CustomItem {
 
             counter++;
 
-            if (counter >= getIntInConfig(this.getConfigPath() + ".counter")) {
+            if (counter >= Helper.getIntInConfig(this.getConfigPath() + ".counter")) {
                 counter = 0;
                 Damageable itemMeta = (Damageable) Objects.requireNonNull(boots.getItemMeta());
 
@@ -108,7 +110,7 @@ public class GiantBoots extends CustomItem {
                 }
             }
 
-            addNBT(boots, NBTTagCounter, Integer.toString(counter));
+            Helper.addNBT(boots, GiantBoots.NBTTagCounter, Integer.toString(counter));
         }
     }
 }

@@ -1,36 +1,38 @@
 package fr.lataverne.itemreward.items.potions;
 
+import fr.lataverne.itemreward.Helper;
 import fr.lataverne.itemreward.effects.FlyEffect;
 import fr.lataverne.itemreward.managers.CustomEffect;
 import fr.lataverne.itemreward.managers.CustomPotion;
+import fr.lataverne.itemreward.managers.ECustomItem;
 import org.bukkit.entity.Player;
 import org.bukkit.event.player.PlayerItemConsumeEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.Objects;
 
-import static fr.lataverne.itemreward.Helper.*;
-
 public class FlyPotion extends CustomPotion {
+
     public FlyPotion(ItemStack itemStack) {
         super(itemStack);
     }
 
-    public FlyPotion(int amount, int level) {
-        super(amount, level);
+    public FlyPotion(int level, int amount) {
+        super(level, amount);
 
         ItemMeta itemMeta = Objects.requireNonNull(this.getItemMeta());
 
-        if (configPathExists(this.getConfigPath() + ".displayName")) {
-            itemMeta.setDisplayName(getStringInConfig(this.getConfigPath() + ".displayName", true));
+        if (Helper.configPathExists(this.getConfigPath() + ".displayName")) {
+            itemMeta.setDisplayName(Helper.getStringInConfig(this.getConfigPath() + ".displayName", true));
         }
 
-        if (configPathExists(this.getConfigPath() + ".lore")) {
-            itemMeta.setLore(getStringListInConfig(this.getConfigPath() + ".lore", true));
+        if (Helper.configPathExists(this.getConfigPath() + ".lore")) {
+            itemMeta.setLore(Helper.getStringListInConfig(this.getConfigPath() + ".lore", true));
         }
 
-        itemMeta.setCustomModelData(getCustomModelDataValue(this.level));
+        itemMeta.setCustomModelData(FlyPotion.getCustomModelDataValue(this.level));
 
         this.setItemMeta(itemMeta);
     }
@@ -45,30 +47,21 @@ public class FlyPotion extends CustomPotion {
         String output = "item.flyPotion.level";
 
         switch (this.level) {
-            default:
-            case 1:
-                output += "1";
-                break;
-            case 2:
-                output += "2";
-                break;
-            case 3:
-                output += "3";
-                break;
-            case 4:
-                output += "4";
-                break;
+            case 2 -> output += "2";
+            case 3 -> output += "3";
+            case 4 -> output += "4";
+            default -> output += "1";
         }
 
         return output;
     }
 
     @Override
-    protected void onPlayerItemConsume(PlayerItemConsumeEvent e) {
+    protected void onPlayerItemConsume(@NotNull PlayerItemConsumeEvent e) {
         Player player = e.getPlayer();
 
         if (CustomEffect.hasEffectInProgress(player.getUniqueId())) {
-            sendMessage(player, getStringInConfig("message.user.otherCustomPotionAlreadyTaken", false));
+            Helper.sendMessage(player, Helper.getStringInConfig("message.user.otherCustomPotionAlreadyTaken", false));
             e.setCancelled(true);
             return;
         }
@@ -76,20 +69,12 @@ public class FlyPotion extends CustomPotion {
         FlyEffect flyEffect = new FlyEffect(player.getUniqueId(), this.level);
         flyEffect.start();
 
-        customEmptyPotion(player, getCustomModelDataValue(this.level));
+        CustomPotion.customEmptyPotion(player, FlyPotion.getCustomModelDataValue(this.level));
     }
 
     private static int getCustomModelDataValue(int level) {
-        switch (level) {
-            default:
-            case 1:
-                return 1;
-            case 2:
-                return 2;
-            case 3:
-                return 3;
-            case 4:
-                return 4;
-        }
+        return level < 1 || level > 4
+               ? 1
+               : level;
     }
 }
