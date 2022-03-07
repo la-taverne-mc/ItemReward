@@ -1084,7 +1084,9 @@
     <inspection_tool class="FieldNotUsedInToString" enabled="true" level="WARNING" enabled_by_default="true" />
     <inspection_tool class="FileEqualsUsage" enabled="true" level="WARNING" enabled_by_default="true" />
     <inspection_tool class="FillPermitsList" enabled="true" level="INFORMATION" enabled_by_default="true" />
-    <inspection_tool class="FinalClass" enabled="true" level="WARNING" enabled_by_default="true" />
+    <inspection_tool class="FinalClass" enabled="true" level="WARNING" enabled_by_default="true">
+      <scope name="Api" level="INFORMATION" enabled="true" />
+    </inspection_tool>
     <inspection_tool class="FinalMethod" enabled="false" level="WARNING" enabled_by_default="false" />
     <inspection_tool class="FinalMethodInFinalClass" enabled="true" level="WARNING" enabled_by_default="true" />
     <inspection_tool class="FinalPrivateMethod" enabled="true" level="WARNING" enabled_by_default="true" />
@@ -3287,6 +3289,20 @@
       </option>
     </inspection_tool>
     <inspection_tool class="unused" enabled="true" level="WARNING" enabled_by_default="true" checkParameterExcludingHierarchy="false">
+      <scope name="Api" level="INFORMATION" enabled="true" checkParameterExcludingHierarchy="false">
+        <option name="LOCAL_VARIABLE" value="true" />
+        <option name="FIELD" value="true" />
+        <option name="METHOD" value="true" />
+        <option name="CLASS" value="true" />
+        <option name="PARAMETER" value="true" />
+        <option name="REPORT_PARAMETER_FOR_PUBLIC_METHODS" value="true" />
+        <option name="ADD_MAINS_TO_ENTRIES" value="true" />
+        <option name="ADD_APPLET_TO_ENTRIES" value="true" />
+        <option name="ADD_SERVLET_TO_ENTRIES" value="true" />
+        <option name="ADD_NONJAVA_TO_ENTRIES" value="true" />
+        <option name="selected" value="true" />
+        <option name="MIXIN_ENTRY_POINT" value="true" />
+      </scope>
       <option name="LOCAL_VARIABLE" value="true" />
       <option name="FIELD" value="true" />
       <option name="METHOD" value="true" />

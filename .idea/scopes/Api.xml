@@ -1,0 +1,3 @@
+<component name="DependencyValidationManager">
+  <scope name="Api" pattern="src:fr.lataverne.itemreward.api..*" />
+</component>
