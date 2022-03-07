@@ -1,0 +1,3 @@
+<component name="DependencyValidationManager">
+  <scope name="Idea Config" pattern="file[ItemReward]:.idea//*" />
+</component>

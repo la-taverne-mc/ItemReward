@@ -1,0 +1,3 @@
+<component name="DependencyValidationManager">
+  <scope name="GitHub Config" pattern="file[ItemReward]:.github//*" />
+</component>
