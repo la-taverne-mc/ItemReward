@@ -3,34 +3,6 @@
   "category": "Method metrics",
   "type": "Overly complex method",
   "severity": "High",
-  "comment": "Overly complex method `getCustomItem()` (cyclomatic complexity = 16)",
-  "detailsInfo": "Reports methods that have too many branch points.\n\nA branch point is one of the following:\n\n* loop statement\n* `if` statement\n* ternary expression\n* `catch` section\n* expression with one or more `&&` or `||` operators inside\n* `switch` block with non-default branches\n\nMethods with too high cyclomatic complexity may be confusing and hard to test.\n\nUse the **Method complexity limit** field to specify the maximum allowed cyclomatic complexity for a method.",
-  "sources": [
-    {
-      "type": "file",
-      "path": "src/main/java/fr/lataverne/itemreward/managers/CustomItem.java",
-      "language": "JAVA",
-      "line": 37,
-      "offset": 30,
-      "length": 13,
-      "code": {
-        "startLine": 35,
-        "length": 13,
-        "offset": 70,
-        "surroundingCode": "\n    @SuppressWarnings(\"DuplicatedCode\")\n    public static CustomItem getCustomItem(ECustomItem customItemType, int amount, int level) {\n        return switch (customItemType) {\n            case GoblinPickaxe -> new GoblinPickaxe(amount);"
-      }
-    }
-  ],
-  "attributes": {
-    "module": "ItemReward",
-    "inspectionName": "CyclomaticComplexity"
-  },
-  "hash": "b13e08a6c77ee2689302907baf225fca3902d613e6e0b3c18c085c1cd5c0163a"
-},{
-  "tool": "Code Inspection",
-  "category": "Method metrics",
-  "type": "Overly complex method",
-  "severity": "High",
   "comment": "Overly complex method `getCustomItem()` (cyclomatic complexity = 20)",
   "detailsInfo": "Reports methods that have too many branch points.\n\nA branch point is one of the following:\n\n* loop statement\n* `if` statement\n* ternary expression\n* `catch` section\n* expression with one or more `&&` or `||` operators inside\n* `switch` block with non-default branches\n\nMethods with too high cyclomatic complexity may be confusing and hard to test.\n\nUse the **Method complexity limit** field to specify the maximum allowed cyclomatic complexity for a method.",
   "sources": [
@@ -54,6 +26,34 @@
     "inspectionName": "CyclomaticComplexity"
   },
   "hash": "d898bc89ccd3cf32e9aa3c99192ffe232e13ab0385d29334bfbbdc6f2e3e063d"
+},{
+  "tool": "Code Inspection",
+  "category": "Method metrics",
+  "type": "Overly complex method",
+  "severity": "High",
+  "comment": "Overly complex method `getCustomItem()` (cyclomatic complexity = 16)",
+  "detailsInfo": "Reports methods that have too many branch points.\n\nA branch point is one of the following:\n\n* loop statement\n* `if` statement\n* ternary expression\n* `catch` section\n* expression with one or more `&&` or `||` operators inside\n* `switch` block with non-default branches\n\nMethods with too high cyclomatic complexity may be confusing and hard to test.\n\nUse the **Method complexity limit** field to specify the maximum allowed cyclomatic complexity for a method.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "src/main/java/fr/lataverne/itemreward/managers/CustomItem.java",
+      "language": "JAVA",
+      "line": 37,
+      "offset": 30,
+      "length": 13,
+      "code": {
+        "startLine": 35,
+        "length": 13,
+        "offset": 70,
+        "surroundingCode": "\n    @SuppressWarnings(\"DuplicatedCode\")\n    public static CustomItem getCustomItem(ECustomItem customItemType, int amount, int level) {\n        return switch (customItemType) {\n            case GoblinPickaxe -> new GoblinPickaxe(amount);"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "ItemReward",
+    "inspectionName": "CyclomaticComplexity"
+  },
+  "hash": "b13e08a6c77ee2689302907baf225fca3902d613e6e0b3c18c085c1cd5c0163a"
 },{
   "tool": "Code Inspection",
   "category": "Method metrics",
@@ -87,34 +87,6 @@
   "category": "Method metrics",
   "type": "Overly complex method",
   "severity": "High",
-  "comment": "Overly complex method `giveCustomsItem()` (cyclomatic complexity = 12)",
-  "detailsInfo": "Reports methods that have too many branch points.\n\nA branch point is one of the following:\n\n* loop statement\n* `if` statement\n* ternary expression\n* `catch` section\n* expression with one or more `&&` or `||` operators inside\n* `switch` block with non-default branches\n\nMethods with too high cyclomatic complexity may be confusing and hard to test.\n\nUse the **Method complexity limit** field to specify the maximum allowed cyclomatic complexity for a method.",
-  "sources": [
-    {
-      "type": "file",
-      "path": "src/main/java/fr/lataverne/itemreward/managers/CommandManager.java",
-      "language": "JAVA",
-      "line": 84,
-      "offset": 25,
-      "length": 15,
-      "code": {
-        "startLine": 82,
-        "length": 15,
-        "offset": 31,
-        "surroundingCode": "    }\n\n    private static void giveCustomsItem(CommandSender sender, String @NotNull [] args) {\n        if (args.length < 1) {\n            Helper.sendMessage(sender, Helper.getStringInConfig(\"message.user.misuseCommand\", false));"
-      }
-    }
-  ],
-  "attributes": {
-    "module": "ItemReward",
-    "inspectionName": "CyclomaticComplexity"
-  },
-  "hash": "3f9cfd7df055e37c3ca36c80823a930f3981f49afc47cc105a5ff5c66b1975be"
-},{
-  "tool": "Code Inspection",
-  "category": "Method metrics",
-  "type": "Overly complex method",
-  "severity": "High",
   "comment": "Overly complex method `onCommand()` (cyclomatic complexity = 15)",
   "detailsInfo": "Reports methods that have too many branch points.\n\nA branch point is one of the following:\n\n* loop statement\n* `if` statement\n* ternary expression\n* `catch` section\n* expression with one or more `&&` or `||` operators inside\n* `switch` block with non-default branches\n\nMethods with too high cyclomatic complexity may be confusing and hard to test.\n\nUse the **Method complexity limit** field to specify the maximum allowed cyclomatic complexity for a method.",
   "sources": [
@@ -138,6 +110,34 @@
     "inspectionName": "CyclomaticComplexity"
   },
   "hash": "c76b6d95f02f9f885c0355acba72dff120fd4875935a871845868be8717bd695"
+},{
+  "tool": "Code Inspection",
+  "category": "Method metrics",
+  "type": "Overly complex method",
+  "severity": "High",
+  "comment": "Overly complex method `giveCustomsItem()` (cyclomatic complexity = 12)",
+  "detailsInfo": "Reports methods that have too many branch points.\n\nA branch point is one of the following:\n\n* loop statement\n* `if` statement\n* ternary expression\n* `catch` section\n* expression with one or more `&&` or `||` operators inside\n* `switch` block with non-default branches\n\nMethods with too high cyclomatic complexity may be confusing and hard to test.\n\nUse the **Method complexity limit** field to specify the maximum allowed cyclomatic complexity for a method.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "src/main/java/fr/lataverne/itemreward/managers/CommandManager.java",
+      "language": "JAVA",
+      "line": 84,
+      "offset": 25,
+      "length": 15,
+      "code": {
+        "startLine": 82,
+        "length": 15,
+        "offset": 31,
+        "surroundingCode": "    }\n\n    private static void giveCustomsItem(CommandSender sender, String @NotNull [] args) {\n        if (args.length < 1) {\n            Helper.sendMessage(sender, Helper.getStringInConfig(\"message.user.misuseCommand\", false));"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "ItemReward",
+    "inspectionName": "CyclomaticComplexity"
+  },
+  "hash": "3f9cfd7df055e37c3ca36c80823a930f3981f49afc47cc105a5ff5c66b1975be"
 },{
   "tool": "Code Inspection",
   "category": "Method metrics",
@@ -311,34 +311,6 @@
   "category": "Method metrics",
   "type": "Overly long method",
   "severity": "High",
-  "comment": "`getCustomItem` is too long (# Non-comment source statements = 31)",
-  "detailsInfo": "Reports methods whose number of statements exceeds the specified maximum.\n\nMethods with too many statements may be confusing and are a good sign that refactoring is necessary.\n\nThe following statements are not counted:\n\n* empty statements (semicolons)\n* block statements\n* `for` loop initialization statements, that is, `int i = ...` within a `for(int i = ...;...)` statement\n* `for` loop update statements, that is, `i += 2` within a `for(int i = ...;...; i += 2)` statement\n\nUse the **Maximum statements per method** field to specify the maximum allowed number of statements in a method.",
-  "sources": [
-    {
-      "type": "file",
-      "path": "src/main/java/fr/lataverne/itemreward/managers/CustomItem.java",
-      "language": "JAVA",
-      "line": 37,
-      "offset": 30,
-      "length": 13,
-      "code": {
-        "startLine": 35,
-        "length": 13,
-        "offset": 70,
-        "surroundingCode": "\n    @SuppressWarnings(\"DuplicatedCode\")\n    public static CustomItem getCustomItem(ECustomItem customItemType, int amount, int level) {\n        return switch (customItemType) {\n            case GoblinPickaxe -> new GoblinPickaxe(amount);"
-      }
-    }
-  ],
-  "attributes": {
-    "module": "ItemReward",
-    "inspectionName": "NonCommentSourceStatements"
-  },
-  "hash": "2a1a6ef69e5ee0826af56438ec0824d4fd6d55e54de76b6354bdab64160585f5"
-},{
-  "tool": "Code Inspection",
-  "category": "Method metrics",
-  "type": "Overly long method",
-  "severity": "High",
   "comment": "`getCustomItem` is too long (# Non-comment source statements = 36)",
   "detailsInfo": "Reports methods whose number of statements exceeds the specified maximum.\n\nMethods with too many statements may be confusing and are a good sign that refactoring is necessary.\n\nThe following statements are not counted:\n\n* empty statements (semicolons)\n* block statements\n* `for` loop initialization statements, that is, `int i = ...` within a `for(int i = ...;...)` statement\n* `for` loop update statements, that is, `i += 2` within a `for(int i = ...;...; i += 2)` statement\n\nUse the **Maximum statements per method** field to specify the maximum allowed number of statements in a method.",
   "sources": [
@@ -362,6 +334,34 @@
     "inspectionName": "NonCommentSourceStatements"
   },
   "hash": "09d11279bf396839df743ce2f39ef432e3f33845564fffc80edceafe4e0d0571"
+},{
+  "tool": "Code Inspection",
+  "category": "Method metrics",
+  "type": "Overly long method",
+  "severity": "High",
+  "comment": "`getCustomItem` is too long (# Non-comment source statements = 31)",
+  "detailsInfo": "Reports methods whose number of statements exceeds the specified maximum.\n\nMethods with too many statements may be confusing and are a good sign that refactoring is necessary.\n\nThe following statements are not counted:\n\n* empty statements (semicolons)\n* block statements\n* `for` loop initialization statements, that is, `int i = ...` within a `for(int i = ...;...)` statement\n* `for` loop update statements, that is, `i += 2` within a `for(int i = ...;...; i += 2)` statement\n\nUse the **Maximum statements per method** field to specify the maximum allowed number of statements in a method.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "src/main/java/fr/lataverne/itemreward/managers/CustomItem.java",
+      "language": "JAVA",
+      "line": 37,
+      "offset": 30,
+      "length": 13,
+      "code": {
+        "startLine": 35,
+        "length": 13,
+        "offset": 70,
+        "surroundingCode": "\n    @SuppressWarnings(\"DuplicatedCode\")\n    public static CustomItem getCustomItem(ECustomItem customItemType, int amount, int level) {\n        return switch (customItemType) {\n            case GoblinPickaxe -> new GoblinPickaxe(amount);"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "ItemReward",
+    "inspectionName": "NonCommentSourceStatements"
+  },
+  "hash": "2a1a6ef69e5ee0826af56438ec0824d4fd6d55e54de76b6354bdab64160585f5"
 },{
   "tool": "Code Inspection",
   "category": "Method metrics",
@@ -402,34 +402,6 @@
       "type": "file",
       "path": "src/main/java/fr/lataverne/itemreward/managers/CustomItem.java",
       "language": "JAVA",
-      "line": 37,
-      "offset": 30,
-      "length": 13,
-      "code": {
-        "startLine": 35,
-        "length": 13,
-        "offset": 70,
-        "surroundingCode": "\n    @SuppressWarnings(\"DuplicatedCode\")\n    public static CustomItem getCustomItem(ECustomItem customItemType, int amount, int level) {\n        return switch (customItemType) {\n            case GoblinPickaxe -> new GoblinPickaxe(amount);"
-      }
-    }
-  ],
-  "attributes": {
-    "module": "ItemReward",
-    "inspectionName": "MethodCoupling"
-  },
-  "hash": "edabf650045df58ced497ca097cd636420bc7f38cf124f00c2378e5f8dd16ed2"
-},{
-  "tool": "Code Inspection",
-  "category": "Method metrics",
-  "type": "Overly coupled method",
-  "severity": "High",
-  "comment": "`getCustomItem` is overly coupled (# referenced classes = 16)",
-  "detailsInfo": "Reports methods that reference too many other classes. Methods with too high coupling can be very fragile and should be probably split into smaller methods.\n\nEach referenced class is counted only once no matter how many times it is referenced.\n\nConfigure the inspection:\n\n* Use the **Method coupling limit** field to specify the maximum allowed coupling for a method.\n* Use the **Include couplings to java system classes** option to count references to classes from `java`or `javax` packages.\n* Use the **Include couplings to library classes** option to count references to third-party library classes.",
-  "sources": [
-    {
-      "type": "file",
-      "path": "src/main/java/fr/lataverne/itemreward/managers/CustomItem.java",
-      "language": "JAVA",
       "line": 58,
       "offset": 40,
       "length": 13,
@@ -446,6 +418,34 @@
     "inspectionName": "MethodCoupling"
   },
   "hash": "f1b0be42803badb2bcd00d15fb0a706dc0608f19e6b7ae329d78a235ef54089b"
+},{
+  "tool": "Code Inspection",
+  "category": "Method metrics",
+  "type": "Overly coupled method",
+  "severity": "High",
+  "comment": "`getCustomItem` is overly coupled (# referenced classes = 16)",
+  "detailsInfo": "Reports methods that reference too many other classes. Methods with too high coupling can be very fragile and should be probably split into smaller methods.\n\nEach referenced class is counted only once no matter how many times it is referenced.\n\nConfigure the inspection:\n\n* Use the **Method coupling limit** field to specify the maximum allowed coupling for a method.\n* Use the **Include couplings to java system classes** option to count references to classes from `java`or `javax` packages.\n* Use the **Include couplings to library classes** option to count references to third-party library classes.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "src/main/java/fr/lataverne/itemreward/managers/CustomItem.java",
+      "language": "JAVA",
+      "line": 37,
+      "offset": 30,
+      "length": 13,
+      "code": {
+        "startLine": 35,
+        "length": 13,
+        "offset": 70,
+        "surroundingCode": "\n    @SuppressWarnings(\"DuplicatedCode\")\n    public static CustomItem getCustomItem(ECustomItem customItemType, int amount, int level) {\n        return switch (customItemType) {\n            case GoblinPickaxe -> new GoblinPickaxe(amount);"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "ItemReward",
+    "inspectionName": "MethodCoupling"
+  },
+  "hash": "edabf650045df58ced497ca097cd636420bc7f38cf124f00c2378e5f8dd16ed2"
 },{
   "tool": "Code Inspection",
   "category": "Code maturity",
@@ -563,34 +563,6 @@
   "category": "Method metrics",
   "type": "Method with multiple return points",
   "severity": "High",
-  "comment": "`giveCustomsItem` has 5 return points",
-  "detailsInfo": "Reports methods whose number of `return` points exceeds the specified maximum. Methods with too many `return` points may be confusing and hard to refactor.\n\nA `return` point is either a `return` statement or a falling through the bottom of a\n`void` method or constructor.\n\n**Example:**\n\nThe method below is reported if only two `return` statements are allowed:\n\n\n      void doSmth(User[] users) {\n        for (User user : users) {\n          if (cond1(user)) {\n            user.setId(getId());\n            return;\n          } else if (cond2(user)) {\n            if (cond3(user)) {\n              user.setId(getId());\n              return;\n            }\n          }\n        }\n      }\n\nConsider rewriting the method so it becomes easier to understand:\n\n\n      void doSmth(User[] users) {\n        for (User user : users) {\n          if (cond1(user) || cond2(user) && cond3(user)) {\n            user.setId(getId());\n            return;\n          }\n        }\n      }\n\nConfigure the inspection:\n\n* Use the **Return point limit** field to specify the maximum allowed number of `return` points for a method.\n* Use the **Ignore guard clauses** option to ignore guard clauses. A guard clause is an `if` statement that contains only a `return` statement\n* Use the **Ignore for 'equals()' methods** option to ignore `return` points inside `equals()` methods.",
-  "sources": [
-    {
-      "type": "file",
-      "path": "src/main/java/fr/lataverne/itemreward/managers/CommandManager.java",
-      "language": "JAVA",
-      "line": 84,
-      "offset": 25,
-      "length": 15,
-      "code": {
-        "startLine": 82,
-        "length": 15,
-        "offset": 31,
-        "surroundingCode": "    }\n\n    private static void giveCustomsItem(CommandSender sender, String @NotNull [] args) {\n        if (args.length < 1) {\n            Helper.sendMessage(sender, Helper.getStringInConfig(\"message.user.misuseCommand\", false));"
-      }
-    }
-  ],
-  "attributes": {
-    "module": "ItemReward",
-    "inspectionName": "MultipleReturnPointsPerMethod"
-  },
-  "hash": "2f5c812cbae4426721617e5c114f76fc43aecd10c5f4fed073e29fa94d1b51ab"
-},{
-  "tool": "Code Inspection",
-  "category": "Method metrics",
-  "type": "Method with multiple return points",
-  "severity": "High",
   "comment": "`onCommand` has 12 return points",
   "detailsInfo": "Reports methods whose number of `return` points exceeds the specified maximum. Methods with too many `return` points may be confusing and hard to refactor.\n\nA `return` point is either a `return` statement or a falling through the bottom of a\n`void` method or constructor.\n\n**Example:**\n\nThe method below is reported if only two `return` statements are allowed:\n\n\n      void doSmth(User[] users) {\n        for (User user : users) {\n          if (cond1(user)) {\n            user.setId(getId());\n            return;\n          } else if (cond2(user)) {\n            if (cond3(user)) {\n              user.setId(getId());\n              return;\n            }\n          }\n        }\n      }\n\nConsider rewriting the method so it becomes easier to understand:\n\n\n      void doSmth(User[] users) {\n        for (User user : users) {\n          if (cond1(user) || cond2(user) && cond3(user)) {\n            user.setId(getId());\n            return;\n          }\n        }\n      }\n\nConfigure the inspection:\n\n* Use the **Return point limit** field to specify the maximum allowed number of `return` points for a method.\n* Use the **Ignore guard clauses** option to ignore guard clauses. A guard clause is an `if` statement that contains only a `return` statement\n* Use the **Ignore for 'equals()' methods** option to ignore `return` points inside `equals()` methods.",
   "sources": [
@@ -614,6 +586,34 @@
     "inspectionName": "MultipleReturnPointsPerMethod"
   },
   "hash": "a3aadc9dd044e5369798aa5cd9f1f62fd06fb03402b7a284a9b3928ff76c1d33"
+},{
+  "tool": "Code Inspection",
+  "category": "Method metrics",
+  "type": "Method with multiple return points",
+  "severity": "High",
+  "comment": "`giveCustomsItem` has 5 return points",
+  "detailsInfo": "Reports methods whose number of `return` points exceeds the specified maximum. Methods with too many `return` points may be confusing and hard to refactor.\n\nA `return` point is either a `return` statement or a falling through the bottom of a\n`void` method or constructor.\n\n**Example:**\n\nThe method below is reported if only two `return` statements are allowed:\n\n\n      void doSmth(User[] users) {\n        for (User user : users) {\n          if (cond1(user)) {\n            user.setId(getId());\n            return;\n          } else if (cond2(user)) {\n            if (cond3(user)) {\n              user.setId(getId());\n              return;\n            }\n          }\n        }\n      }\n\nConsider rewriting the method so it becomes easier to understand:\n\n\n      void doSmth(User[] users) {\n        for (User user : users) {\n          if (cond1(user) || cond2(user) && cond3(user)) {\n            user.setId(getId());\n            return;\n          }\n        }\n      }\n\nConfigure the inspection:\n\n* Use the **Return point limit** field to specify the maximum allowed number of `return` points for a method.\n* Use the **Ignore guard clauses** option to ignore guard clauses. A guard clause is an `if` statement that contains only a `return` statement\n* Use the **Ignore for 'equals()' methods** option to ignore `return` points inside `equals()` methods.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "src/main/java/fr/lataverne/itemreward/managers/CommandManager.java",
+      "language": "JAVA",
+      "line": 84,
+      "offset": 25,
+      "length": 15,
+      "code": {
+        "startLine": 82,
+        "length": 15,
+        "offset": 31,
+        "surroundingCode": "    }\n\n    private static void giveCustomsItem(CommandSender sender, String @NotNull [] args) {\n        if (args.length < 1) {\n            Helper.sendMessage(sender, Helper.getStringInConfig(\"message.user.misuseCommand\", false));"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "ItemReward",
+    "inspectionName": "MultipleReturnPointsPerMethod"
+  },
+  "hash": "2f5c812cbae4426721617e5c114f76fc43aecd10c5f4fed073e29fa94d1b51ab"
 },{
   "tool": "Code Inspection",
   "category": "Memory",
