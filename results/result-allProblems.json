@@ -87,6 +87,34 @@
   "category": "Method metrics",
   "type": "Overly complex method",
   "severity": "High",
+  "comment": "Overly complex method `onCommand()` (cyclomatic complexity = 15)",
+  "detailsInfo": "Reports methods that have too many branch points.\n\nA branch point is one of the following:\n\n* loop statement\n* `if` statement\n* ternary expression\n* `catch` section\n* expression with one or more `&&` or `||` operators inside\n* `switch` block with non-default branches\n\nMethods with too high cyclomatic complexity may be confusing and hard to test.\n\nUse the **Method complexity limit** field to specify the maximum allowed cyclomatic complexity for a method.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "src/main/java/fr/lataverne/itemreward/managers/CommandManager.java",
+      "language": "JAVA",
+      "line": 18,
+      "offset": 20,
+      "length": 9,
+      "code": {
+        "startLine": 16,
+        "length": 9,
+        "offset": 34,
+        "surroundingCode": "\n    @Override\n    public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String s, String[] args) {\n        if (sender instanceof Player player) {\n"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "ItemReward",
+    "inspectionName": "CyclomaticComplexity"
+  },
+  "hash": "c76b6d95f02f9f885c0355acba72dff120fd4875935a871845868be8717bd695"
+},{
+  "tool": "Code Inspection",
+  "category": "Method metrics",
+  "type": "Overly complex method",
+  "severity": "High",
   "comment": "Overly complex method `giveCustomsItem()` (cyclomatic complexity = 12)",
   "detailsInfo": "Reports methods that have too many branch points.\n\nA branch point is one of the following:\n\n* loop statement\n* `if` statement\n* ternary expression\n* `catch` section\n* expression with one or more `&&` or `||` operators inside\n* `switch` block with non-default branches\n\nMethods with too high cyclomatic complexity may be confusing and hard to test.\n\nUse the **Method complexity limit** field to specify the maximum allowed cyclomatic complexity for a method.",
   "sources": [
@@ -112,32 +140,60 @@
   "hash": "3f9cfd7df055e37c3ca36c80823a930f3981f49afc47cc105a5ff5c66b1975be"
 },{
   "tool": "Code Inspection",
-  "category": "Method metrics",
-  "type": "Overly complex method",
+  "category": "Proofreading",
+  "type": "Typo",
   "severity": "High",
-  "comment": "Overly complex method `onCommand()` (cyclomatic complexity = 15)",
-  "detailsInfo": "Reports methods that have too many branch points.\n\nA branch point is one of the following:\n\n* loop statement\n* `if` statement\n* ternary expression\n* `catch` section\n* expression with one or more `&&` or `||` operators inside\n* `switch` block with non-default branches\n\nMethods with too high cyclomatic complexity may be confusing and hard to test.\n\nUse the **Method complexity limit** field to specify the maximum allowed cyclomatic complexity for a method.",
+  "comment": "Typo: In word 'vexsoftware'",
+  "detailsInfo": "Reports typos and misspellings in your code, comments, and literals and fixes them with one click.",
   "sources": [
     {
       "type": "file",
-      "path": "src/main/java/fr/lataverne/itemreward/managers/CommandManager.java",
-      "language": "JAVA",
-      "line": 18,
-      "offset": 20,
-      "length": 9,
+      "path": "README.md",
+      "language": "TEXT",
+      "line": 20,
+      "offset": 26,
+      "length": 11,
       "code": {
-        "startLine": 16,
-        "length": 9,
-        "offset": 34,
-        "surroundingCode": "\n    @Override\n    public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String s, String[] args) {\n        if (sender instanceof Player player) {\n"
+        "startLine": 18,
+        "length": 11,
+        "offset": 65,
+        "surroundingCode": "    <dependencies>\n        <dependency>\n            <groupId>com.vexsoftware</groupId>\n            <artifactId>nuvotifier-universal</artifactId>\n            <version>2.6.0</version>"
       }
     }
   ],
   "attributes": {
     "module": "ItemReward",
-    "inspectionName": "CyclomaticComplexity"
+    "inspectionName": "SpellCheckingInspection"
   },
-  "hash": "c76b6d95f02f9f885c0355acba72dff120fd4875935a871845868be8717bd695"
+  "hash": "c3dbe8ff1524a58de36c76076d76a8292cf3a671b9f9ac2fc576b87d1661f2bc"
+},{
+  "tool": "Code Inspection",
+  "category": "Proofreading",
+  "type": "Typo",
+  "severity": "High",
+  "comment": "Typo: In word 'nuvotifier'",
+  "detailsInfo": "Reports typos and misspellings in your code, comments, and literals and fixes them with one click.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "README.md",
+      "language": "TEXT",
+      "line": 21,
+      "offset": 25,
+      "length": 10,
+      "code": {
+        "startLine": 19,
+        "length": 10,
+        "offset": 92,
+        "surroundingCode": "        <dependency>\n            <groupId>com.vexsoftware</groupId>\n            <artifactId>nuvotifier-universal</artifactId>\n            <version>2.6.0</version>\n            <scope>provided</scope>"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "ItemReward",
+    "inspectionName": "SpellCheckingInspection"
+  },
+  "hash": "9f3f07774fcbd8c1ed86c86f08371f9aa891c264465cdbb7d50fe0e1f1236a71"
 },{
   "tool": "Code Inspection",
   "category": "Method metrics",
@@ -507,34 +563,6 @@
   "category": "Method metrics",
   "type": "Method with multiple return points",
   "severity": "High",
-  "comment": "`loadCustomEffect` has 4 return points",
-  "detailsInfo": "Reports methods whose number of `return` points exceeds the specified maximum. Methods with too many `return` points may be confusing and hard to refactor.\n\nA `return` point is either a `return` statement or a falling through the bottom of a\n`void` method or constructor.\n\n**Example:**\n\nThe method below is reported if only two `return` statements are allowed:\n\n\n      void doSmth(User[] users) {\n        for (User user : users) {\n          if (cond1(user)) {\n            user.setId(getId());\n            return;\n          } else if (cond2(user)) {\n            if (cond3(user)) {\n              user.setId(getId());\n              return;\n            }\n          }\n        }\n      }\n\nConsider rewriting the method so it becomes easier to understand:\n\n\n      void doSmth(User[] users) {\n        for (User user : users) {\n          if (cond1(user) || cond2(user) && cond3(user)) {\n            user.setId(getId());\n            return;\n          }\n        }\n      }\n\nConfigure the inspection:\n\n* Use the **Return point limit** field to specify the maximum allowed number of `return` points for a method.\n* Use the **Ignore guard clauses** option to ignore guard clauses. A guard clause is an `if` statement that contains only a `return` statement\n* Use the **Ignore for 'equals()' methods** option to ignore `return` points inside `equals()` methods.",
-  "sources": [
-    {
-      "type": "file",
-      "path": "src/main/java/fr/lataverne/itemreward/managers/CustomEffect.java",
-      "language": "JAVA",
-      "line": 66,
-      "offset": 24,
-      "length": 16,
-      "code": {
-        "startLine": 64,
-        "length": 16,
-        "offset": 30,
-        "surroundingCode": "    }\n\n    public static void loadCustomEffect(UUID playerUUID) {\n        if (playerUUID == null) {\n            return;"
-      }
-    }
-  ],
-  "attributes": {
-    "module": "ItemReward",
-    "inspectionName": "MultipleReturnPointsPerMethod"
-  },
-  "hash": "1fa85589cedff31bcfc078f712922cf455ce9b52827315fd3ef071ba872317c1"
-},{
-  "tool": "Code Inspection",
-  "category": "Method metrics",
-  "type": "Method with multiple return points",
-  "severity": "High",
   "comment": "`saveCustomEffect` has 4 return points",
   "detailsInfo": "Reports methods whose number of `return` points exceeds the specified maximum. Methods with too many `return` points may be confusing and hard to refactor.\n\nA `return` point is either a `return` statement or a falling through the bottom of a\n`void` method or constructor.\n\n**Example:**\n\nThe method below is reported if only two `return` statements are allowed:\n\n\n      void doSmth(User[] users) {\n        for (User user : users) {\n          if (cond1(user)) {\n            user.setId(getId());\n            return;\n          } else if (cond2(user)) {\n            if (cond3(user)) {\n              user.setId(getId());\n              return;\n            }\n          }\n        }\n      }\n\nConsider rewriting the method so it becomes easier to understand:\n\n\n      void doSmth(User[] users) {\n        for (User user : users) {\n          if (cond1(user) || cond2(user) && cond3(user)) {\n            user.setId(getId());\n            return;\n          }\n        }\n      }\n\nConfigure the inspection:\n\n* Use the **Return point limit** field to specify the maximum allowed number of `return` points for a method.\n* Use the **Ignore guard clauses** option to ignore guard clauses. A guard clause is an `if` statement that contains only a `return` statement\n* Use the **Ignore for 'equals()' methods** option to ignore `return` points inside `equals()` methods.",
   "sources": [
@@ -563,21 +591,21 @@
   "category": "Method metrics",
   "type": "Method with multiple return points",
   "severity": "High",
-  "comment": "`giveCustomsItem` has 5 return points",
+  "comment": "`loadCustomEffect` has 4 return points",
   "detailsInfo": "Reports methods whose number of `return` points exceeds the specified maximum. Methods with too many `return` points may be confusing and hard to refactor.\n\nA `return` point is either a `return` statement or a falling through the bottom of a\n`void` method or constructor.\n\n**Example:**\n\nThe method below is reported if only two `return` statements are allowed:\n\n\n      void doSmth(User[] users) {\n        for (User user : users) {\n          if (cond1(user)) {\n            user.setId(getId());\n            return;\n          } else if (cond2(user)) {\n            if (cond3(user)) {\n              user.setId(getId());\n              return;\n            }\n          }\n        }\n      }\n\nConsider rewriting the method so it becomes easier to understand:\n\n\n      void doSmth(User[] users) {\n        for (User user : users) {\n          if (cond1(user) || cond2(user) && cond3(user)) {\n            user.setId(getId());\n            return;\n          }\n        }\n      }\n\nConfigure the inspection:\n\n* Use the **Return point limit** field to specify the maximum allowed number of `return` points for a method.\n* Use the **Ignore guard clauses** option to ignore guard clauses. A guard clause is an `if` statement that contains only a `return` statement\n* Use the **Ignore for 'equals()' methods** option to ignore `return` points inside `equals()` methods.",
   "sources": [
     {
       "type": "file",
-      "path": "src/main/java/fr/lataverne/itemreward/managers/CommandManager.java",
+      "path": "src/main/java/fr/lataverne/itemreward/managers/CustomEffect.java",
       "language": "JAVA",
-      "line": 84,
-      "offset": 25,
-      "length": 15,
+      "line": 66,
+      "offset": 24,
+      "length": 16,
       "code": {
-        "startLine": 82,
-        "length": 15,
-        "offset": 31,
-        "surroundingCode": "    }\n\n    private static void giveCustomsItem(CommandSender sender, String @NotNull [] args) {\n        if (args.length < 1) {\n            Helper.sendMessage(sender, Helper.getStringInConfig(\"message.user.misuseCommand\", false));"
+        "startLine": 64,
+        "length": 16,
+        "offset": 30,
+        "surroundingCode": "    }\n\n    public static void loadCustomEffect(UUID playerUUID) {\n        if (playerUUID == null) {\n            return;"
       }
     }
   ],
@@ -585,7 +613,7 @@
     "module": "ItemReward",
     "inspectionName": "MultipleReturnPointsPerMethod"
   },
-  "hash": "2f5c812cbae4426721617e5c114f76fc43aecd10c5f4fed073e29fa94d1b51ab"
+  "hash": "1fa85589cedff31bcfc078f712922cf455ce9b52827315fd3ef071ba872317c1"
 },{
   "tool": "Code Inspection",
   "category": "Method metrics",
@@ -614,6 +642,34 @@
     "inspectionName": "MultipleReturnPointsPerMethod"
   },
   "hash": "a3aadc9dd044e5369798aa5cd9f1f62fd06fb03402b7a284a9b3928ff76c1d33"
+},{
+  "tool": "Code Inspection",
+  "category": "Method metrics",
+  "type": "Method with multiple return points",
+  "severity": "High",
+  "comment": "`giveCustomsItem` has 5 return points",
+  "detailsInfo": "Reports methods whose number of `return` points exceeds the specified maximum. Methods with too many `return` points may be confusing and hard to refactor.\n\nA `return` point is either a `return` statement or a falling through the bottom of a\n`void` method or constructor.\n\n**Example:**\n\nThe method below is reported if only two `return` statements are allowed:\n\n\n      void doSmth(User[] users) {\n        for (User user : users) {\n          if (cond1(user)) {\n            user.setId(getId());\n            return;\n          } else if (cond2(user)) {\n            if (cond3(user)) {\n              user.setId(getId());\n              return;\n            }\n          }\n        }\n      }\n\nConsider rewriting the method so it becomes easier to understand:\n\n\n      void doSmth(User[] users) {\n        for (User user : users) {\n          if (cond1(user) || cond2(user) && cond3(user)) {\n            user.setId(getId());\n            return;\n          }\n        }\n      }\n\nConfigure the inspection:\n\n* Use the **Return point limit** field to specify the maximum allowed number of `return` points for a method.\n* Use the **Ignore guard clauses** option to ignore guard clauses. A guard clause is an `if` statement that contains only a `return` statement\n* Use the **Ignore for 'equals()' methods** option to ignore `return` points inside `equals()` methods.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "src/main/java/fr/lataverne/itemreward/managers/CommandManager.java",
+      "language": "JAVA",
+      "line": 84,
+      "offset": 25,
+      "length": 15,
+      "code": {
+        "startLine": 82,
+        "length": 15,
+        "offset": 31,
+        "surroundingCode": "    }\n\n    private static void giveCustomsItem(CommandSender sender, String @NotNull [] args) {\n        if (args.length < 1) {\n            Helper.sendMessage(sender, Helper.getStringInConfig(\"message.user.misuseCommand\", false));"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "ItemReward",
+    "inspectionName": "MultipleReturnPointsPerMethod"
+  },
+  "hash": "2f5c812cbae4426721617e5c114f76fc43aecd10c5f4fed073e29fa94d1b51ab"
 },{
   "tool": "Code Inspection",
   "category": "Memory",
