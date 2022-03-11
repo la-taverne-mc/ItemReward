@@ -1,7 +1,7 @@
 package fr.lataverne.itemreward.items;
 
 import fr.lataverne.itemreward.Helper;
-import fr.lataverne.itemreward.managers.CustomItem;
+import fr.lataverne.itemreward.api.objects.CustomItem;
 import fr.lataverne.itemreward.managers.ECustomItem;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
@@ -42,14 +42,14 @@ public class CookedHorse extends CustomItem {
     }
 
     @Override
-    protected String getConfigPath() {
-        return "item.cookedHorse";
-    }
-
-    @Override
-    protected void onPlayerItemConsume(@NotNull PlayerItemConsumeEvent e) {
+    public void onPlayerItemConsume(@NotNull PlayerItemConsumeEvent e) {
         Player player = e.getPlayer();
 
         player.setFoodLevel(Math.min(player.getFoodLevel() + 5, 20));
+    }
+
+    @Override
+    protected String getConfigPath() {
+        return "item.cookedHorse";
     }
 }

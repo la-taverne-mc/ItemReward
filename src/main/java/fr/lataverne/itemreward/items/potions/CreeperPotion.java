@@ -43,12 +43,7 @@ public class CreeperPotion extends CustomPotion {
     }
 
     @Override
-    protected String getConfigPath() {
-        return "item.creeperPotion";
-    }
-
-    @Override
-    protected void onPlayerItemConsume(@NotNull PlayerItemConsumeEvent e) {
+    public void onPlayerItemConsume(@NotNull PlayerItemConsumeEvent e) {
         Player player = e.getPlayer();
 
         if (CustomEffect.hasEffectInProgress(player.getUniqueId())) {
@@ -61,5 +56,10 @@ public class CreeperPotion extends CustomPotion {
         creeperEffect.start();
 
         CustomPotion.customEmptyPotion(player, 6);
+    }
+
+    @Override
+    protected String getConfigPath() {
+        return "item.creeperPotion";
     }
 }

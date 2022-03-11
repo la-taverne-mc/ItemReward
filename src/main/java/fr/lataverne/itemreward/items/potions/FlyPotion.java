@@ -43,21 +43,7 @@ public class FlyPotion extends CustomPotion {
     }
 
     @Override
-    protected String getConfigPath() {
-        String output = "item.flyPotion.level";
-
-        switch (this.level) {
-            case 2 -> output += "2";
-            case 3 -> output += "3";
-            case 4 -> output += "4";
-            default -> output += "1";
-        }
-
-        return output;
-    }
-
-    @Override
-    protected void onPlayerItemConsume(@NotNull PlayerItemConsumeEvent e) {
+    public void onPlayerItemConsume(@NotNull PlayerItemConsumeEvent e) {
         Player player = e.getPlayer();
 
         if (CustomEffect.hasEffectInProgress(player.getUniqueId())) {
@@ -70,6 +56,20 @@ public class FlyPotion extends CustomPotion {
         flyEffect.start();
 
         CustomPotion.customEmptyPotion(player, FlyPotion.getCustomModelDataValue(this.level));
+    }
+
+    @Override
+    protected String getConfigPath() {
+        String output = "item.flyPotion.level";
+
+        switch (this.level) {
+            case 2 -> output += "2";
+            case 3 -> output += "3";
+            case 4 -> output += "4";
+            default -> output += "1";
+        }
+
+        return output;
     }
 
     private static int getCustomModelDataValue(int level) {

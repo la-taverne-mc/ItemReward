@@ -1,6 +1,6 @@
-package fr.lataverne.itemreward.api.items;
+package fr.lataverne.itemreward.api;
 
-import fr.lataverne.itemreward.managers.CustomItem;
+import fr.lataverne.itemreward.api.objects.CustomItem;
 import fr.lataverne.itemreward.managers.ECustomItem;
 import org.jetbrains.annotations.Nullable;
 
@@ -8,6 +8,23 @@ import java.util.Locale;
 
 public enum CustomItems {
     ;
+
+    /**
+     * Initializes and returns the custom item by its name.
+     *
+     * @param customItemName Name of custom item.
+     * @param amount Quantity of custom items.
+     *
+     * @return The created custom item if it exists. Else null.
+     */
+    public static @Nullable CustomItem getCustomItems(String customItemName, int amount) {
+        try {
+            ECustomItem customItem = ECustomItem.valueOf(CustomItems.correctCase(customItemName));
+            return CustomItems.getCustomItems(customItem, amount);
+        } catch (IllegalArgumentException ignored) {
+            return null;
+        }
+    }
 
     /**
      * Initializes and returns the custom item by its name.
@@ -25,6 +42,18 @@ public enum CustomItems {
         } catch (IllegalArgumentException ignored) {
             return null;
         }
+    }
+
+    /**
+     * Initializes and returns the custom item.
+     *
+     * @param customItem Enum that corresponds to the custom item.
+     * @param amount Quantity of the custom items.
+     *
+     * @return The created custom item.
+     */
+    public static CustomItem getCustomItems(ECustomItem customItem, int amount) {
+        return CustomItem.getCustomItem(customItem, amount);
     }
 
     /**

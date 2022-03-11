@@ -1,7 +1,7 @@
 package fr.lataverne.itemreward.items;
 
 import fr.lataverne.itemreward.Helper;
-import fr.lataverne.itemreward.managers.CustomItem;
+import fr.lataverne.itemreward.api.objects.CustomItem;
 import fr.lataverne.itemreward.managers.ECustomItem;
 import org.bukkit.Material;
 import org.bukkit.World;
@@ -45,12 +45,7 @@ public class IndianSpear extends CustomItem {
     }
 
     @Override
-    protected String getConfigPath() {
-        return "item.indianSpear";
-    }
-
-    @Override
-    protected void onEntityDeath(@NotNull EntityDeathEvent e) {
+    public void onEntityDeath(@NotNull EntityDeathEvent e) {
         if (e.getEntity().getType() == EntityType.HORSE && e.getEntity().getKiller() != null) {
             Player killer = e.getEntity().getKiller();
 
@@ -60,9 +55,14 @@ public class IndianSpear extends CustomItem {
     }
 
     @Override
-    protected void onInventoryClick(InventoryClickEvent e) {
+    public void onInventoryClick(InventoryClickEvent e) {
         Helper.cantRepairableAndEnchanted(e);
         Helper.cantUseInCraft(e);
         Helper.cantCooked(e);
+    }
+
+    @Override
+    protected String getConfigPath() {
+        return "item.indianSpear";
     }
 }

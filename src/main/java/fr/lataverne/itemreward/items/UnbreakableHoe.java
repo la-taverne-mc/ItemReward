@@ -1,7 +1,7 @@
 package fr.lataverne.itemreward.items;
 
 import fr.lataverne.itemreward.Helper;
-import fr.lataverne.itemreward.managers.CustomItem;
+import fr.lataverne.itemreward.api.objects.CustomItem;
 import fr.lataverne.itemreward.managers.ECustomItem;
 import org.bukkit.Material;
 import org.bukkit.enchantments.Enchantment;
@@ -45,12 +45,7 @@ public class UnbreakableHoe extends CustomItem {
     }
 
     @Override
-    protected String getConfigPath() {
-        return "item.unbreakableHoe";
-    }
-
-    @Override
-    protected void onInventoryClick(InventoryClickEvent e) {
+    public void onInventoryClick(InventoryClickEvent e) {
         Helper.cantUseInCraft(e);
         Helper.cantRepairableAndEnchanted(e);
 
@@ -59,5 +54,10 @@ public class UnbreakableHoe extends CustomItem {
         if (inventoryType == InventoryType.GRINDSTONE) {
             e.setCancelled(true);
         }
+    }
+
+    @Override
+    protected String getConfigPath() {
+        return "item.unbreakableHoe";
     }
 }

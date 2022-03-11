@@ -2,6 +2,7 @@ package fr.lataverne.itemreward.managers;
 
 import fr.lataverne.itemreward.Helper;
 import fr.lataverne.itemreward.ItemReward;
+import fr.lataverne.itemreward.api.objects.CustomItem;
 import org.bukkit.Bukkit;
 import org.bukkit.Color;
 import org.bukkit.Material;
@@ -44,6 +45,11 @@ public abstract class CustomPotion extends CustomItem {
 
         Helper.addNBT(this, CustomPotion.NBTTagCustomPotionType, this.getCustomItemType().toString());
         Helper.addNBT(this, CustomPotion.NBTTagLevel, Integer.toString(this.level));
+    }
+
+    @Override
+    public int getLevel() {
+        return this.level;
     }
 
     public Color getPotionColor() {

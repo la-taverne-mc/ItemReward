@@ -1,5 +1,6 @@
 package fr.lataverne.itemreward.managers;
 
+import fr.lataverne.itemreward.api.objects.CustomItem;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
