@@ -1,7 +1,6 @@
 package fr.lataverne.itemreward.managers;
 
 import fr.lataverne.itemreward.Helper;
-import fr.lataverne.itemreward.api.objects.CustomItem;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;

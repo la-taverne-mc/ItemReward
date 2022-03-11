@@ -1,7 +1,7 @@
 package fr.lataverne.itemreward.items;
 
 import fr.lataverne.itemreward.Helper;
-import fr.lataverne.itemreward.api.objects.CustomItem;
+import fr.lataverne.itemreward.managers.CustomItem;
 import fr.lataverne.itemreward.managers.ECustomItem;
 import org.bukkit.Location;
 import org.bukkit.Material;
@@ -58,13 +58,18 @@ public class GiantBoots extends CustomItem {
     }
 
     @Override
-    public void onInventoryClick(InventoryClickEvent e) {
+    protected String getConfigPath() {
+        return "item.giantBoots";
+    }
+
+    @Override
+    protected void onInventoryClick(InventoryClickEvent e) {
         Helper.cantRepairableAndEnchanted(e);
         Helper.cantUseInCraft(e);
     }
 
     @Override
-    public void onPlayerMove(@NotNull PlayerMoveEvent e) {
+    protected void onPlayerMove(@NotNull PlayerMoveEvent e) {
         Location from = Objects.requireNonNull(e.getFrom());
         Location to = Objects.requireNonNull(e.getTo());
 
@@ -107,10 +112,5 @@ public class GiantBoots extends CustomItem {
 
             Helper.addNBT(boots, GiantBoots.NBTTagCounter, Integer.toString(counter));
         }
-    }
-
-    @Override
-    protected String getConfigPath() {
-        return "item.giantBoots";
     }
 }

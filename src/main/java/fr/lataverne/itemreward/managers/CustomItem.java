@@ -1,9 +1,9 @@
-package fr.lataverne.itemreward.api.objects;
+package fr.lataverne.itemreward.managers;
 
 import fr.lataverne.itemreward.Helper;
+import fr.lataverne.itemreward.api.objects.ICustomItem;
 import fr.lataverne.itemreward.items.*;
 import fr.lataverne.itemreward.items.potions.*;
-import fr.lataverne.itemreward.managers.ECustomItem;
 import org.apache.commons.lang.NotImplementedException;
 import org.bukkit.Material;
 import org.bukkit.event.block.BlockBreakEvent;
@@ -16,7 +16,7 @@ import org.bukkit.inventory.ItemStack;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
-public abstract class CustomItem extends ItemStack {
+public abstract class CustomItem extends ItemStack implements ICustomItem {
 
     private static final String NBTTag = "CustomItemType";
 
@@ -127,37 +127,41 @@ public abstract class CustomItem extends ItemStack {
         return customItem.getCustomItemType() == ECustomItem.GiantBoots;
     }
 
-    public abstract ECustomItem getCustomItemType();
+    @Override
+    public ItemStack getItemStack() {
+        return this;
+    }
 
+    @Override
     public int getLevel() {
         return 1;
     }
 
-    public void onBlockBreak(BlockBreakEvent e) {
-        throw new NotImplementedException("Not implemented");
-    }
-
-    public void onBlockCook(BlockCookEvent e) {
-        throw new NotImplementedException("Not implemented");
-    }
-
-    public void onEntityDeath(EntityDeathEvent e) {
-        throw new NotImplementedException("Not implemented");
-    }
-
-    public void onInventoryClick(InventoryClickEvent e) {
-        throw new NotImplementedException("Not implemented");
-    }
-
-    public void onPlayerItemConsume(PlayerItemConsumeEvent e) {
-        throw new NotImplementedException("Not implemented");
-    }
-
-    public void onPlayerMove(PlayerMoveEvent e) {
-        throw new NotImplementedException("Not implemented");
-    }
-
     protected abstract String getConfigPath();
+
+    protected void onBlockBreak(BlockBreakEvent e) {
+        throw new NotImplementedException("Not implemented");
+    }
+
+    protected void onBlockCook(BlockCookEvent e) {
+        throw new NotImplementedException("Not implemented");
+    }
+
+    protected void onEntityDeath(EntityDeathEvent e) {
+        throw new NotImplementedException("Not implemented");
+    }
+
+    protected void onInventoryClick(InventoryClickEvent e) {
+        throw new NotImplementedException("Not implemented");
+    }
+
+    protected void onPlayerItemConsume(PlayerItemConsumeEvent e) {
+        throw new NotImplementedException("Not implemented");
+    }
+
+    protected void onPlayerMove(PlayerMoveEvent e) {
+        throw new NotImplementedException("Not implemented");
+    }
 
     private void init() {
         Helper.addNBT(this, CustomItem.NBTTag, this.getCustomItemType().toString());

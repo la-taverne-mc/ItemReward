@@ -43,7 +43,12 @@ public class PhantomPotion extends CustomPotion {
     }
 
     @Override
-    public void onPlayerItemConsume(@NotNull PlayerItemConsumeEvent e) {
+    protected String getConfigPath() {
+        return "item.phantomPotion";
+    }
+
+    @Override
+    protected void onPlayerItemConsume(@NotNull PlayerItemConsumeEvent e) {
         Player player = e.getPlayer();
 
         if (CustomEffect.hasEffectInProgress(player.getUniqueId())) {
@@ -56,10 +61,5 @@ public class PhantomPotion extends CustomPotion {
         phantomEffect.start();
 
         CustomPotion.customEmptyPotion(player, 5);
-    }
-
-    @Override
-    protected String getConfigPath() {
-        return "item.phantomPotion";
     }
 }

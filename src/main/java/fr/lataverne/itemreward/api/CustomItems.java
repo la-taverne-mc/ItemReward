@@ -1,11 +1,14 @@
 package fr.lataverne.itemreward.api;
 
-import fr.lataverne.itemreward.api.objects.CustomItem;
+import fr.lataverne.itemreward.managers.CustomItem;
 import fr.lataverne.itemreward.managers.ECustomItem;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.Locale;
 
+/**
+ * Allows to get a custom item.
+ */
 public enum CustomItems {
     ;
 
@@ -13,7 +16,7 @@ public enum CustomItems {
      * Initializes and returns the custom item by its name.
      *
      * @param customItemName Name of custom item.
-     * @param amount Quantity of custom items.
+     * @param amount Amount of custom items.
      *
      * @return The created custom item if it exists. Else null.
      */
@@ -30,8 +33,8 @@ public enum CustomItems {
      * Initializes and returns the custom item by its name.
      *
      * @param customItemName Name of custom item.
-     * @param amount Quantity of custom items.
-     * @param level Level of the custom items.
+     * @param amount Amount of custom items.
+     * @param level Level of the custom item.
      *
      * @return The created custom item if it exists. Else null.
      */
@@ -48,7 +51,7 @@ public enum CustomItems {
      * Initializes and returns the custom item.
      *
      * @param customItem Enum that corresponds to the custom item.
-     * @param amount Quantity of the custom items.
+     * @param amount Amount of the custom items.
      *
      * @return The created custom item.
      */
@@ -60,8 +63,8 @@ public enum CustomItems {
      * Initializes and returns the custom item.
      *
      * @param customItem Enum that corresponds to the custom item.
-     * @param amount Quantity of the custom items.
-     * @param level Level of the custom items.
+     * @param amount Amount of custom items.
+     * @param level Level of the custom item.
      *
      * @return The created custom item.
      */

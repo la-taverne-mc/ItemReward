@@ -1,7 +1,7 @@
 package fr.lataverne.itemreward.items;
 
 import fr.lataverne.itemreward.Helper;
-import fr.lataverne.itemreward.api.objects.CustomItem;
+import fr.lataverne.itemreward.managers.CustomItem;
 import fr.lataverne.itemreward.managers.ECustomItem;
 import org.bukkit.Material;
 import org.bukkit.event.block.BlockBreakEvent;
@@ -43,7 +43,12 @@ public class GoblinPickaxe extends CustomItem {
     }
 
     @Override
-    public void onBlockBreak(@NotNull BlockBreakEvent e) {
+    protected String getConfigPath() {
+        return "item.goblinPickaxe";
+    }
+
+    @Override
+    protected void onBlockBreak(@NotNull BlockBreakEvent e) {
         if (e.getBlock().getLocation().getWorld() == null) {
             return;
         }
@@ -100,14 +105,9 @@ public class GoblinPickaxe extends CustomItem {
     }
 
     @Override
-    public void onInventoryClick(InventoryClickEvent e) {
+    protected void onInventoryClick(InventoryClickEvent e) {
         Helper.cantRepairableAndEnchanted(e);
         Helper.cantUseInCraft(e);
         Helper.cantCooked(e);
-    }
-
-    @Override
-    protected String getConfigPath() {
-        return "item.goblinPickaxe";
     }
 }

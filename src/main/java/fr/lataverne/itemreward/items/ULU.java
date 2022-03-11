@@ -1,7 +1,7 @@
 package fr.lataverne.itemreward.items;
 
 import fr.lataverne.itemreward.Helper;
-import fr.lataverne.itemreward.api.objects.CustomItem;
+import fr.lataverne.itemreward.managers.CustomItem;
 import fr.lataverne.itemreward.managers.ECustomItem;
 import org.bukkit.Material;
 import org.bukkit.World;
@@ -57,7 +57,12 @@ public class ULU extends CustomItem {
     }
 
     @Override
-    public void onEntityDeath(@NotNull EntityDeathEvent e) {
+    protected String getConfigPath() {
+        return "item.ulu";
+    }
+
+    @Override
+    protected void onEntityDeath(@NotNull EntityDeathEvent e) {
         if (e.getEntity().getType() == EntityType.POLAR_BEAR && e.getEntity().getKiller() != null) {
             Player killer = e.getEntity().getKiller();
 
@@ -67,13 +72,8 @@ public class ULU extends CustomItem {
     }
 
     @Override
-    public void onInventoryClick(InventoryClickEvent e) {
+    protected void onInventoryClick(InventoryClickEvent e) {
         Helper.cantUseInCraft(e);
         Helper.cantRepairableAndEnchanted(e);
-    }
-
-    @Override
-    protected String getConfigPath() {
-        return "item.ulu";
     }
 }

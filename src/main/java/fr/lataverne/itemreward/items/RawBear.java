@@ -1,7 +1,7 @@
 package fr.lataverne.itemreward.items;
 
 import fr.lataverne.itemreward.Helper;
-import fr.lataverne.itemreward.api.objects.CustomItem;
+import fr.lataverne.itemreward.managers.CustomItem;
 import fr.lataverne.itemreward.managers.ECustomItem;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
@@ -46,7 +46,12 @@ public class RawBear extends CustomItem {
     }
 
     @Override
-    public void onBlockCook(@NotNull BlockCookEvent e) {
+    protected String getConfigPath() {
+        return "item.rawBear";
+    }
+
+    @Override
+    protected void onBlockCook(@NotNull BlockCookEvent e) {
         switch (e.getBlock().getType()) {
             case CAMPFIRE, SOUL_CAMPFIRE -> e.setResult(new CookedBear(1));
             default -> e.setCancelled(true);
@@ -54,20 +59,15 @@ public class RawBear extends CustomItem {
     }
 
     @Override
-    public void onInventoryClick(InventoryClickEvent e) {
+    protected void onInventoryClick(InventoryClickEvent e) {
         Helper.cantCooked(e);
     }
 
     @Override
-    public void onPlayerItemConsume(@NotNull PlayerItemConsumeEvent e) {
+    protected void onPlayerItemConsume(@NotNull PlayerItemConsumeEvent e) {
         Player player = e.getPlayer();
 
         player.setFoodLevel(Math.min(player.getFoodLevel() + 3, 20));
         player.addPotionEffect(new PotionEffect(PotionEffectType.SLOW, 300, 3));
-    }
-
-    @Override
-    protected String getConfigPath() {
-        return "item.rawBear";
     }
 }

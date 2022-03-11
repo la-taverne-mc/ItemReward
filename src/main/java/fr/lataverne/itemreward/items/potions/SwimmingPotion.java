@@ -43,7 +43,12 @@ public class SwimmingPotion extends CustomPotion {
     }
 
     @Override
-    public void onPlayerItemConsume(@NotNull PlayerItemConsumeEvent e) {
+    protected String getConfigPath() {
+        return "item.swimmingPotion";
+    }
+
+    @Override
+    protected void onPlayerItemConsume(@NotNull PlayerItemConsumeEvent e) {
         Player player = e.getPlayer();
 
         if (CustomEffect.hasEffectInProgress(player.getUniqueId())) {
@@ -56,10 +61,5 @@ public class SwimmingPotion extends CustomPotion {
         swimmingEffect.start();
 
         CustomPotion.customEmptyPotion(player, 8);
-    }
-
-    @Override
-    protected String getConfigPath() {
-        return "item.swimmingPotion";
     }
 }

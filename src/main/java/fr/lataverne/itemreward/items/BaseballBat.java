@@ -1,7 +1,7 @@
 package fr.lataverne.itemreward.items;
 
 import fr.lataverne.itemreward.Helper;
-import fr.lataverne.itemreward.api.objects.CustomItem;
+import fr.lataverne.itemreward.managers.CustomItem;
 import fr.lataverne.itemreward.managers.ECustomItem;
 import org.bukkit.Material;
 import org.bukkit.enchantments.Enchantment;
@@ -53,7 +53,12 @@ public class BaseballBat extends CustomItem {
     }
 
     @Override
-    public void onInventoryClick(InventoryClickEvent e) {
+    protected String getConfigPath() {
+        return "item.baseballBat";
+    }
+
+    @Override
+    protected void onInventoryClick(InventoryClickEvent e) {
         Helper.cantUseInCraft(e);
         Helper.cantRepairableAndEnchanted(e);
 
@@ -62,10 +67,5 @@ public class BaseballBat extends CustomItem {
         if (inventoryType == InventoryType.GRINDSTONE) {
             e.setCancelled(true);
         }
-    }
-
-    @Override
-    protected String getConfigPath() {
-        return "item.baseballBat";
     }
 }

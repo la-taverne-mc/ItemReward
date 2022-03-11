@@ -43,7 +43,12 @@ public class MiningPotion extends CustomPotion {
     }
 
     @Override
-    public void onPlayerItemConsume(@NotNull PlayerItemConsumeEvent e) {
+    protected String getConfigPath() {
+        return "item.miningPotion";
+    }
+
+    @Override
+    protected void onPlayerItemConsume(@NotNull PlayerItemConsumeEvent e) {
         Player player = e.getPlayer();
 
         if (CustomEffect.hasEffectInProgress(player.getUniqueId())) {
@@ -56,10 +61,5 @@ public class MiningPotion extends CustomPotion {
         miningEffect.start();
 
         CustomPotion.customEmptyPotion(player, 7);
-    }
-
-    @Override
-    protected String getConfigPath() {
-        return "item.miningPotion";
     }
 }
