@@ -1,6 +1,7 @@
 package fr.lataverne.itemreward.managers;
 
 import fr.lataverne.itemreward.Helper;
+import fr.lataverne.itemreward.api.objects.ICustomItem;
 import fr.lataverne.itemreward.items.*;
 import fr.lataverne.itemreward.items.potions.*;
 import org.apache.commons.lang.NotImplementedException;
@@ -15,7 +16,7 @@ import org.bukkit.inventory.ItemStack;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
-public abstract class CustomItem extends ItemStack {
+public abstract class CustomItem extends ItemStack implements ICustomItem {
 
     private static final String NBTTag = "CustomItemType";
 
@@ -30,7 +31,11 @@ public abstract class CustomItem extends ItemStack {
     }
 
     public static CustomItem getCustomItem(ECustomItem customItemType) {
-        return CustomItem.getCustomItem(customItemType, 1, 1);
+        return CustomItem.getCustomItem(customItemType, 1);
+    }
+
+    public static CustomItem getCustomItem(ECustomItem customItemType, int amount) {
+        return CustomItem.getCustomItem(customItemType, amount, 1);
     }
 
     @SuppressWarnings("DuplicatedCode")
@@ -122,7 +127,15 @@ public abstract class CustomItem extends ItemStack {
         return customItem.getCustomItemType() == ECustomItem.GiantBoots;
     }
 
-    public abstract ECustomItem getCustomItemType();
+    @Override
+    public ItemStack getItemStack() {
+        return this;
+    }
+
+    @Override
+    public int getLevel() {
+        return 1;
+    }
 
     protected abstract String getConfigPath();
 

@@ -46,6 +46,11 @@ public abstract class CustomPotion extends CustomItem {
         Helper.addNBT(this, CustomPotion.NBTTagLevel, Integer.toString(this.level));
     }
 
+    @Override
+    public int getLevel() {
+        return this.level;
+    }
+
     public Color getPotionColor() {
         int red = Helper.getIntInConfig(this.getConfigPath() + ".color.red");
         int green = Helper.getIntInConfig(this.getConfigPath() + ".color.green");
