@@ -22,6 +22,11 @@ public interface ICustomItem {
      */
     ECustomItem getCustomItemType();
 
+    /**
+     * Gets the custom item.
+     *
+     * @return Represented custom item.
+     */
     ItemStack getItemStack();
 
     /**

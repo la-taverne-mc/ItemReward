@@ -1,5 +1,6 @@
 package fr.lataverne.itemreward.api;
 
+import fr.lataverne.itemreward.api.objects.ICustomItem;
 import fr.lataverne.itemreward.managers.CustomItem;
 import fr.lataverne.itemreward.managers.ECustomItem;
 import org.jetbrains.annotations.Nullable;
@@ -20,7 +21,7 @@ public enum CustomItems {
      *
      * @return The created custom item if it exists. Else null.
      */
-    public static @Nullable CustomItem getCustomItems(String customItemName, int amount) {
+    public static @Nullable ICustomItem getCustomItems(String customItemName, int amount) {
         try {
             ECustomItem customItem = ECustomItem.valueOf(CustomItems.correctCase(customItemName));
             return CustomItems.getCustomItems(customItem, amount);
@@ -38,7 +39,7 @@ public enum CustomItems {
      *
      * @return The created custom item if it exists. Else null.
      */
-    public static @Nullable CustomItem getCustomItems(String customItemName, int amount, int level) {
+    public static @Nullable ICustomItem getCustomItems(String customItemName, int amount, int level) {
         try {
             ECustomItem customItem = ECustomItem.valueOf(CustomItems.correctCase(customItemName));
             return CustomItems.getCustomItems(customItem, amount, level);
@@ -55,7 +56,7 @@ public enum CustomItems {
      *
      * @return The created custom item.
      */
-    public static CustomItem getCustomItems(ECustomItem customItem, int amount) {
+    public static ICustomItem getCustomItems(ECustomItem customItem, int amount) {
         return CustomItem.getCustomItem(customItem, amount);
     }
 
@@ -68,7 +69,7 @@ public enum CustomItems {
      *
      * @return The created custom item.
      */
-    public static CustomItem getCustomItems(ECustomItem customItem, int amount, int level) {
+    public static ICustomItem getCustomItems(ECustomItem customItem, int amount, int level) {
         return CustomItem.getCustomItem(customItem, amount, level);
     }
 
