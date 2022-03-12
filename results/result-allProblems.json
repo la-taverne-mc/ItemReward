@@ -3,34 +3,6 @@
   "category": "Method metrics",
   "type": "Overly complex method",
   "severity": "High",
-  "comment": "Overly complex method `getCustomItem()` (cyclomatic complexity = 16)",
-  "detailsInfo": "Reports methods that have too many branch points.\n\nA branch point is one of the following:\n\n* loop statement\n* `if` statement\n* ternary expression\n* `catch` section\n* expression with one or more `&&` or `||` operators inside\n* `switch` block with non-default branches\n\nMethods with too high cyclomatic complexity may be confusing and hard to test.\n\nUse the **Method complexity limit** field to specify the maximum allowed cyclomatic complexity for a method.",
-  "sources": [
-    {
-      "type": "file",
-      "path": "src/main/java/fr/lataverne/itemreward/managers/CustomItem.java",
-      "language": "JAVA",
-      "line": 42,
-      "offset": 30,
-      "length": 13,
-      "code": {
-        "startLine": 40,
-        "length": 13,
-        "offset": 70,
-        "surroundingCode": "\n    @SuppressWarnings(\"DuplicatedCode\")\n    public static CustomItem getCustomItem(ECustomItem customItemType, int amount, int level) {\n        return switch (customItemType) {\n            case GoblinPickaxe -> new GoblinPickaxe(amount);"
-      }
-    }
-  ],
-  "attributes": {
-    "module": "ItemReward",
-    "inspectionName": "CyclomaticComplexity"
-  },
-  "hash": "aeabdf2dc8c1130ee98bdf93dbea4d706d4ff35f16ac07db9ec436facc9d3b12"
-},{
-  "tool": "Code Inspection",
-  "category": "Method metrics",
-  "type": "Overly complex method",
-  "severity": "High",
   "comment": "Overly complex method `getCustomItem()` (cyclomatic complexity = 20)",
   "detailsInfo": "Reports methods that have too many branch points.\n\nA branch point is one of the following:\n\n* loop statement\n* `if` statement\n* ternary expression\n* `catch` section\n* expression with one or more `&&` or `||` operators inside\n* `switch` block with non-default branches\n\nMethods with too high cyclomatic complexity may be confusing and hard to test.\n\nUse the **Method complexity limit** field to specify the maximum allowed cyclomatic complexity for a method.",
   "sources": [
@@ -54,6 +26,34 @@
     "inspectionName": "CyclomaticComplexity"
   },
   "hash": "94c8fb4ff775ad859e46ff69225248ef1c0a787ec21295e24ebe2b050fbeed13"
+},{
+  "tool": "Code Inspection",
+  "category": "Method metrics",
+  "type": "Overly complex method",
+  "severity": "High",
+  "comment": "Overly complex method `getCustomItem()` (cyclomatic complexity = 16)",
+  "detailsInfo": "Reports methods that have too many branch points.\n\nA branch point is one of the following:\n\n* loop statement\n* `if` statement\n* ternary expression\n* `catch` section\n* expression with one or more `&&` or `||` operators inside\n* `switch` block with non-default branches\n\nMethods with too high cyclomatic complexity may be confusing and hard to test.\n\nUse the **Method complexity limit** field to specify the maximum allowed cyclomatic complexity for a method.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "src/main/java/fr/lataverne/itemreward/managers/CustomItem.java",
+      "language": "JAVA",
+      "line": 42,
+      "offset": 30,
+      "length": 13,
+      "code": {
+        "startLine": 40,
+        "length": 13,
+        "offset": 70,
+        "surroundingCode": "\n    @SuppressWarnings(\"DuplicatedCode\")\n    public static CustomItem getCustomItem(ECustomItem customItemType, int amount, int level) {\n        return switch (customItemType) {\n            case GoblinPickaxe -> new GoblinPickaxe(amount);"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "ItemReward",
+    "inspectionName": "CyclomaticComplexity"
+  },
+  "hash": "aeabdf2dc8c1130ee98bdf93dbea4d706d4ff35f16ac07db9ec436facc9d3b12"
 },{
   "tool": "Code Inspection",
   "category": "Method metrics",
@@ -143,21 +143,21 @@
   "category": "Proofreading",
   "type": "Typo",
   "severity": "High",
-  "comment": "Typo: In word 'vexsoftware'",
+  "comment": "Typo: In word 'taverne'",
   "detailsInfo": "Reports typos and misspellings in your code, comments, and literals and fixes them with one click.",
   "sources": [
     {
       "type": "file",
       "path": "README.md",
       "language": "TEXT",
-      "line": 20,
-      "offset": 26,
-      "length": 11,
+      "line": 23,
+      "offset": 36,
+      "length": 7,
       "code": {
-        "startLine": 18,
-        "length": 11,
-        "offset": 65,
-        "surroundingCode": "    <dependencies>\n        <dependency>\n            <groupId>com.vexsoftware</groupId>\n            <artifactId>nuvotifier-universal</artifactId>\n            <version>2.6.0</version>"
+        "startLine": 21,
+        "length": 7,
+        "offset": 75,
+        "surroundingCode": "    <dependencies>\n        <dependency>\n            <groupId>com.github.la-taverne-mc</groupId>\n            <artifactId>ItemReward</artifactId>\n            <version>TAG</version>"
       }
     }
   ],
@@ -165,35 +165,7 @@
     "module": "ItemReward",
     "inspectionName": "SpellCheckingInspection"
   },
-  "hash": "c3dbe8ff1524a58de36c76076d76a8292cf3a671b9f9ac2fc576b87d1661f2bc"
-},{
-  "tool": "Code Inspection",
-  "category": "Proofreading",
-  "type": "Typo",
-  "severity": "High",
-  "comment": "Typo: In word 'nuvotifier'",
-  "detailsInfo": "Reports typos and misspellings in your code, comments, and literals and fixes them with one click.",
-  "sources": [
-    {
-      "type": "file",
-      "path": "README.md",
-      "language": "TEXT",
-      "line": 21,
-      "offset": 25,
-      "length": 10,
-      "code": {
-        "startLine": 19,
-        "length": 10,
-        "offset": 92,
-        "surroundingCode": "        <dependency>\n            <groupId>com.vexsoftware</groupId>\n            <artifactId>nuvotifier-universal</artifactId>\n            <version>2.6.0</version>\n            <scope>provided</scope>"
-      }
-    }
-  ],
-  "attributes": {
-    "module": "ItemReward",
-    "inspectionName": "SpellCheckingInspection"
-  },
-  "hash": "9f3f07774fcbd8c1ed86c86f08371f9aa891c264465cdbb7d50fe0e1f1236a71"
+  "hash": "613693f5479abc3b305b8ab972935871a65ac02c2f292dd40fd5723dee366995"
 },{
   "tool": "Code Inspection",
   "category": "Method metrics",
@@ -311,34 +283,6 @@
   "category": "Method metrics",
   "type": "Overly long method",
   "severity": "High",
-  "comment": "`getCustomItem` is too long (# Non-comment source statements = 31)",
-  "detailsInfo": "Reports methods whose number of statements exceeds the specified maximum.\n\nMethods with too many statements may be confusing and are a good sign that refactoring is necessary.\n\nThe following statements are not counted:\n\n* empty statements (semicolons)\n* block statements\n* `for` loop initialization statements, that is, `int i = ...` within a `for(int i = ...;...)` statement\n* `for` loop update statements, that is, `i += 2` within a `for(int i = ...;...; i += 2)` statement\n\nUse the **Maximum statements per method** field to specify the maximum allowed number of statements in a method.",
-  "sources": [
-    {
-      "type": "file",
-      "path": "src/main/java/fr/lataverne/itemreward/managers/CustomItem.java",
-      "language": "JAVA",
-      "line": 42,
-      "offset": 30,
-      "length": 13,
-      "code": {
-        "startLine": 40,
-        "length": 13,
-        "offset": 70,
-        "surroundingCode": "\n    @SuppressWarnings(\"DuplicatedCode\")\n    public static CustomItem getCustomItem(ECustomItem customItemType, int amount, int level) {\n        return switch (customItemType) {\n            case GoblinPickaxe -> new GoblinPickaxe(amount);"
-      }
-    }
-  ],
-  "attributes": {
-    "module": "ItemReward",
-    "inspectionName": "NonCommentSourceStatements"
-  },
-  "hash": "858e8321c945c7c8b8464d8df000fe8a7b6efa0cbed7fde6d0b30f4a5c338e31"
-},{
-  "tool": "Code Inspection",
-  "category": "Method metrics",
-  "type": "Overly long method",
-  "severity": "High",
   "comment": "`getCustomItem` is too long (# Non-comment source statements = 36)",
   "detailsInfo": "Reports methods whose number of statements exceeds the specified maximum.\n\nMethods with too many statements may be confusing and are a good sign that refactoring is necessary.\n\nThe following statements are not counted:\n\n* empty statements (semicolons)\n* block statements\n* `for` loop initialization statements, that is, `int i = ...` within a `for(int i = ...;...)` statement\n* `for` loop update statements, that is, `i += 2` within a `for(int i = ...;...; i += 2)` statement\n\nUse the **Maximum statements per method** field to specify the maximum allowed number of statements in a method.",
   "sources": [
@@ -362,6 +306,34 @@
     "inspectionName": "NonCommentSourceStatements"
   },
   "hash": "1a0d4f9457d54b55b1e2379d0c21368e38c89c9fd216064d062b69049f86e478"
+},{
+  "tool": "Code Inspection",
+  "category": "Method metrics",
+  "type": "Overly long method",
+  "severity": "High",
+  "comment": "`getCustomItem` is too long (# Non-comment source statements = 31)",
+  "detailsInfo": "Reports methods whose number of statements exceeds the specified maximum.\n\nMethods with too many statements may be confusing and are a good sign that refactoring is necessary.\n\nThe following statements are not counted:\n\n* empty statements (semicolons)\n* block statements\n* `for` loop initialization statements, that is, `int i = ...` within a `for(int i = ...;...)` statement\n* `for` loop update statements, that is, `i += 2` within a `for(int i = ...;...; i += 2)` statement\n\nUse the **Maximum statements per method** field to specify the maximum allowed number of statements in a method.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "src/main/java/fr/lataverne/itemreward/managers/CustomItem.java",
+      "language": "JAVA",
+      "line": 42,
+      "offset": 30,
+      "length": 13,
+      "code": {
+        "startLine": 40,
+        "length": 13,
+        "offset": 70,
+        "surroundingCode": "\n    @SuppressWarnings(\"DuplicatedCode\")\n    public static CustomItem getCustomItem(ECustomItem customItemType, int amount, int level) {\n        return switch (customItemType) {\n            case GoblinPickaxe -> new GoblinPickaxe(amount);"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "ItemReward",
+    "inspectionName": "NonCommentSourceStatements"
+  },
+  "hash": "858e8321c945c7c8b8464d8df000fe8a7b6efa0cbed7fde6d0b30f4a5c338e31"
 },{
   "tool": "Code Inspection",
   "category": "Method metrics",
@@ -402,34 +374,6 @@
       "type": "file",
       "path": "src/main/java/fr/lataverne/itemreward/managers/CustomItem.java",
       "language": "JAVA",
-      "line": 42,
-      "offset": 30,
-      "length": 13,
-      "code": {
-        "startLine": 40,
-        "length": 13,
-        "offset": 70,
-        "surroundingCode": "\n    @SuppressWarnings(\"DuplicatedCode\")\n    public static CustomItem getCustomItem(ECustomItem customItemType, int amount, int level) {\n        return switch (customItemType) {\n            case GoblinPickaxe -> new GoblinPickaxe(amount);"
-      }
-    }
-  ],
-  "attributes": {
-    "module": "ItemReward",
-    "inspectionName": "MethodCoupling"
-  },
-  "hash": "36dae79c3eba69e870ed121b1bbb9649926283fdc73632a8020ca3c44e5e52ac"
-},{
-  "tool": "Code Inspection",
-  "category": "Method metrics",
-  "type": "Overly coupled method",
-  "severity": "High",
-  "comment": "`getCustomItem` is overly coupled (# referenced classes = 16)",
-  "detailsInfo": "Reports methods that reference too many other classes. Methods with too high coupling can be very fragile and should be probably split into smaller methods.\n\nEach referenced class is counted only once no matter how many times it is referenced.\n\nConfigure the inspection:\n\n* Use the **Method coupling limit** field to specify the maximum allowed coupling for a method.\n* Use the **Include couplings to java system classes** option to count references to classes from `java`or `javax` packages.\n* Use the **Include couplings to library classes** option to count references to third-party library classes.",
-  "sources": [
-    {
-      "type": "file",
-      "path": "src/main/java/fr/lataverne/itemreward/managers/CustomItem.java",
-      "language": "JAVA",
       "line": 63,
       "offset": 40,
       "length": 13,
@@ -446,6 +390,34 @@
     "inspectionName": "MethodCoupling"
   },
   "hash": "8cd664483f859c1076175ab89ad1f0ca64b4d299fb753d45e1fbc287e5d8fffe"
+},{
+  "tool": "Code Inspection",
+  "category": "Method metrics",
+  "type": "Overly coupled method",
+  "severity": "High",
+  "comment": "`getCustomItem` is overly coupled (# referenced classes = 16)",
+  "detailsInfo": "Reports methods that reference too many other classes. Methods with too high coupling can be very fragile and should be probably split into smaller methods.\n\nEach referenced class is counted only once no matter how many times it is referenced.\n\nConfigure the inspection:\n\n* Use the **Method coupling limit** field to specify the maximum allowed coupling for a method.\n* Use the **Include couplings to java system classes** option to count references to classes from `java`or `javax` packages.\n* Use the **Include couplings to library classes** option to count references to third-party library classes.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "src/main/java/fr/lataverne/itemreward/managers/CustomItem.java",
+      "language": "JAVA",
+      "line": 42,
+      "offset": 30,
+      "length": 13,
+      "code": {
+        "startLine": 40,
+        "length": 13,
+        "offset": 70,
+        "surroundingCode": "\n    @SuppressWarnings(\"DuplicatedCode\")\n    public static CustomItem getCustomItem(ECustomItem customItemType, int amount, int level) {\n        return switch (customItemType) {\n            case GoblinPickaxe -> new GoblinPickaxe(amount);"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "ItemReward",
+    "inspectionName": "MethodCoupling"
+  },
+  "hash": "36dae79c3eba69e870ed121b1bbb9649926283fdc73632a8020ca3c44e5e52ac"
 },{
   "tool": "Code Inspection",
   "category": "Code maturity",
