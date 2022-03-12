@@ -3,6 +3,7 @@ package fr.lataverne.itemreward.api;
 import fr.lataverne.itemreward.api.objects.ICustomItem;
 import fr.lataverne.itemreward.managers.CustomItem;
 import fr.lataverne.itemreward.managers.ECustomItem;
+import org.bukkit.inventory.ItemStack;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.Locale;
@@ -71,6 +72,17 @@ public enum CustomItems {
      */
     public static ICustomItem getCustomItems(ECustomItem customItem, int amount, int level) {
         return CustomItem.getCustomItem(customItem, amount, level);
+    }
+
+    /**
+     * Checks if an item is a custom item.
+     *
+     * @param item Item to check.
+     *
+     * @return True if is a custom item else false.
+     */
+    public static boolean isCustomItem(ItemStack item) {
+        return CustomItem.getCustomItem(item) != null;
     }
 
     private static String correctCase(String customItemName) {
