@@ -87,34 +87,6 @@
   "category": "Method metrics",
   "type": "Overly complex method",
   "severity": "High",
-  "comment": "Overly complex method `onCommand()` (cyclomatic complexity = 15)",
-  "detailsInfo": "Reports methods that have too many branch points.\n\nA branch point is one of the following:\n\n* loop statement\n* `if` statement\n* ternary expression\n* `catch` section\n* expression with one or more `&&` or `||` operators inside\n* `switch` block with non-default branches\n\nMethods with too high cyclomatic complexity may be confusing and hard to test.\n\nUse the **Method complexity limit** field to specify the maximum allowed cyclomatic complexity for a method.",
-  "sources": [
-    {
-      "type": "file",
-      "path": "src/main/java/fr/lataverne/itemreward/managers/CommandManager.java",
-      "language": "JAVA",
-      "line": 18,
-      "offset": 20,
-      "length": 9,
-      "code": {
-        "startLine": 16,
-        "length": 9,
-        "offset": 34,
-        "surroundingCode": "\n    @Override\n    public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String s, String[] args) {\n        if (sender instanceof Player player) {\n"
-      }
-    }
-  ],
-  "attributes": {
-    "module": "ItemReward",
-    "inspectionName": "CyclomaticComplexity"
-  },
-  "hash": "c76b6d95f02f9f885c0355acba72dff120fd4875935a871845868be8717bd695"
-},{
-  "tool": "Code Inspection",
-  "category": "Method metrics",
-  "type": "Overly complex method",
-  "severity": "High",
   "comment": "Overly complex method `giveCustomsItem()` (cyclomatic complexity = 12)",
   "detailsInfo": "Reports methods that have too many branch points.\n\nA branch point is one of the following:\n\n* loop statement\n* `if` statement\n* ternary expression\n* `catch` section\n* expression with one or more `&&` or `||` operators inside\n* `switch` block with non-default branches\n\nMethods with too high cyclomatic complexity may be confusing and hard to test.\n\nUse the **Method complexity limit** field to specify the maximum allowed cyclomatic complexity for a method.",
   "sources": [
@@ -138,6 +110,34 @@
     "inspectionName": "CyclomaticComplexity"
   },
   "hash": "3f9cfd7df055e37c3ca36c80823a930f3981f49afc47cc105a5ff5c66b1975be"
+},{
+  "tool": "Code Inspection",
+  "category": "Method metrics",
+  "type": "Overly complex method",
+  "severity": "High",
+  "comment": "Overly complex method `onCommand()` (cyclomatic complexity = 15)",
+  "detailsInfo": "Reports methods that have too many branch points.\n\nA branch point is one of the following:\n\n* loop statement\n* `if` statement\n* ternary expression\n* `catch` section\n* expression with one or more `&&` or `||` operators inside\n* `switch` block with non-default branches\n\nMethods with too high cyclomatic complexity may be confusing and hard to test.\n\nUse the **Method complexity limit** field to specify the maximum allowed cyclomatic complexity for a method.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "src/main/java/fr/lataverne/itemreward/managers/CommandManager.java",
+      "language": "JAVA",
+      "line": 18,
+      "offset": 20,
+      "length": 9,
+      "code": {
+        "startLine": 16,
+        "length": 9,
+        "offset": 34,
+        "surroundingCode": "\n    @Override\n    public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String s, String[] args) {\n        if (sender instanceof Player player) {\n"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "ItemReward",
+    "inspectionName": "CyclomaticComplexity"
+  },
+  "hash": "c76b6d95f02f9f885c0355acba72dff120fd4875935a871845868be8717bd695"
 },{
   "tool": "Code Inspection",
   "category": "Proofreading",
@@ -535,34 +535,6 @@
   "category": "Method metrics",
   "type": "Method with multiple return points",
   "severity": "High",
-  "comment": "`onCommand` has 12 return points",
-  "detailsInfo": "Reports methods whose number of `return` points exceeds the specified maximum. Methods with too many `return` points may be confusing and hard to refactor.\n\nA `return` point is either a `return` statement or a falling through the bottom of a\n`void` method or constructor.\n\n**Example:**\n\nThe method below is reported if only two `return` statements are allowed:\n\n\n      void doSmth(User[] users) {\n        for (User user : users) {\n          if (cond1(user)) {\n            user.setId(getId());\n            return;\n          } else if (cond2(user)) {\n            if (cond3(user)) {\n              user.setId(getId());\n              return;\n            }\n          }\n        }\n      }\n\nConsider rewriting the method so it becomes easier to understand:\n\n\n      void doSmth(User[] users) {\n        for (User user : users) {\n          if (cond1(user) || cond2(user) && cond3(user)) {\n            user.setId(getId());\n            return;\n          }\n        }\n      }\n\nConfigure the inspection:\n\n* Use the **Return point limit** field to specify the maximum allowed number of `return` points for a method.\n* Use the **Ignore guard clauses** option to ignore guard clauses. A guard clause is an `if` statement that contains only a `return` statement\n* Use the **Ignore for 'equals()' methods** option to ignore `return` points inside `equals()` methods.",
-  "sources": [
-    {
-      "type": "file",
-      "path": "src/main/java/fr/lataverne/itemreward/managers/CommandManager.java",
-      "language": "JAVA",
-      "line": 18,
-      "offset": 20,
-      "length": 9,
-      "code": {
-        "startLine": 16,
-        "length": 9,
-        "offset": 34,
-        "surroundingCode": "\n    @Override\n    public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String s, String[] args) {\n        if (sender instanceof Player player) {\n"
-      }
-    }
-  ],
-  "attributes": {
-    "module": "ItemReward",
-    "inspectionName": "MultipleReturnPointsPerMethod"
-  },
-  "hash": "a3aadc9dd044e5369798aa5cd9f1f62fd06fb03402b7a284a9b3928ff76c1d33"
-},{
-  "tool": "Code Inspection",
-  "category": "Method metrics",
-  "type": "Method with multiple return points",
-  "severity": "High",
   "comment": "`giveCustomsItem` has 5 return points",
   "detailsInfo": "Reports methods whose number of `return` points exceeds the specified maximum. Methods with too many `return` points may be confusing and hard to refactor.\n\nA `return` point is either a `return` statement or a falling through the bottom of a\n`void` method or constructor.\n\n**Example:**\n\nThe method below is reported if only two `return` statements are allowed:\n\n\n      void doSmth(User[] users) {\n        for (User user : users) {\n          if (cond1(user)) {\n            user.setId(getId());\n            return;\n          } else if (cond2(user)) {\n            if (cond3(user)) {\n              user.setId(getId());\n              return;\n            }\n          }\n        }\n      }\n\nConsider rewriting the method so it becomes easier to understand:\n\n\n      void doSmth(User[] users) {\n        for (User user : users) {\n          if (cond1(user) || cond2(user) && cond3(user)) {\n            user.setId(getId());\n            return;\n          }\n        }\n      }\n\nConfigure the inspection:\n\n* Use the **Return point limit** field to specify the maximum allowed number of `return` points for a method.\n* Use the **Ignore guard clauses** option to ignore guard clauses. A guard clause is an `if` statement that contains only a `return` statement\n* Use the **Ignore for 'equals()' methods** option to ignore `return` points inside `equals()` methods.",
   "sources": [
@@ -586,6 +558,34 @@
     "inspectionName": "MultipleReturnPointsPerMethod"
   },
   "hash": "2f5c812cbae4426721617e5c114f76fc43aecd10c5f4fed073e29fa94d1b51ab"
+},{
+  "tool": "Code Inspection",
+  "category": "Method metrics",
+  "type": "Method with multiple return points",
+  "severity": "High",
+  "comment": "`onCommand` has 12 return points",
+  "detailsInfo": "Reports methods whose number of `return` points exceeds the specified maximum. Methods with too many `return` points may be confusing and hard to refactor.\n\nA `return` point is either a `return` statement or a falling through the bottom of a\n`void` method or constructor.\n\n**Example:**\n\nThe method below is reported if only two `return` statements are allowed:\n\n\n      void doSmth(User[] users) {\n        for (User user : users) {\n          if (cond1(user)) {\n            user.setId(getId());\n            return;\n          } else if (cond2(user)) {\n            if (cond3(user)) {\n              user.setId(getId());\n              return;\n            }\n          }\n        }\n      }\n\nConsider rewriting the method so it becomes easier to understand:\n\n\n      void doSmth(User[] users) {\n        for (User user : users) {\n          if (cond1(user) || cond2(user) && cond3(user)) {\n            user.setId(getId());\n            return;\n          }\n        }\n      }\n\nConfigure the inspection:\n\n* Use the **Return point limit** field to specify the maximum allowed number of `return` points for a method.\n* Use the **Ignore guard clauses** option to ignore guard clauses. A guard clause is an `if` statement that contains only a `return` statement\n* Use the **Ignore for 'equals()' methods** option to ignore `return` points inside `equals()` methods.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "src/main/java/fr/lataverne/itemreward/managers/CommandManager.java",
+      "language": "JAVA",
+      "line": 18,
+      "offset": 20,
+      "length": 9,
+      "code": {
+        "startLine": 16,
+        "length": 9,
+        "offset": 34,
+        "surroundingCode": "\n    @Override\n    public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String s, String[] args) {\n        if (sender instanceof Player player) {\n"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "ItemReward",
+    "inspectionName": "MultipleReturnPointsPerMethod"
+  },
+  "hash": "a3aadc9dd044e5369798aa5cd9f1f62fd06fb03402b7a284a9b3928ff76c1d33"
 },{
   "tool": "Code Inspection",
   "category": "Memory",
