@@ -4,6 +4,7 @@ import fr.lataverne.itemreward.api.objects.ICustomItem;
 import fr.lataverne.itemreward.managers.CustomItem;
 import fr.lataverne.itemreward.managers.ECustomItem;
 import org.bukkit.inventory.ItemStack;
+import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.Locale;
@@ -72,6 +73,25 @@ public enum CustomItems {
      */
     public static ICustomItem getCustomItems(ECustomItem customItem, int amount, int level) {
         return CustomItem.getCustomItem(customItem, amount, level);
+    }
+
+    /**
+     * Gets a custom item with an existed item.
+     *
+     * @param item The custom item represented by an item stack.
+     *
+     * @return The custom item.
+     *
+     * @throws IllegalArgumentException throws if the item isn't a custom item.
+     */
+    public static @NotNull ICustomItem getCustomItems(ItemStack item) {
+        ICustomItem customItem = CustomItem.getCustomItem(item);
+
+        if (customItem == null) {
+            throw new IllegalArgumentException("The item isn't a custom item");
+        } else {
+            return customItem;
+        }
     }
 
     /**
