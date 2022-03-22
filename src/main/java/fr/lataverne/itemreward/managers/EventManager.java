@@ -19,7 +19,7 @@ import org.jetbrains.annotations.NotNull;
 
 public class EventManager implements Listener {
 
-    @EventHandler(priority = EventPriority.LOW)
+    @EventHandler(priority = EventPriority.HIGHEST)
     private static void onBlockBreak(@NotNull BlockBreakEvent e) {
         if (!e.isCancelled()) {
             ItemStack itemInMainHand = e.getPlayer().getInventory().getItemInMainHand();
