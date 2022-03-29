@@ -6,7 +6,7 @@
 
     <groupId>fr.github.latavernemc</groupId>
     <artifactId>ItemReward</artifactId>
-    <version>1.2.0</version>
+    <version>0.0.99</version>
     <packaging>jar</packaging>
 
     <name>ItemReward</name>
